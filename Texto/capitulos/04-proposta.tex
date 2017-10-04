@@ -14,6 +14,53 @@ Há diversas abordagens para a análise de séries temporais, sendo que uma das 
 Essa abordagem consiste em transformar a série de entrada em uma sequência de símbolos.
 Feito isso, computa-se o histograma de proporções dos símbolos, e calculam-se descritores a partir dele.
 
+A hipótese subjacente a toda análise de séries temporais é que os dados observados são o resultado da operação de um sistema causal, possivelmente sujeito a ruído observacional.
+Esse sistema, ou dinâmica, é responsável pela criação de padrões através de cuja observação deseja-se inferir a respeito da dinâmica.
+ 
+A análise de séries temporais é um ramo clássico da Estatística~\cite{BrockwellDavis91} que se divide, tipicamente, na análise nos domínios do tempo e da frequência.
+Ambas abordagens empregam diretamente os valores observados e, portanto, são suscetíveis ao efeito danoso de diversos tipos de contaminação.
+Uma forma de tornar as análises mais imunes a contaminação é através de técnicas robustas~\cite{BustosFraiman1984}.
+Outra, mais moderna, é pelo uso de métodos não-paramétricos.
+ 
+Há diversas ferramentas que auxiliam na análise clássica de séries temporais; na data de redação deste trabalho havia \num{234} bibliotecas para essa finalidade (ver \url{https://cran.r-project.org/web/views/TimeSeries.html}).
+Para essa mesma plataforma, apenas três delas bibliotecas trabalham exclusivamente com técnicas não paramétricas.
+
+Seja a série temporal $\bm x = (x_1, x_2, \dots, x_n)$.
+Ao invés de analisarmos os valores, transformaremos grupos de $N$ valores (não necessariamente adjacentes) em padrões ordinais, e analisaremos a sua distribuição de frequência.
+Por exemplo e sem perda de generalidade, com $N=3$ e para qualquer $i$ viável,
+se $x_i<x_{i+1}<x_{i+2}$ atribuiremos a esta tripla o padrão $\pi_0$;
+caso $x_i>x_{i+1}>x_{i+2}$ o padrão será $\pi_1$ e assim por diante.
+Com isso, há $N!$ possíveis padrões.
+Esta é conhecida como \textit{simbolização de Bandt \& Pompe}~\cite{PermutationEntropyBandtPompe}.
+Forma-se, então, um histograma e, a partir dele, extraem-se quantificadores como, por exemplo, entropia, distância estocástica a uma distribuição de equilíbrio, e complexidade estatística.
+ 
+Esta simbolização é muito resistente a vários tipos de contaminação, por exemplo, o padrão $\pi_0$ não será alterado para qualquer $k>1$ que afete de forma multiplicativa $x_{i+2}$.
+Ainda que o padrão seja alterado, por exemplo se $k=-1$, a mudança será local e afetará, no máximo, $N$ padrões.
+ 
+A análise da dinâmica subjacente a uma série temporal utilizando a simbolização de Bandt \& Pompe tem sido usada com sucesso em diversas áreas como, por exemplo, 
+a discriminação entre fenómenos estocásticos e caóticos~\cite{DistinguishingNoiseFromChaos}, 
+a identificação de padrões de comportamento em redes veiculares~\cite{CharacterizationVehicleBehaviorInformationTheory},
+a classificação e verificação de assinaturas \textit{online}~\cite{ClassificationVerificationOnlineHandwrittenSignatures},
+na análise da robustez de redes~\cite{InformationTheoryPerspectiveNetworkRobustness},
+a classificação de padrões de consumo de energia elétrica~\cite{CharacterizationElectricLoadInformationTheoryQuantifiers}.
+
+o processo de simbolização, também conhecido como particionamento de dados, representa o procedimento de distribuição dos elementos em conjuntos de símbolos capazes de fornecer a sua informação causal. 
+De acordo com a abordagem de Bandt e Pompe, substituímos a série por sequências de postos, obtidos pela análise desta ao longo do tempo.
+
+Dada uma série temporal a tempo discreto $X = {x(t):1\leq t\leq M}$ de comprimento $N$, uma dimensão $D$ e um tempo de atraso (\textit{delay}) $\tau$, o particionamento é efetuado por meio da reorganização do sistema em conjuntos seguindo os passos:
+\begin{itemize}
+%%% ACF Reescreva usando modo matemático sempre que necessário, e respeitando a notação
+%%% Use o pacote "listings"
+	\item \textbf{Composição dos grupos:} Os conjuntos, ou palavras, de comprimento $D$ e \textit{delay} $\tau$ são definidas por um dado seguimento da série: 
+	 $$ (x(t+1),\ldots, x(t+D).$$ 
+
+	\item \textbf{Formação dos padrões: } Cada palavra é então relacionada a um padrão ordinal $\pi$ de ordem $D$, isto é, um elemento indexado por.
+	$$ \{1, 2,\ldots, D-1, D\} $$
+
+	\item \textbf{Elaboração dos símbolos: } É realizada então a permutação dos elementos dos grupos e consequentemente de seus respectivos padrões associados, de tal forma que estes estejam ordenados de forma crescente, isto é:
+	$$ x_{t+1} \leq x_{t} \leq \dots \leq x_{D-1} \leq x_{D} $$ 
+
+\end{itemize}
 
 \section{Regiões de Confiança no Plano Entropia-Complexidade}
 
@@ -52,7 +99,7 @@ Com ela é possível informar o $p$-valor de uma determinada amostra.
 \end{tabular}
 \end{center}
 
-  Do ponto de vista técnico deste trabalho, com ênfase em Geradores de Números Pseudoaleatórios, é utilizada a plataforma de análise estatística R . Esta plataforma foi desenvolvida originalmente por Ross Ihaka e Robert Gentleman, com o intuito de ser uma linguagem de código aberto voltada para a análise estatística e, consequentemente, a precisão numérica com fortes características funcionais \citep{R}. Por este motivo, ela será utilizada para a geração e manipulação das sequências pseudoaleatórias, análise dos dados e geração dos gráficos desse trabalho. A precisão numérica desta ferramenta, sendo aferida por \citet{Almiron:09}, é adequada para essa abordagem.
+  Do ponto de vista técnico deste trabalho, com ênfase em Geradores de Números Pseudoaleatórios, é utilizada a plataforma de análise estatística R . Esta plataforma foi desenvolvida originalmente por Ross Ihaka e Robert Gentleman, com o intuito de ser uma linguagem de código aberto voltada para a análise estatística e, consequentemente, a precisão numérica com fortes características funcionais \citep{Rmanual}. Por este motivo, ela será utilizada para a geração e manipulação das sequências pseudoaleatórias, análise dos dados e geração dos gráficos desse trabalho. A precisão numérica desta ferramenta, sendo aferida por \citet{Almiron:09}, é adequada para essa abordagem.
 
   As ferramentas utilizadas no desenvolvimento deste trabalho, são preferencialmente multiplataforma e código aberto com licença de uso \emph{GNU General Public License}~(GPL).
 

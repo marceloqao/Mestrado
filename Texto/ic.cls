@@ -200,7 +200,7 @@ de Curso e Dissertacoes]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% [Paulo] Início Modificações %%%%%%%%%%%%%%%%%%%%%%%%%
 
-\RequirePackage{cite} % Hifenização automática de referências ao fim das linhas
+%\RequirePackage{cite} % Hifenização automática de referências ao fim das linhas
 \RequirePackage{bbding} % Símbolos diferentes para listas de itens e outros
 \RequirePackage{multirow} % Múltiplas linhas por campo da tabela
 
@@ -860,7 +860,7 @@ Federal de Alagoas, aprovada pela comissão examinadora que abaixo assina.}%
     %% Define o módulo de citação abreviado(Harvard)
     %% \citationmode{abbr}
     %% Define o estilo bibligráfico agsm(Harvard)
-    %%\bibliographystyle{agsm}
+    \bibliographystyle{agsm}
 }
 
 %%------------------------------------------------------------------------------
