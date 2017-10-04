@@ -22,7 +22,7 @@ Ambas abordagens empregam diretamente os valores observados e, portanto, são su
 Uma forma de tornar as análises mais imunes a contaminação é através de técnicas robustas~\cite{BustosFraiman1984}.
 Outra, mais moderna, é pelo uso de métodos não-paramétricos.
  
-Há diversas ferramentas que auxiliam na análise clássica de séries temporais; na data de redação deste trabalho havia \num{234} bibliotecas para essa finalidade (ver \url{https://cran.r-project.org/web/views/TimeSeries.html}).
+Há diversas ferramentas que auxiliam na análise clássica de séries temporais; na data de redação deste trabalho havia \num{238} bibliotecas para essa finalidade (ver \url{https://cran.r-project.org/web/views/TimeSeries.html}).
 Para essa mesma plataforma, apenas três delas bibliotecas trabalham exclusivamente com técnicas não paramétricas.
 
 Seja a série temporal $\bm x = (x_1, x_2, \dots, x_n)$.
@@ -47,20 +47,33 @@ a classificação de padrões de consumo de energia elétrica~\cite{Characteriza
 o processo de simbolização, também conhecido como particionamento de dados, representa o procedimento de distribuição dos elementos em conjuntos de símbolos capazes de fornecer a sua informação causal. 
 De acordo com a abordagem de Bandt e Pompe, substituímos a série por sequências de postos, obtidos pela análise desta ao longo do tempo.
 
-Dada uma série temporal a tempo discreto $X = {x(t):1\leq t\leq M}$ de comprimento $N$, uma dimensão $D$ e um tempo de atraso (\textit{delay}) $\tau$, o particionamento é efetuado por meio da reorganização do sistema em conjuntos seguindo os passos:
+Dada uma série temporal a tempo discreto $X = {x_t:1\leq t\leq M}$ de comprimento $N$, uma dimensão $D$ e um tempo de atraso (\textit{delay}) $\tau$, o particionamento é efetuado por meio da reorganização do sistema em conjuntos seguindo os passos:
 \begin{itemize}
 %%% ACF Reescreva usando modo matemático sempre que necessário, e respeitando a notação
 %%% Use o pacote "listings"
-	\item \textbf{Composição dos grupos:} Os conjuntos, ou palavras, de comprimento $D$ e \textit{delay} $\tau$ são definidas por um dado seguimento da série: 
-	 $$ (x(t+1),\ldots, x(t+D).$$ 
+	\item \textbf{Composição dos grupos:} Os conjuntos, ou palavras, de comprimento $D$ e \textit{delay} $\tau$ são definidas por um segmento da série: 
+	 $$ (x_{t+1)},x_{t+\tau},\ldots, x{t+D\tau}.$$ 
 
-	\item \textbf{Formação dos padrões: } Cada palavra é então relacionada a um padrão ordinal $\pi$ de ordem $D$, isto é, um elemento indexado por.
-	$$ \{1, 2,\ldots, D-1, D\} $$
-
-	\item \textbf{Elaboração dos símbolos: } É realizada então a permutação dos elementos dos grupos e consequentemente de seus respectivos padrões associados, de tal forma que estes estejam ordenados de forma crescente, isto é:
-	$$ x_{t+1} \leq x_{t} \leq \dots \leq x_{D-1} \leq x_{D} $$ 
-
+	\item \textbf{Formação dos padrões: } Cada palavra é então relacionada a um padrão ordinal $\pi_j$ de ordem $D$, isto é, um elemento indexado univocamente por
+	$$ j\in\{1, 2,\ldots, D-1, D\}. $$
 \end{itemize}
+
+Há várias formas de atribuir palavras a símbolos; neste trabalho utilizaremos a atribuição lexicográfica, isto é, se os valores da palavra $(x_{t+1)},x_{t+\tau},\ldots, x{t+D\tau}$ são tais que, ordenados, eles têm índices crescentes $b_1,b_2,\dots,b_D$, então o padrão correspondente será $\pi=b_1b_2\dots b_D$.
+
+Calcula-se, então, o histrograma de proporções $\mathcal{H} =(p_1,\dots,p_D)$ dos padrões observados:
+$$
+p_j = \frac{1}{?} \# \{
+\textbf{padroões } \pi_j \text{ observados}.
+\}
+$$
+
+O seguinte passo consiste em calcular descritores a partir desse histograma.
+
+\subsection{Descritores}
+
+Os trabalhos já citados utilizam dois descritores: a Entropia de Shannon e a Complexidade Estatística da série.
+
+
 
 \section{Regiões de Confiança no Plano Entropia-Complexidade}
 
