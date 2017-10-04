@@ -66,7 +66,6 @@ de Curso e Dissertacoes]
 \RequirePackage{url} % Para lidar com URLs
 \RequirePackage{doc} % Contém a definição da logomarca do BibTex
 \RequirePackage{color,colortbl} % Permite "pintar" as tabelas
-\RequirePackage[active]{srcltx} % Busca inversa do dvi para o tex
 \RequirePackage{ifthen} % Utilização de condicionais em latex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% [Rian,Ivan] Início Modificações %%%%%%%%%%%%%%%%%%%%%
@@ -74,7 +73,7 @@ de Curso e Dissertacoes]
 \RequirePackage{amsfonts}
 \RequirePackage{bbm} 
 \RequirePackage{amssymb} %
-\RequirePackage{amscd} %
+%\RequirePackage{amscd} %
 \RequirePackage{units} %
 \RequirePackage{undertilde} % Utilização de caracteres com til em baixo
 \RequirePackage{rotating}

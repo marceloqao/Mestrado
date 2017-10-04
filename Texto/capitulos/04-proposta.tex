@@ -60,18 +60,33 @@ Dada uma série temporal a tempo discreto $X = {x_t:1\leq t\leq M}$ de comprimen
 
 Há várias formas de atribuir palavras a símbolos; neste trabalho utilizaremos a atribuição lexicográfica, isto é, se os valores da palavra $(x_{t+1)},x_{t+\tau},\ldots, x{t+D\tau}$ são tais que, ordenados, eles têm índices crescentes $b_1,b_2,\dots,b_D$, então o padrão correspondente será $\pi=b_1b_2\dots b_D$.
 
-Calcula-se, então, o histrograma de proporções $\mathcal{H} =(p_1,\dots,p_D)$ dos padrões observados:
+Calcula-se, então, o histrograma de proporções $\mathcal{H} =(p_1,\dots,p_{D!})$ dos padrões observados:
 $$
 p_j = \frac{1}{?} \# \{
-\textbf{padroões } \pi_j \text{ observados}.
-\}
+\text{padrões } \pi_j \text{ observados}
+\}.
 $$
 
 O seguinte passo consiste em calcular descritores a partir desse histograma.
 
-\subsection{Descritores}
-
 Os trabalhos já citados utilizam dois descritores: a Entropia de Shannon e a Complexidade Estatística da série.
+
+A Entropia de Shannon é definida como
+$$
+E(\mathcal H) = \sum_{j=1}^{D!} p_j \log p_j,
+$$
+em que adotamos a convenção $0(-\infty)=0$.
+Esta é uma medida da desordem ou imprevisibilidade da lei subjacente a $\mathcal H$.
+Quando todas as proporções são iguais, isto é, quando se tem uma lei uniforme $p_1=\dots=p_{D!}$, então a entropia é máxima e igual a $1$.
+Chamaremos a lei uniforme ``medida de referência'', e a denotaremos $\mathcal H_R$.
+Quando toda a probabilidade está concentrada em um único símbolo, ou seja há um símbolo $k$ tal que $p_k=1$, então a entropia é nula.
+
+A entropia apenas não consegue caracterizar de forma plena a dinâmica que produz a série.
+Torna-se interessante, então, o uso de um outro descritor baseado em quão diferente o histograma $\mathcal H$ é de uma lei de probabilidade de referência.
+A nossa referência será a lei uniforme, e a medida de distância entre elas será a distância de Jensen-Shannon:
+$$
+JS(\mathcal H, \mathcal H_R) = 
+$$
 
 
 
