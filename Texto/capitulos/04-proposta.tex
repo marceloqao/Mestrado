@@ -3,10 +3,21 @@
 
 % Breve resumo do capítulo.
   \lettrine{E}{ste} capítulo tem como objetivo apresentar a proposta bem como os materiais e métodos utilizados na realização do trabalho.
+  
+\section{Fundamentação Teórica}
 
-\section{Teste}
+Trataremos a sequência de saída de um gerador de números pseudoaleatórios como uma série temporal.
+Procuraremos por estruturas indesejadas em um gerador ideal utilizando ferramentas de Teoria da Informação.
 
-  Seja $\bm X = (X_1, X_n)$ uma amostra a respeito da qual temos uma conjectura que queremos verificar.
+Há diversas abordagens para a análise de séries temporais, sendo que uma das mais importantes surge a partir do trabalho de \citet{PermutationEntropyBandtPompe}.
+
+Essa abordagem consiste em transformar a série de entrada em uma sequência de símbolos.
+Feito isso, computa-se o histograma de proporções dos símbolos, e calculam-se descritores a partir dele.
+
+
+\section{Regiões de Confiança no Plano Entropia-Complexidade}
+
+Seja $\bm X = (X_1, X_n)$ uma amostra a respeito da qual temos uma conjectura que queremos verificar.
 Essa conjectura é a respeito dos parâmetros que caracterizam a distribuição da amostra, ou a respeito de parâmetros que caracterizam a distribuição de atributos relacionados à distribuição da amostra.
 Chamaremos ``hipótese nula'' àquela que convimos em não rejeitar a não ser que obtenhamos suficiente evidência para isso; a denotaremos $H_0$.
 Por vezes precisaremos da ``hipótese alternativa'', que denotaremos $H_1$.
