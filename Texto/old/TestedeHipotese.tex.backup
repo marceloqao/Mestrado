@@ -1,0 +1,16 @@
+Seja $\bm X = (X_1, X_n)$ uma amostra a respeito da qual temos uma conjectura que queremos verificar.
+Essa conjectura é a respeito dos parâmetros que caracterizam a distribuição da amostra, ou a respeito de parâmetros que caracterizam a distribuição de atributos relacionados à distribuição da amostra.
+Chamaremos ``hipótese nula'' àquela que convimos em não rejeitar a não ser que obtenhamos suficiente evidência para isso; a denotaremos $H_0$.
+Por vezes precisaremos da ``hipótese alternativa'', que denotaremos $H_1$.
+
+Classicamente, um teste de hipótese se baseia em uma estatística de teste $T$ que depende exclusivamente da amostra $\bm X$, isto é, $T(\bm X)$, e é construída de tal forma que adota valores ``pequenos'' sob $H_0$ e ``cresce'' conforme ``se afasta'' de $H_0$.
+Idealmente, conhecemos a distribuição de $T$ sob a hipótese nula e, com isso, somos capazes de aferir a probabilidade de observarmos valores ``grandes'' mesmo sob $H_0$.
+Definimos, assim, o $p$-valor do teste baseado em $T(\bm X)$ para o valor observado $\eta$ como $\Pr_{H_0}(T(\bm X) \geq \eta)$.
+O procedimento básico consiste em rejeitar a hipótese nula ao nível $100(1-\alpha)$ se o $p$-valor for inferior a $\alpha$, e em não rejeitá-la caso contrário.
+Mais modernamente, não se fala em ``rejeição'', reporta-se o $p$-valor, deixando a decisão para o leitor. Desta forma, chamaremos de ``valor crítico'' o conjunto de valores assumidos pela estatística de teste $T$ para os quais a hipótese nula $H_0$ é rejeitada e de ``nível de significância'' a probabilidade máxima de $\alpha$ acima da qual rejeita-se $H_0$
+
+
+
+
+%%% MQ Escreva sobre valor crítico, nível de significância no estilo e com o vocabulário acima
+

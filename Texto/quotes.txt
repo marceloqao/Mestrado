@@ -1,0 +1,17 @@
+  It may be taken for granted that any attempt at defining disorder in a formal way will lead to a contradiction. This does not mean that the notion of disorder is contradictory. It is so, however, as soon as I try to formalize it. ~ Hans Freudenthal
+ 
+  Nothing is random, only uncertain. ~ Gail Gasram
+  
+  "Chance governs all" ~ Milton
+
+  Anyone who attempts to generate random numbers by deterministic means is, of course, living in a state of sin. ~ John von Neumann
+
+  A foolish builder builds a house on sand. Test and verify the randomness of your random number generator. ~ Casimir Klimasauskas
+  
+  “Nothing in Nature is random. . .
+   a thing appears random only through
+   the incompleteness of our knowledge.”
+                    Spinoza, Ethics I1.
+                    
+                    
+

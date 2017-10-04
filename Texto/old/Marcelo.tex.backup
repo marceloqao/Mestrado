@@ -1,0 +1,207 @@
+\documentclass[tcc]{ic}
+
+\usepackage{bbm}
+\usepackage{indentfirst}
+\usepackage{lscape}
+\usetikzlibrary{decorations}
+\usetikzlibrary{shapes.symbols}
+\usetikzlibrary{shapes.arrows}
+\usepackage{icomma}
+\usepackage{microtype}
+\usepackage{pdfsync}
+\usepackage{psfrag}
+
+\newenvironment{demonst} 
+               {\noindent \textit{\textbf{Demonstração.}}~ }	% begin demonst
+               {\hfill\rule{2mm}{2mm} \vspace{\parskip} } 	% end demonst
+
+\newtheorem{definicao}{Definição}[section]
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{lema}{Lema}
+\newtheorem{corolario}{Corolário}
+\newtheorem{proposicao}{Proposição}
+
+%======================================================%
+%=========== Informações do documento PDF =============%
+%======================================================%
+\hypersetup{
+colorlinks = {true},
+linktocpage = {false},
+plainpages = {false},
+linkcolor = {Blue},
+citecolor = {Blue},
+urlcolor = {Red},
+unicode = {true},
+% pdftitle ={Um Novo Algoritmo para Filtragem de Speckle em Imagens SAR de Intensidade baseado em Dist\^ancias Estoc\'asticas},
+pdftitle ={Geradores de Números Aleatórios, um estudo comparativo utilizando a linguagem R},
+pdfauthor = {Marcelo Queiroz de Assis Oliveira},
+pdfsubject = {Disserta\c c\~ao de Mestrado},
+pdfkeywords={Geradores de Números Aleatórios. Testes Teóricos. Testes Estatísticos.},
+pdfcreator = {LaTeX2e},
+pdffitwindow = {false},
+pdfstartview = {FitH},
+pdftoolbar = {true},
+pdfpagemode = {UseOutlines},
+pdfview = {XYZ null null null}
+}
+
+%======================================================%
+%================ CAPA DA DISSERTAÇÃO =================%
+%======================================================%
+\titulo{Geradores de Números Aleatórios, um estudo comparativo utilizando a linguagem R}
+
+\autor{Marcelo Queiroz de Assis Oliveira}{marceloqao@gmail.com}{http://sites.google.com/site/marceloqao/}
+
+\orientador{Dr. Alejandro C.\ Frery}{http://sites.google.com/site/acfrery/}{Instituto de Computação}{Universidade Federal de Alagoas}
+
+\orientadorDois{Dr. Heitor Soares Ramos Filho}{https://sites.google.com/a/ic.ufal.br/heitor/}{Instituto de Computação}{Universidade Federal de Alagoas}
+
+\examinador{Dr. Osvaldo Anibal Rosso}{oarosso@gmail.com}{Pesquisador Visitante -- Instituto de Computação}{Universidade Federal de Alagoas}
+
+\examinadorDois{Dr. Raydonal Ospina Martínez}{http://www.de.ufpe.br/~raydonal}{Departamento de Estatística}{Universidade Federal de Pernambuco}
+
+% \examinadorQuatro{Examinador 4}{ex4@email.com}{Instituto ou Departamento}{Universidade do Examinador 4}
+
+\dataMesAno{Março}{2015}
+
+\begin{document}
+
+\selectlanguage{portuguese}
+
+\capa
+
+% %======================================================%
+% %====================== DEDICAÇÃO =====================%
+% %======================================================%
+% \newpage
+% \thispagestyle{empty}
+% \mbox{}\vfill
+% \begin{flushright}
+% À minha esposa, Genuclécia, e aos meus \emph{pets},\\
+% Milly e Galego, dedico este trabalho.
+% \end{flushright}
+
+%======================================================%
+%======================= RESUMO =======================%
+%======================================================%
+\begin{resumo}
+\noindent 
+Este trabalho busca comparar ``alguns'' geradores de números aleatórios bem conhecidos pela comunidade acadêmica. Geradores de números aleatórios são amplamente utilizados em algoritmos probabilísticos como "Simulated Annealing", Algoritmos Genéticos e GRASP, assumindo assim um importante papel na utilização destes. Primeiramente falaremos sobre o histórico dos geradores de números aleatórios e de geradores em ambientes paralelos. Em seguida faremos a avaliação de alguns geradores segundo as abordagens clássica e numa segunda abordagem baseada na teoria da informação, procurando, desta forma, uma melhoria nos geradores de números pseudo aleatórios. Na sequência, discutiremos a avaliação paralela dos geradores utilizando três geradores disponíveis no R através dos trinta e um testes disponíveis no pacote "Dieharder", além de realizar um teste baseado da teoria da informação, encontrar regiões de confiança no plano (H,C) (Entropia x Complexidade) utilizando como dados de entrada as sequências aleatórias oriundas dos geradores testados. Como contribuição, proporemos uma ferramenta web para realizar os testes de sequências aleatórias.
+\vspace{1em}
+\noindent {\bf Palavras-chave}: Geradores de Números Aleatórios. Testes Teóricos. Testes Estatísticos.
+\end{resumo}
+
+%======================================================%
+%====================== ABSTRACT ======================%
+%======================================================%
+\selectlanguage{english}
+\begin{abstract}
+\noindent  
+This work aims to compare some Random Numbers Generators well known by the Scientific Community. Random Numbers Generators (RNG's) are used in probabilistic algorithms, such the Simulated Annealing, Genetics algorithms and GRASP. Also, the use of a robust RNG method is key factor to the success of a simulation. To introduce, some theoretic concepts about generators will be showed
+\vspace{1em}
+\noindent {\bf Keywords}: Random Number Generators. Theoretical tests. Statistical Tests. 
+\end{abstract}
+
+%======================================================%
+%=================== AGRADECIMENTOS ===================%
+%======================================================%
+\selectlanguage{portuguese}
+\begin{agradecimentos}
+% 
+
+% 
+\begin{flushright}
+Marcelo Queiroz de A. Oliveira
+\end{flushright}
+\end{agradecimentos}
+
+%======================================================%
+%====================== EPÍGRAFE ======================%
+%======================================================%
+% \newpage
+% \thispagestyle{empty}
+% \mbox{}\vfill
+% \begin{flushright}
+% \emph{``frase.''}\\
+% \vspace{1em}
+% \textbf{Autor}
+% \end{flushright}
+
+%======================================================%
+%======================= LISTAS =======================%
+%======================================================%
+\mylistoffigure
+
+\mylistoftable
+
+% \mylistofalgorithm
+
+\mylistofequation
+
+\mylistofcontents
+
+\inicio
+\setcounter{page}{9} %verificar quantas páginas possuem até iniciar o capítulo 1 (subtraindo capa, folha de aprovação e catalogação).
+
+%======================================================%
+%============= CAPÍTULOS DA DISSERTAÇÃO ===============%
+%======================================================%
+
+% 
+% PRNGs: history, state-of-the-art
+% % % Classical generators
+% % % Generators in parallel environments
+% PRNGs: assessment
+% % % Classical (statistical) procedures
+% % % Information-theoretic approaches
+% % % PRNGs: improvement
+% PRNGs Simultaneous Assessment
+% % % The seven PRNGs available in R (81 PRNGs, all the available from Dieharder in GSL)
+% % % 31 Dieharder tests
+% % % Information-theoretic tests
+% % % Regions of confidence in the (H,C) plane <- Contribution
+% % % Factors: they depend on the test
+% % % Joint/aggregated test <- Contribution
+% A Web Tool <- Contribution
+% 
+
+\include{./capitulos/introducao}
+\include{./capitulos/fundamentacao}
+\include{./capitulos/metodologia}
+\include{./capitulos/resultados}
+\include{./capitulos/conclusao}
+
+% Apêndices e Anexos
+\appendix
+\include{./capitulos/app_ambiente}
+
+%======================================================%
+%============= REFERÊNCIAS BIBLIOGRÁFICAS =============%
+%======================================================%
+\begin{raggedright}
+\bibliographystyle{agsm_url}
+\renewcommand{\bibsection}{
+\chapter*{\vspace{-3cm}\centering \Large \textsc{Referências Bibliográficas}}
+\addcontentsline{toc}{chapter}{Referências Bibliográficas}
+}
+\lhead{\textsc{Referências Bibliográficas}}
+\bibliography{ }
+\newpage\lhead{\rightmark}
+\end{raggedright}
+
+%======================================================%
+
+\chapter*{}
+\vfill
+\singlespacing
+\thispagestyle{empty}
+\begin{center}
+Este trabalho foi redigido em {\large \LaTeX}\ utilizando uma modificação do estilo \textsf{IC-UFAL}.
+As referências bibliográficas foram preparadas no \textsf{Mendeley} e administradas pelo {\large\BibTeX}\ com o estilo \textsf{LaCCAN}.
+O texto utiliza fonte \NomeFonte\ e os elementos matemáticos a família tipográfica \NomeFonteMat, ambas em corpo de 12 pontos.
+% A numeração dos capítulos segue com a família tipográfica \NomeFonteCap.\\ 
+\vspace{.5cm}
+\includegraphics[width=.5\textwidth]{./capitulos/figs/celtic_knot_cross_stitch}
+\end{center}
+
+\end{document}

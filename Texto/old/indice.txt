@@ -1,0 +1,21 @@
+2 Fundamentação
+  2.1 Quão bons são os geradores de Números Aleatórios Disponíveis no R ? .
+  2.2 O que são PRNG’s . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    2.2.1 Geradores de Números Aleatórios? . . . . . . . . . . . . . . . . . . . . . .
+    2.2.2 Propriedades desejadas de um gerador ideal . . . . . . . . . . . . . . . .
+    2.2.3 Histórico . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    2.2.4 Geradores disponíveis no R . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  2.3 Verificação clássica das propriedades dos geradores . . . . . . . . . . . .
+    2.3.1 Repetibilidade, portabilidade, eficiência computacional . . . . . . . . . .
+    2.3.2 Testes básicos . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    2.3.3 Testes anterior . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    2.3.4 Testes Diehard . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    2.3.5 Testes NIST . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    2.3.6 Testes Dieharder . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  2.4 Verificação das propriedades com ferramentas da teoria da informação
+3 Metodologia
+  3.1 Materiais e Métodos . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+4 Resultados Esperados
+  4.1 Resultados Esperados . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5 Conclusão
+  5.1 Impactos Esperados
