@@ -1,0 +1,220 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+
+\usepackage{graphicx,url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[binary-units]{siunitx}
+
+\usepackage{subfigure}
+
+\usepackage{textcomp}
+\usepackage[brazil]{babel}   
+\usepackage[latin1]{inputenc}  
+     
+\sloppy
+
+\title{Avaliação de Geradores de Números Pseudoaleatórios \\ Através de Técnicas da Teoria da Informação}
+
+\author{Marcelo Q. A. Oliveira\inst{1}, Tamer S.\ G.\ Cavalcante\inst{1}, \\Heitor S.\ Ramos\inst{1}, Osvaldo Rosso\inst{1}, Alejandro C.\ Frery\inst{1}}
+\address{Laboratório de Computação Cienífica e Análise Numérica\\ Universidade Federal de Alagoas (LaCCAN-UFAL) \\
+  Campus A.C. Simões, Av Lourival Melo Mota, S/N - Tabuleiro do Martins \\
+  CEP: 57072-900 -- Maceió - AL -- Brazil
+  \email{\{marceloqao,tamersgc,heitor.ramos,oarosso,acfrery\}@gmail.com}
+% \nextinstitute
+%   Instituto de Física -- Universidade Federal de Alagoas (IF-UFAL) \\
+%   Campus A.C. Simões, Av Lourival Melo Mota, S/N - Tabuleiro do Martins \\
+%   CEP: 57072-900 -- Maceió - AL -- Brazil
+%  \nextinstitute
+%   Departamento de Sistemas e Computação\\
+%   Universidade Regional de Blumenal (FURB) -- Blumenau, SC -- Brazil
+%   \email{\{nedel,flavio\}@inf.ufrgs.br, R.Bordini@durham.ac.uk,
+%   jomi@inf.furb.br}
+}
+
+\begin{document} 
+
+\maketitle
+
+% \begin{abstract}
+% \end{abstract}
+%      
+
+\begin{resumo} 
+
+Com a evolução e crescimento do número de dispositivos conectados à rede, acompanhamos um aumento vertiginoso na quantidade de dados armazenados. Por outro lado, esta evolução não é acompanhada pela capacidade de análise destes dados através das técnicas convencionais, o que impulsiona novas áreas como \textit{Big Data}. Junto com estas novas áreas surgem novos desafios como o de executar experimentos e análises estatísticas em bases de dados cada vez maiores, o que traz à tona problemas correlatos como o de gerar números aleatórios e, consequentemente, avaliar tais geradores nesses cenários desafiadores. Dentre uma vasta coleção de testes para geradores de números aleatórios, este trabalho propõe uma nova abordagem de teste não-paramétrico que utiliza técnicas de teoria da informação.
+
+\end{resumo}
+
+%e a pujante demanda pelas informações geradas por eles
+
+%A noção de aleatoriedade é fundamental em diversas áreas, entretanto uma definição precisa, até mesmo do ponto de vista matemático rigoroso, é bastante difícil. Algumas questões emergem naturalmente como, o que vem a ser aleatoriedade? Existem eventos aleatórios na natureza? Faz algum sentido buscar leis da aleatoriedade? É possível simular a aleatoriedade? Estas são questões são muito difíceis, envolvendo, inclusive, os primórdios da investigação filosófica como discute~\cite{Volchan:02}.
+\section{Introdução}
+
+Números aleatórios perfazem uma das partes mais importantes em aplicações computacionais nos vários campos do conhecimento, como aborda~\cite{Knuth:98}.
+Existem dois tipos básicos de geradores: Geradores de Números Aleatórios, do inglês \textit{Random Number Generators} (RNGs) e Geradores de Números Pseudoaleatórios, do inglês \textit{Pseudorandom Number Generators} (PRNGs). 
+%
+    Computadores são máquinas determinísticas e, portanto, não é possível gerar sequências aleatórias de forma algorítmica. 
+    Para construir RNGs utiliza-se uma fonte não determinística de dados juntamente com algumas funções de processamento para produzir as sequências. 
+    A maior parte dos RNGs utiliza fenômenos físicos naturais como decaimento radioativo, ruídos térmicos em semicondutores, amostras de som em um local ruidoso, ruído no espectro eletromagnético, dentre outros; tais fontes de aleatoriedade não fazem parte do hardware usual de computadores. 
+    Como consequência, quando há necessidade de se dispor de dados que exibam aleatoriedade, lança-se mão de PRNGs. 
+    
+         A maneira mais conveniente e confiável de se gerar números pseudoaleatórios em máquinas determinísticas é através de algoritmos que produzem sequências com comportamento semelhante às produzidas por RNGs. 
+         Tais algoritmos produzem  sequências de números não aleatórios, mas que, sob certas condições, comportam-se como aleatórios. 
+         Como define~\cite{LEcuyer:98}, essas sequências podem ser chamadas pseudoaleatórias, e os programas utilizados em sua produção de geradores de números pseudoaleatórios. 
+         Esses geradores são geralmente mais convenientes do que os RNGs pois não necessitam de hardware adicional e possibilitam a reproducibilidade.
+         
+         Os PRNGs são a principal fonte de aleatoriede em jogos por computador, e no desenvolvimento de técnicas computacionais intensivas como os métodos Monte Carlo~\cite{topten} e MCMC -- \textit{Monte Carlo Markov Chain}~\cite{MarkovChainMonteCarloRevolution}.
+         Pela sua importância nessas e em outras técnicas, torna-se fundamental avaliar as suas propriedades.
+
+\section{Testes de Aleatoriedade}
+
+Existem duas abordagens para testar-se a capacidade de um PRNG gerar sequências de qualidade. 
+Segundo~\cite{LEcuyer:92}, há testes teóricos e empíricos. 
+Os teóricos são específicos para cada tipo de gerador, pois o analisam através das suas propriedades matemáticas. 
+Já os testes empíricos valem-se de técnicas estatísticas para avaliar o quão boas são as sequências produzidas por um determinado gerador. 
+
+Uma sequência numérica é dita estatisticamente aleatória quando não possui padrões perceptíveis ou algum tipo de comportamento regular. 
+Testes estatísticos são métodos de avaliar a qualidade da sequência aleatória avaliando se a distribuição do conjunto de dados experimentais adere a uma distribuição uniforme. 
+Neste trabalho proporemos um teste não paramétrico baseado em ferramentas da teoria da informação. 
+
+Diversas são as suítes de testes na literatura: \cite{Kendall:38,Knuth:98, Marsaglia:14,NIST:99} e~\cite{LEcuyer:07}. 
+Essas suítes são baterias de testes para cada sequência de entrada. 
+Essa abordagem pode ter o incoveniente de requisitar muito tempo para realização de todos os testes. 
+Adicionalmente, alguns testes são difíceis de interpretar e podem apresentar resultados conflitantes (uma mesma sequência pode passar em um teste e ser reprovada em outro).
+
+As suítes  mencionadas formulam testes de hipóteses para verificar se a distribuição da sequência aleatória de entrada é aderente a alguma distribuição conhecida. 
+Por exemplo, a \textit{Overlapping permutations}~\cite{Marsaglia:14} analiza sequências de cinco números aleatórios consecutivos para verificar se as \num{120} permutações possíveis são igualmente frequentes na sequência de entrada. Dessa maneira, os dados são reorganizados e testados contra uma distribuição conhecida, neste caso, a distribuição uniforme.
+  
+\section{Fundamentos de Teoria da Informação}
+
+A proposta deste trabalho é baseada no trabalho de~\cite{Larrondo:13}, que mostra uma maneira simples e compacta de descrever o comportamento de sequências aleatórias através de métricas da teoria da informação, segundo apresentamos a seguir.
+
+A Entropia de Shannon~\cite{Shannon1948} é uma medida de desordem.
+Dada uma função de probabilidade $P = \{p_i : i = 1, \dots, M\}$ sobre $M$ valores, a medida de informação logarítmica de Shannon é
+$S[P] = - \sum_{i=1}^{M} p_i\, \log p_i$.
+%
+Essa medida é  relacionada com a informação associada ao processo físico descrito por $P$.
+%
+Se $S[P] = 0$, então o conhecimento sobre o processo descrito pela distribuição de probabilidade é máximo e os possíveis resultados podem ser previstos com absoluta certeza. 
+Por outro lado, o conhecimento é  mínimo para a distribuição uniforme, i.e. para $p_i=M^{-1}$ para todo $i$, uma vez que cada resultado apresenta a mesma probabilidade de ocorrência dos outros.
+
+López et. al.~\cite{Lopez1995} introduziram a Complexidade Estatística, modificada depois por \cite{Lamberti2004}: 
+$\mathcal{C}_{JS}[P] = \mathcal{Q}_J[P,P_e]\mathcal{H}_S[P]$, em que $\mathcal{H}_S[P] = {S[P]}/{S_{\max}}$
+é a Entropia de Shannon Normalizada ($\mathcal{H}_S \in [0,1] $) com $S_{\max} = S[P_e] = \log M$, $P_e$ a distribuição uniforme, e o desequilíbrio $\mathcal{Q}_J$ é definido em termos da divergência de Jensen-Shannon. 
+Ou seja, $\mathcal{Q}_J[P,P_e] = \mathcal{Q}_0 \mathcal{J}[P,P_e]$, com $\mathcal{J}[P,P_e] = S\left[ {(P+P_e)}/{2} \right] - ({S[P]} - {S[P_e]})/{2}$ e $\mathcal{Q}_0$ é uma constante de normalização igual ao inverso do valor máximo possível de $\mathcal{J}[P,P_e]$, de modo que $\mathcal{Q}_J \in [0,1]$.
+
+O valor da Complexidade de um sistema é nulo nas duas situações opostas extremas: 
+ou no conhecimento perfeito, ou na aleatoriedade completa. 
+Qualquer outro tipo de sistema se situará entre essas configurações extremas.
+
+%\subsection{Método de simbolização Bandt-Pompe}
+
+A avaliação da Entropia e da Complexidade Estatística exige a definição preliminar de uma distribuição de probabilidade $P$.
+Bandt e Pompe introduziram um método simples para definir essa distribuição de probabilidade a partir de séries temporais, levando em consideração a causalidade temporal da dinâmica dos processos~\cite{Bandt2002}. 
+Neste trabalho, utilizamos o  plano entropia-complexidade (HC) para avaliar a qualidade dos geradores pseudoaleatórios: o espaço de representação da Complexidade Estatística $\mathcal{C}_{JS}$ em função da Entropia $\mathcal{H}_S$ do sistema, utilizando a distribuição de probabilidade de~\cite{Bandt2002} para estimar os quantificadores.
+
+A Complexidade está limitada por valores mínimo $C_{\min}$ e máximo $C_{\max}$ para cada valor de $\mathcal{H}_{S}$. 
+Esses valores podem ser calculados por meio uma análise geométrica do espaço de probabilidade~\cite{Martin2006}, e só dependem de como a Entropia e o Desequilíbrio são calculados.
+
+O Plano Complexidade-Entropia tem sido utilizado para caracterizar diferentes tipos de processos.
+\cite{Rosso2007a} o utilizaram para distinguir sistemas caóticos de processos estocásticos.
+\cite{Larrondo:13} descrevem a primeira abordagem para avaliação de sequências pseudoaleatórias através do plano HC, entretanto, não foi criado um teste estatístico. 
+Sabemos que a sequência ideal seria mapeada em $(1,0)$ no plano HC, mas ao gerarmos sequências finitas, não há como obter esse valor, por melhor que seja o gerador. 
+Dessa forma, dada uma sequência pseudoaleatória, queremos realizar um teste de hipóteses confrontando-a com uma sequência verdadeiramente aleatória obtida a partir de um RNG que é usado como referência.
+
+\section{Teste Não-Paramétrico Baseado em Ferramentas de Teoria da Informação}
+
+Com o objetivo de ter uma referência foram utilizados dados oriundos de um gerador real. 
+Os dados foram fornecidos pelo grupo de Processamento de Informação Quântica do Instituto de Tecnologia Max Plank, num arquivo binário  de aproximadamente \SI{200}{\mebi\bit} obtido segundo o processo descrito em~\cite{Gabriel2010}. 
+Tais dados foram mapeados como uma sequência de $10^8$ números aleatórios no intervalo $(0,1)$, e então particionados em $10^5$ sequências de $10^3$ elementos cada uma. 
+Posteriormente, foram calculados os valores da entropia e da complexidade estatística para cada uma das subsequências, resultando em $10^5$ pares de pontos no plano $(H,C)$.
+  
+Como apontado por~\cite{Larrondo:13} uma sequência aleatória ideal produziria o valor $(1,0)$ no plano HC. 
+Dessa maneira, a fim de avaliar a qualidade de um PRNG qualquer, elaboramos um teste de hipóteses não-paramétrico para medir a qualidade da sequência gerada pelo PRNG através da posição do ponto observado no plano $(H,C)$.
+A medida é feita comparando o ponto com aqueles obtidos das sequências de mesmo tamanho produzidas pelo RNG de~\cite{Gabriel2010}.
+%
+Neste trabalho testamos duas sequências de tamamnho $10^3$ produzidas pelos geradores Mersenne Twister (MT) e Congruencial Linear (LCG), ambos implementados no \texttt R~\cite{R2012}. 
+%Desta forma tomemos o ponto mais próximo de $(1,0)$ como o ponto ideal, passamos a tratar a significância dos $10^5$ pontos como função deste e a estatística de teste como sendo a relação entre a distância do ponto a ser analizado e a do ponto de nosso \textit{Groundtruth} mais distante de $(1,0)$.
+
+Os resultados estão apresentados na Fig.~\ref{fig:result}. 
+Na Fig.~\ref{fig:sub1} observamos que o ponto produzido pelo gerador MT está mais próximo do gerador ideal $(1,0)$ que o da sequência gerada por LCG. 
+A Fig.~\ref{fig:sub2} mostra os mesmos pontos após a aplicação da transformação de componentes principais, para fins de visualização.
+Nesta figura, as regiões de confiança para o RNG aos níveis 
+\SI{95}{\percent}, \SI{99}{\percent} e \SI{99,9}{\percent} estão identificadas pelas cores amarela, azul e vermelha, respectivamente.
+Assim, ambos os geradores estão na região de confiança ao \SI{95}{\percent} do RNG, portanto não há evidência suficiente para rejeitar a hipótese de que ambas as sequências de tamanho $10^3$ produzidas pelo MT e LCG  apresentam propriedades semelhantes à do RNG apresentado. 
+Os $p$-valores para os testes acima são $0.1349$ e $0.850$ para os geradores LCG e MT, respectivamente. 
+
+\begin{figure}
+\centering
+  	\subfigure[Plano HC]{\label{fig:sub1}
+    \includegraphics[width=.48\textwidth]{Planck_no_PCA_labels}}
+    \subfigure[PCA]{\label{fig:sub2}
+    \includegraphics[width=.48\textwidth]{Planck_MT_LCG_labels}}
+  \caption{Teste não paramétrico para uma sequência de 1000 pontos dos geradores Mersenne Twister e Congruencial Linear}
+  \label{fig:result}
+\end{figure}
+
+\section{Conclusão}
+
+Neste trabalho estudamos o comportamento dos PRNGs Mersenne Twister (MT) e  Congruencial Linear (LCG) com um teste baseado na comparação com os pontos gerados por um RNG, o descrito em~\cite{Gabriel2010}, no plano HC. 
+Concluímos que para sequências consideradas pequenas como as de tamanho $10^3$ utilizadas neste trabalho, não há evidência estatística para rejeitar a hipótese de que ambos são puramente aleatórios. 
+Em trabalhos futuros, aumentaremos o tamanho das sequências, bem como a quantidade de PRNGs testados para verificar seu comportamento e ainda, disponibilizaremos o teste como um pacote R~\cite{R2012}.
+
+
+% \begin{figure}[h!]
+%   \centering
+%   \begin{minipage}{.5\textwidth}
+%     \centering
+%     \includegraphics[width=.8\linewidth]{Planck_no_PCA_labels}
+%     \captionof{figure}{A figure}
+%     \label{fig:test1}
+%   \end{minipage}%
+%   \begin{minipage}{.5\textwidth}
+%     \centering
+%     \includegraphics[width=.8\linewidth]{Planck_MT_LCG_labels}
+%     \captionof{figure}{Another figure}
+%     \label{fig:test2}
+%   \end{minipage}
+% \end{figure}
+
+
+% \begin{figure}[ht]
+% \centering
+% % \includegraphics[width=.3\textwidth]{fig2.jpg}
+% \caption{This figure is an example of a figure caption taking more than one
+%   line and justified considering margins mentioned in Section~\ref{sec:figs}.}
+% \label{fig:exampleFig2}
+% \end{figure}
+
+% In tables, try to avoid the use of colored or shaded backgrounds, and avoid
+% thick, doubled, or unnecessary framing lines. When reporting empirical data,
+% do not use more decimal digits than warranted by their precision and
+% reproducibility. Table caption must be placed before the table (see Table 1)
+% and the font used must also be Helvetica, 10 point, boldface, with 6 points of
+% space before and after each caption.
+
+% \begin{table}[ht]
+% \centering
+% \caption{Variables to be considered on the evaluation of interaction
+%   techniques}
+% \label{tab:exTable1}
+% % \includegraphics[width=.7\textwidth]{table.jpg}
+% \end{table}
+
+% \section{Images}
+% 
+% All images and illustrations should be in black-and-white, or gray tones,
+% excepting for the papers that will be electronically available (on CD-ROMs,
+% internet, etc.). The image resolution on paper should be about 600 dpi for
+% black-and-white images, and 150-300 dpi for grayscale images.  Do not include
+% images with excessive resolution, as they may take hours to print, without any
+% visible difference in the result. 
+
+\section*{}
+
+\bibliographystyle{sbc}
+\bibliography{references}
+
+\end{document}

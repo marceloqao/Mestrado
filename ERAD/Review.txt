@@ -1,0 +1,35 @@
+Reviewer #1
+
+O paper está bem escrito e com sequência lógica.
+
+Na introdução o problema é bem abordado mas contém algumas frases fortes que devem ser referenciadas.
+
+O autor não enfatiza a importância para a área de alto desempenho.
+
+Deixar mais claro a escolha de Larrondo, pois os outros métodos são elogiados. Cria uma tabela e motiva sua escolha.
+
+Erros cosméticos:
+>  a tona >> à tona x
+>  “Pseudo-aleatorias” e e “Geradores de Numeros Pseudo-Aleatórios” >> retirar aspas >> Retirar também o hífen (Nota do Autor)
+>  Concluimos que, >> retirar a vírgula >> acento agudo no i (Nota do Autor)
+>  Em trabalhos futuros >> colocar vírgula
+*  Recomendo evitar: reproducibilidade. - Não acatada.
+*  Diversas sao as suítes de testes na literatura >> Existem diversas suítes... - Não acatada.
+
+#######################################################################################################################################
+Reviewer #2
+
+O artigo aborda um tema importante: a geração de números Pseudo-Aleatórios. 
+
+O problema e abordagem proposta são explicados de forma simples e clara, apresentando resultados relevantes. 
+
+Entretanto o tema do artigo tem uma relação fraca com o tema central do evento. Se a geração de números pseudo-aleatórios é um tema importante não fica claro no artigo a relação do trabalho com aplicação ou desenvolvimento de técnicas para HPC. 
+
+Recomendo melhorar a qualidade das figuras que estão muito pequenas dificultando a identificação dos pontos relevantes na mesma. 
+
+A utilização de cores se ve prejudicada quando se faz análise de copia em preto e branco.
+
+#######################################################################################################################################
+Author
+
+ ambos os geradores estão na região de confiança ao 95% >> confiança de 95%
