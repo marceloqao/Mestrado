@@ -1,53 +1,58 @@
-ggplot(data=HC_All, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ D)
+require(ggplot2)
+require(ggthemes)
+
+load(file='../Data/HC_All.gzip')
+load(file='../Data/inf.gzip')
+load(file='../Data/sup.gzip')
+
+# Determinação de limite
+minH <- min(HC_All$H)
+maxC <- max(HC_All$C)
+
+# Acrescentando a distância euclidiana ao data.frame
+attach(HC_All)
+HC_All$D <- as.factor(D)
+HC_All$dEuclid = sqrt((H-1)^2 + JS^2)
+detach(HC_All)
+
+# Visualização global, com transparência
+ggplot(data=HC_All, aes(x=H, y=C)) + 
+  geom_point(alpha=0.01) +
+  #geom_point(aes(colour = dEuclid)) +
+  #scale_colour_gradient(low = "white", high = "black") +
+  geom_line(data = inf, aes(x=H, y=Cinf)) +
+  geom_line(data = sup, aes(x=H, y=Cmax)) +
+  scale_x_continuous(limits = c(minH, 1)) +
+  scale_y_continuous(limits = c(0, maxC)) +
+  facet_grid(tau ~ D) +
+  theme_light()
+
+# Visualização por grupos
+HC_D3tau1 <- subset(HC_All, D==3 & tau==1)
+Cinf <- subset(inf, D==3)
+Csup <- subset(sup, D==3)
+
+minH <- min(HC_D3tau1$H)
+maxC <- subset(Csup$Cmax, HC_D3tau1$H == min(HC_D3tau1$H))
+
+ggplot(data=HC_D3tau1, aes(x=H, y=C)) + 
+  geom_point(aes(colour = dEuclid)) +
+  scale_colour_gradient(low = "white", high = "black") +
+  geom_line(data = Cinf, aes(x=H, y=Cinf)) +
+  geom_line(data = Csup, aes(x=H, y=Cmax)) +
+  scale_x_continuous(limits = c(minH, 1)) +
+  scale_y_continuous(limits = c(0, .01)) +
+  theme_light()
 
 
-# Function to plot the CCEP plane
-# - the points may be informed (H,SC), or empty to plot just the limits
-plot.ccep = function(H=NULL, SC=NULL, D=4, main='', 
-                     xlim=c(0,1), ylim=c(0,0.5), lwd=1, col=1)
-{
-  # NOTE: var. names was inherited from original code of Rosso et al.
-  
-  # cont_name = paste(bp_path, '/limits/continua-N',factorial(D),'.q1', sep='')
-  # trozos_name = paste(bp_path, '/limits/trozos-N',factorial(D),'.q1', sep='')
-  cont_name = paste('../thesis/Data/limits/continua-N',factorial(D),'.q1', sep='')
-  trozos_name = paste('../thesis/Data/limits/trozos-N',factorial(D),'.q1', sep='')
-  
-    
-  # upper and lower limits
-  continua = read.table(cont_name, skip=7)
-  trozos = read.table(trozos_name, skip=7)
-  
-  maxY = max(trozos$V2)
-  ylim = c(0,maxY)
-  
-  if ( !is.null(H) & !is.null(SC) )
-  {
-    plot(H, SC, 
-         main=main, xlim=xlim, ylim=ylim, 
-         xlab="Normalized Shannon Entropy", 
-         ylab="Statistical Complexity"
-    )
-  } else {
-    plot(NA, 
-         main=main, xlim=xlim, ylim=ylim, 
-         xlab="Normalized Shannon Entropy", 
-         ylab="Statistical Complexity"
-    )
-  }
-  
-  lines(trozos, lwd=lwd, col=col)
-  lines(continua, lwd=lwd, col=col)
-}
+HC_D6tau1 <- subset(HC_All, D==6 & tau==1)
 
-# plot a region withing the min and max limits for the CCEP
-# the values (alread equalized) for the limits (continua and trozos)
-# must be informed
-plot.region = function(alpha=0.5, col=1, lty=1, cont, troz)
-{
-  midy = alpha*cont[,2] + (1-alpha)*troz[,2]
-  midx = alpha*cont[,1] + (1-alpha)*troz[,1]
-  
-  lines(midx, midy, col=col, lty=lty)
-}
+Hmin <- min(HC_D6tau1$H)
+ggplot(data=HC_D6tau1, aes(x=H, y=C)) + 
+  geom_point(aes(colour = dEuclid)) +
+  scale_colour_gradient(low = "white", high = "black") +
+  geom_line(data = subset(inf, D==6), aes(x=H, y=Cinf)) +
+  geom_line(data = subset(sup, D==6), aes(x=H, y=Cmax)) +
+  coord_cartesian(xlim = c(Hmin, 1)) +
+  theme_light()
 
