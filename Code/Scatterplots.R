@@ -1,5 +1,6 @@
 require(ggplot2)
 require(ggthemes)
+require(reshape2)
 
 load(file='../Data/HC_All.gzip')
 load(file='../Data/inf.gzip')
@@ -28,31 +29,45 @@ ggplot(data=HC_All, aes(x=H, y=C)) +
   theme_light()
 
 # Visualização por grupos
-HC_D3tau1 <- subset(HC_All, D==3 & tau==1)
-Cinf <- subset(inf, D==3)
-Csup <- subset(sup, D==3)
 
-minH <- min(HC_D3tau1$H)
-maxC <- subset(Csup$Cmax, HC_D3tau1$H == min(HC_D3tau1$H))
+D.current <- 3
+tau.current <- 50
+HC_subset <- subset(HC_All, D==D.current & tau==tau.current)
+Cinf <- subset(inf, D==D.current)
+Csup <- subset(sup, D==D.current)
 
-ggplot(data=HC_D3tau1, aes(x=H, y=C)) + 
+# Interesting sorted distances
+N <- length(HC_subset$dEuclid)
+interesting <- round(c(1, .001*N, .01*N, .05*N, .1*N, N))
+
+dsort <- sort(HC_subset$dEuclid, index.return=TRUE)
+H.interesting <- HC_subset$H[dsort$ix[interesting]]
+C.interesting <- HC_subset$C[dsort$ix[interesting]]
+interesting.data <- data.frame(H.interesting, C.interesting)
+
+minH <- min(HC_subset$H)
+maxC <- max(HC_subset$C)
+
+ggplot(data=HC_subset, aes(x=H, y=C)) + 
   geom_point(aes(colour = dEuclid)) +
-  scale_colour_gradient(low = "white", high = "black") +
+  scale_colour_gradient(low = "yellow", high = "black") +
   geom_line(data = Cinf, aes(x=H, y=Cinf)) +
   geom_line(data = Csup, aes(x=H, y=Cmax)) +
-  scale_x_continuous(limits = c(minH, 1)) +
-  scale_y_continuous(limits = c(0, .01)) +
+  scale_x_continuous(limits = c(.99*minH, 1)) +
+  scale_y_continuous(limits = c(10^-6, 1.1*maxC)) +
+  #scale_x_continuous(trans="log", limits = c(.99*minH, 1)) +
+  #scale_y_continuous(trans="log", limits = c(10^-6, 1.1*maxC)) +
+  theme_light() +
+  geom_point(data=interesting.data, aes(H.interesting, C.interesting), colour="red") +
+  geom_segment(data=interesting.data, aes(x=H.interesting, y=10^-6, xend=H.interesting, yend=C.interesting), colour="red", alpha=.3) + 
+  geom_segment(data=interesting.data, aes(x=H.interesting, y=C.interesting, xend=1, yend=C.interesting), colour="red", alpha=.3) 
+
+# Histogramas das distâncias
+
+data <- melt(HC_All, measure.vars = "dEuclid")
+
+ggplot(data=data, aes(x=value)) +
+  geom_density(aes(fill=tau), alpha=.5) +
+  facet_wrap(~ D) +
   theme_light()
-
-
-HC_D6tau1 <- subset(HC_All, D==6 & tau==1)
-
-Hmin <- min(HC_D6tau1$H)
-ggplot(data=HC_D6tau1, aes(x=H, y=C)) + 
-  geom_point(aes(colour = dEuclid)) +
-  scale_colour_gradient(low = "white", high = "black") +
-  geom_line(data = subset(inf, D==6), aes(x=H, y=Cinf)) +
-  geom_line(data = subset(sup, D==6), aes(x=H, y=Cmax)) +
-  coord_cartesian(xlim = c(Hmin, 1)) +
-  theme_light()
-
+  
