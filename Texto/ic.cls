@@ -61,7 +61,7 @@ de Curso e Dissertacoes]
 \RequirePackage{pslatex} % Utilização de fontes PostScript Tipo 1
 \RequirePackage[utf8]{inputenc} % Uso caracteres especiais UTF8
 \RequirePackage[a4paper]{geometry} % Para ajustar o papel
-\RequirePackage[portuguese,english]{babel} % Para habilitar os macros de línguas
+\RequirePackage[portuguese]{babel} % Para habilitar os macros de línguas
 \RequirePackage{natbib} % Estilo das referências
 \RequirePackage{url} % Para lidar com URLs
 \RequirePackage{doc} % Contém a definição da logomarca do BibTex
@@ -70,9 +70,11 @@ de Curso e Dissertacoes]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% [Rian,Ivan] Início Modificações %%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{amsmath} %
-\RequirePackage{amsfonts}
+%\RequirePackage{amsfonts}
+%   \newcommand\hmmax{0} % default 3
+
 \RequirePackage{bbm} 
-\RequirePackage{amssymb} %
+%\RequirePackage{amssymb} %
 %\RequirePackage{amscd} %
 \RequirePackage{units} %
 \RequirePackage{undertilde} % Utilização de caracteres com til em baixo
@@ -859,7 +861,7 @@ Federal de Alagoas, aprovada pela comissão examinadora que abaixo assina.}%
     %% Define o módulo de citação abreviado(Harvard)
     %% \citationmode{abbr}
     %% Define o estilo bibligráfico agsm(Harvard)
-    \bibliographystyle{agsm}
+    \bibliographystyle{agsm_url}
 }
 
 %%------------------------------------------------------------------------------
