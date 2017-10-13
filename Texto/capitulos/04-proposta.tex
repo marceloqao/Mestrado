@@ -52,15 +52,15 @@ Dada uma série temporal a tempo discreto $X = {x_t:1\leq t\leq M}$ de comprimen
 %%% ACF Reescreva usando modo matemático sempre que necessário, e respeitando a notação
 %%% Use o pacote "listings"
 	\item \textbf{Composição dos grupos:} Os conjuntos, ou palavras, de comprimento $D$ e \textit{delay} $\tau$ são definidas por um segmento da série: 
-	 $$ (x_{t+1)},x_{t+\tau},\ldots, x{t+D\tau}.$$ 
+	 $$ (x_{t+1)},x_{t+\tau},\ldots, x_{t+D\tau}).$$ 
 
 	\item \textbf{Formação dos padrões: } Cada palavra é então relacionada a um padrão ordinal $\pi_j$ de ordem $D$, isto é, um elemento indexado univocamente por
 	$$ j\in\{1, 2,\ldots, D-1, D\}. $$
 \end{itemize}
 
-Há várias formas de atribuir palavras a símbolos; neste trabalho utilizaremos a atribuição lexicográfica, isto é, se os valores da palavra $(x_{t+1)},x_{t+\tau},\ldots, x{t+D\tau}$ são tais que, ordenados, eles têm índices crescentes $b_1,b_2,\dots,b_D$, então o padrão correspondente será $\pi=b_1b_2\dots b_D$.
+Há várias formas de atribuir palavras a símbolos; neste trabalho utilizaremos a atribuição lexicográfica, isto é, se os valores da palavra $(x_{t+1},x_{t+\tau},\ldots, x_{t+D\tau})$ são tais que, ordenados, eles têm índices crescentes $b_1,b_2,\dots,b_D$, então o padrão correspondente será $\pi=b_1b_2\dots b_D$.
 
-Calcula-se, então, o histrograma de proporções $\mathcal{H} =(p_1,\dots,p_{D!})$ dos padrões observados:
+Calcula-se, então, o histograma de proporções $\mathcal{H} =(p_1,\dots,p_{D!})$ dos padrões observados:
 $$
 p_j = \frac{1}{?} \# \{
 \text{padrões } \pi_j \text{ observados}
@@ -85,7 +85,7 @@ A entropia apenas não consegue caracterizar de forma plena a dinâmica que prod
 Torna-se interessante, então, o uso de um outro descritor baseado em quão diferente o histograma $\mathcal H$ é de uma lei de probabilidade de referência.
 A nossa referência será a lei uniforme, e a medida de distância entre elas será a distância de Jensen-Shannon:
 $$
-JS(\mathcal H, \mathcal H_R) = 
+JS(\mathcal H, \mathcal H_R) = E((\mathcal H+ \mathcal H_R)/2) -\frac{1}{2}(E(\mathcal H) + E(\mathcal H_R)).
 $$
 
 
@@ -107,13 +107,27 @@ Mais modernamente, não se fala em ``rejeição'', reporta-se o $p$-valor, deixa
 Diversos testes foram desenvolvidos ao longo do tempo com o objetivo de testar a aleatoriedade de sequências de números.
 Como ``aleatoriedade'' é uma noção vaga, cada teste procura identificar uma ou algumas falhas dos dados.
 Por esse motivo é que há classes ou conjuntos de testes que, aplicados de forma criteriosa, permitem aferir o quanto uma sequência se afasta da hipótese de aleatoriedade.
-A partir dessa análise, pode se ter uma idea do comportamento global do gerador que a produziu.
+A partir dessa análise, pode se ter uma ideia do comportamento global do gerador que a produziu.
 
 Sob a conjectura de aleatoriedade, cada estatística de teste $T$ tem uma distribuição, que pode ser determinada ou de forma exata ou de forma aproximada, mas sempre precisa ser conhecida.
 Com ela é possível informar o $p$-valor de uma determinada amostra.
-	Em relação a fundamentação teórica, utilizou-se como principal fonte de pesquisa a área de indexação de periódicos científicos ISI \emph{Web of Knowledge}, onde foram obtidas a grande maioria das referências, usando como parâmetros o fator de impacto dos periódicos pesquisados, a quantidade de citações de cada publicação, o grau de relevância para o tema pesquisado e o nível de produtividade (fator-H) dos autores envolvidos. O apoio em livros, surveys, lecture notes e ferramentas complementares de busca, como o \emph{google acadêmico} foram utilizadas para complementar esta pesquisa.
 
- \section{Artefatos}Para organizar, catalogar e facilitar a consulta a todo material obtido, as referências foram gerenciadas com a ferramenta \emph{Mendeley}. Um gerenciador de referências bibliográficas multiplataforma gratuito que permite organizar de maneira centralizada vários vínculos entre as referências utilizadas, bem como visualizar e anotar as mesmas dentro da própria ferramenta. Quanto à editoração eletrônica do trabalho, fez-se uso da plataforma \LaTeX, com editor de textos \emph{Kile} de código aberto. Este trabalho foi desenvolvido num equipamento com as seguintes configurações:
+Não conhecemos, contudo, a distribuição conjunta do par $(E,JS)$ para uma sequência de variáveis aleatórias coletivamente independente e identicamente distribuída segundo uma lei uniforme.
+Decidimos, então, fazer a análise empírica de dados obtidos de fontes ``confiáveis''.
+
+Para isso, utilizamos três fontes de dados: duas físicas e uma algorítmica.
+As fontes físicas foram dados de medidas de estados quânticos \citep{RNGVacuumStates} (que denominaremos \textit{sequências quânticas}) e de sinais de rádio \citep{RandomHostingAdvice} (que chamaremos \textit{sequências de rádio}).
+A fonte algorítmica é o gerador Mersenne-Twister \citep{Matsumoto98}, considerado um padrão de qualidade de algoritmos de geração de números pseudoaleatórios.
+
+Obtivemos com os autores \num{54000000} de observações de cada gerador, e as submetemos à análise dos padrões de Bandt \& Pompe.
+
+Obtivemos os valores de entropia e complexidade estatística para todas as sequências possíveis de tamanho \num{18000}, palavras de tamanho $D\in\{3, 4, 5, 6\}$ e \textit{lag} $\tau\in\{1, 10, 30,50\}$.
+
+Seguindo a proposta de \citet{NewPermutationEntropy}, nossa medida de qualidade é a distância do ponto padrão observado $(E,C)$ no plano Entropia-Complexidade ao ponto ideal $(1,0)$.
+Empregamos, como esse autor, a distância euclidiana.
+
+
+\section{Artefatos}Para organizar, catalogar e facilitar a consulta a todo material obtido, as referências foram gerenciadas com a ferramenta \emph{Mendeley}. Um gerenciador de referências bibliográficas multiplataforma gratuito que permite organizar de maneira centralizada vários vínculos entre as referências utilizadas, bem como visualizar e anotar as mesmas dentro da própria ferramenta. Quanto à editoração eletrônica do trabalho, fez-se uso da plataforma \LaTeX, com editor de textos \emph{Kile} de código aberto. Este trabalho foi desenvolvido num equipamento com as seguintes configurações:
 
 \begin{center}
 \begin{tabular}{c||c}
