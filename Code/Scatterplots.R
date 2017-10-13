@@ -31,7 +31,7 @@ ggplot(data=HC_All, aes(x=H, y=C)) +
 # Visualização por grupos
 
 D.current <- 3
-tau.current <- 50
+tau.current <- 10
 HC_subset <- subset(HC_All, D==D.current & tau==tau.current)
 Cinf <- subset(inf, D==D.current)
 Csup <- subset(sup, D==D.current)
@@ -53,9 +53,9 @@ ggplot(data=HC_subset, aes(x=H, y=C)) +
   scale_colour_gradient(low = "yellow", high = "black") +
   geom_line(data = Cinf, aes(x=H, y=Cinf)) +
   geom_line(data = Csup, aes(x=H, y=Cmax)) +
-  scale_x_continuous(limits = c(.99*minH, 1)) +
+  scale_x_continuous(limits = c(minH, 1)) +
   scale_y_continuous(limits = c(10^-6, 1.1*maxC)) +
-  #scale_x_continuous(trans="log", limits = c(.99*minH, 1)) +
+  #scale_x_continuous(trans="log", limits = c(minH, 1)) +
   #scale_y_continuous(trans="log", limits = c(10^-6, 1.1*maxC)) +
   theme_light() +
   geom_point(data=interesting.data, aes(H.interesting, C.interesting), colour="red") +
@@ -66,8 +66,32 @@ ggplot(data=HC_subset, aes(x=H, y=C)) +
 
 data <- melt(HC_All, measure.vars = "dEuclid")
 
+# Todos os histogramas de distâncias
 ggplot(data=data, aes(x=value)) +
   geom_density(aes(fill=tau), alpha=.5) +
+  scale_x_continuous(name="Distâncias ao Ponto de Referência") +
+  scale_y_continuous(name="Proporções suavizadas") + 
   facet_wrap(~ D) +
   theme_light()
   
+# Visualização de histogramas por grupos
+
+ggplot(data=subset(data, D==3), aes(x=value)) +
+  geom_density(aes(fill=tau), alpha=.5) +
+  scale_x_continuous(trans="log") +
+  theme_light()
+
+ggplot(data=subset(data, D==4), aes(x=value)) +
+  geom_density(aes(fill=tau), alpha=.5) +
+  scale_x_continuous(trans="log") +
+  theme_light()
+
+ggplot(data=subset(data, D==5), aes(x=value)) +
+  geom_density(aes(fill=tau), alpha=.5) +
+  scale_x_continuous(trans="log") +
+  theme_light()
+
+ggplot(data=subset(data, D==6), aes(x=value)) +
+  geom_density(aes(fill=tau), alpha=.5) +
+  scale_x_continuous(trans="log") +
+  theme_light()
