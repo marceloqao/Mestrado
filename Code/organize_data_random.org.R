@@ -117,9 +117,9 @@ summary(HxCxJS_D6)
 #####
 ##Join all into one dataframe
 
-HC_All <- rbind(HxCxJS_D3, HxCxJS_D4, HxCxJS_D5, HxCxJS_D6)
-summary(HC_All)
-save(HC_All, file="HC_All.gzip", compress = TRUE)
+HC_All_Random <- rbind(HxCxJS_D3, HxCxJS_D4, HxCxJS_D5, HxCxJS_D6)
+summary(HC_All_Random)
+save(HC_All_Random, file="HC_Random_All.gzip", compress = TRUE)
 
 # HC_All$D <- as.factor(HC_All$D)
 # 
