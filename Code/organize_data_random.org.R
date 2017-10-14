@@ -121,14 +121,14 @@ HC_All <- rbind(HxCxJS_D3, HxCxJS_D4, HxCxJS_D5, HxCxJS_D6)
 summary(HC_All)
 save(HC_All, file="HC_All.gzip", compress = TRUE)
 
-HC_All$D <- as.factor(HC_All$D)
-
-##
-require(ggplot2)
-
-ggplot(data=HxCxJS_D3, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
-ggplot(data=HxCxJS_D4, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
-ggplot(data=HxCxJS_D5, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
-ggplot(data=HxCxJS_D6, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
-
-ggplot(data=HC_All, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ D)
+# HC_All$D <- as.factor(HC_All$D)
+# 
+# ##
+# require(ggplot2)
+# 
+# ggplot(data=HxCxJS_D3, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
+# ggplot(data=HxCxJS_D4, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
+# ggplot(data=HxCxJS_D5, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
+# ggplot(data=HxCxJS_D6, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
+# 
+# ggplot(data=HC_All, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ D)

@@ -2,7 +2,7 @@ require(ggplot2)
 require(ggthemes)
 require(reshape2)
 
-load(file='../Data/HC_All.gzip')
+load(file='../Data/HC_MT_All.gzip')
 load(file='../Data/inf.gzip')
 load(file='../Data/sup.gzip')
 
@@ -31,7 +31,7 @@ ggplot(data=HC_All, aes(x=H, y=C)) +
 # Visualização por grupos
 
 D.current <- 3
-tau.current <- 10
+tau.current <- 1
 HC_subset <- subset(HC_All, D==D.current & tau==tau.current)
 Cinf <- subset(inf, D==D.current)
 Csup <- subset(sup, D==D.current)
@@ -53,10 +53,10 @@ ggplot(data=HC_subset, aes(x=H, y=C)) +
   scale_colour_gradient(low = "yellow", high = "black") +
   geom_line(data = Cinf, aes(x=H, y=Cinf)) +
   geom_line(data = Csup, aes(x=H, y=Cmax)) +
-  scale_x_continuous(limits = c(minH, 1)) +
-  scale_y_continuous(limits = c(10^-6, 1.1*maxC)) +
-  #scale_x_continuous(trans="log", limits = c(minH, 1)) +
-  #scale_y_continuous(trans="log", limits = c(10^-6, 1.1*maxC)) +
+  #scale_x_continuous(limits = c(minH, 1)) +
+  #scale_y_continuous(limits = c(10^-6, 1.1*maxC)) +
+  scale_x_continuous(trans="log", limits = c(minH, 1)) +
+  scale_y_continuous(trans="log", limits = c(10^-6, 1.1*maxC)) +
   theme_light() +
   geom_point(data=interesting.data, aes(H.interesting, C.interesting), colour="red") +
   geom_segment(data=interesting.data, aes(x=H.interesting, y=10^-6, xend=H.interesting, yend=C.interesting), colour="red", alpha=.3) + 
