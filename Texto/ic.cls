@@ -61,7 +61,7 @@ de Curso e Dissertacoes]
 \RequirePackage{pslatex} % Utilização de fontes PostScript Tipo 1
 \RequirePackage[utf8]{inputenc} % Uso caracteres especiais UTF8
 \RequirePackage[a4paper]{geometry} % Para ajustar o papel
-\RequirePackage[portuguese]{babel} % Para habilitar os macros de línguas
+\RequirePackage[portuguese,english]{babel} % Para habilitar os macros de línguas
 \RequirePackage{natbib} % Estilo das referências
 \RequirePackage{url} % Para lidar com URLs
 \RequirePackage{doc} % Contém a definição da logomarca do BibTex
