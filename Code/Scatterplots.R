@@ -7,6 +7,8 @@ require(reshape2)
 load(file='../Data/inf.gzip')
 load(file='../Data/sup.gzip')
 
+## Amostras de tamanho 1000
+
 ### Load the observed points
 load(file='../Data/HC_Quant1000.zip')
 HC_Quant1000 <- HC_All
@@ -26,17 +28,54 @@ rm(HC_All)
 HC_MT1000$Source <- as.factor("M-T")
 HC_MT1000$N <- as.factor(1000)
 
-### Make a single data.frame with the proper size factor N
-HC <- rbind(HC_Quant1000, HC_Radio1000, HC_MT1000)
-rm(HC_Quant1000, HC_Radio1000, HC_MT1000)
 
+## Amostras de tamanho 50000
+
+### Load the observed points
+load(file='../Data/HC_Quantum50k.zip')
+HC_Quantum50k$Source <- as.factor("Quantum")
+HC_Quantum50k$N <- as.factor("50k")
+
+load(file='../Data/HC_Radio50k.zip')
+HC_Radio50k$Source <- as.factor("Radio")
+HC_Radio50k$N <- as.factor("50k")
+
+# Esperando acabar
+#load(file='../Data/HC_MT50k.zip')
+#HC_MT50k$Source <- as.factor("M-T")
+#HC_MT50k$N <- as.factor("50k")
+
+### Make a single data.frame with the proper size factor N
+HC <- rbind(HC_Quant1000, HC_Radio1000, HC_MT1000, HC_Quantum50k, HC_Radio50k)
+rm(HC_Quant1000, HC_Radio1000, HC_MT1000, HC_Quantum50k, HC_Radio50k)
 
 # Determinação de limite
 minH <- min(HC$H)
 maxC <- max(HC$C)
 
+
 # Acrescentando a distância euclidiana ao data.frame
 HC$dEuclid = sqrt((HC$H-1)^2 + HC$C^2)
+
+
+# Global visualization of scatterplots
+
+ggplot(data=subset(HC, N=="50k" & Source=="Quantum"), aes(x=H, y=C)) + 
+  geom_point(alpha=.01) +
+  #geom_point(aes(colour = dEuclid)) +
+  #scale_colour_gradient(low = "white", high = "black") +
+  geom_line(data = inf, aes(x=H, y=Cinf)) +
+  geom_line(data = sup, aes(x=H, y=Cmax)) +
+  scale_x_continuous(limits = c(min(subset(HC, N=="50k" & Source=="Radio")$H), 1)) +
+  scale_y_continuous(limits = c(0, max(subset(HC, N=="50k" & Source=="Radio")$C))) +
+  facet_grid(tau ~ D) +
+  theme_light()
+
+
+
+# Acrescentando a distância euclidiana ao data.frame
+HC$dEuclid = sqrt((HC$H-1)^2 + HC$C^2)
+
 
 
 # Reducing data for testing
@@ -55,7 +94,6 @@ ggplot(data=subset(HC, Source="Quantum"), aes(x=H, y=C)) +
   scale_y_continuous(limits = c(0, maxC)) +
   facet_grid(tau ~ D) +
   theme_light()
-
 
 
 ### Todos juntos: sem sentido
