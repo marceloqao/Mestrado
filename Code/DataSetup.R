@@ -49,7 +49,8 @@ minH <- min(HC$H)
 maxC <- max(HC$C)
 
 
-# Acrescentando a distância euclidiana ao data.frame
+# Limpando, e acrescentando a distância euclidiana ao data.frame 
+HC$D <- as.factor(HC$D)
 HC$dEuclid = sqrt((HC$H-1)^2 + HC$C^2)
 
 
