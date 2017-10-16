@@ -3,14 +3,14 @@
 #source("Max-Planck/R-LCG.R")
 
 setwd("/Users/Marceloqao/Documents/Mestrado/code/MT/")
-filenames <- list.files(path = "data/")
+filenames <- list.files(path = "50k/")
 
 ## Get names without ".DAT" and store in "names"
 names <- substr(filenames, 1, 9)
 
 ##Loading data from files
 for(i in names){
-  filepath <- file.path(paste("data/", i,".dat",sep=""))
+  filepath <- file.path(paste("50k/", i,".dat",sep=""))
   assign(i, read.table(filepath, sep = "", header=TRUE))
 }
 
@@ -117,18 +117,18 @@ summary(HxCxJS_D6)
 #####
 ##Join all into one dataframe
 
-HC_All <- rbind(HxCxJS_D3, HxCxJS_D4, HxCxJS_D5, HxCxJS_D6)
-summary(HC_All)
-save(HC_All, file="HC_MT_All.gzip", compress = TRUE)
+HC_MT50k <- rbind(HxCxJS_D3, HxCxJS_D4, HxCxJS_D5, HxCxJS_D6)
+summary(HC_MT50k)
+save(HC_MT50k, file="HC_MT50k.zip", compress = TRUE)
 
-HC_All$D <- as.factor(HC_All$D)
-
-##
-require(ggplot2)
-
-ggplot(data=HxCxJS_D3, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
-ggplot(data=HxCxJS_D4, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
-ggplot(data=HxCxJS_D5, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
-ggplot(data=HxCxJS_D6, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
-
-ggplot(data=HC_All, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ D)
+# HC_All$D <- as.factor(HC_All$D)
+# 
+# ##
+# require(ggplot2)
+# 
+# ggplot(data=HxCxJS_D3, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
+# ggplot(data=HxCxJS_D4, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
+# ggplot(data=HxCxJS_D5, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
+# ggplot(data=HxCxJS_D6, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ .)
+# 
+# ggplot(data=HC_All, aes(x=H, y=C)) + geom_point() + facet_grid(tau ~ D)
