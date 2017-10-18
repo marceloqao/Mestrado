@@ -11,7 +11,8 @@ quantis.por.fator
 dim(quantis.por.fator)
 typeof(quantis.por.fator)
 
-Rt1N1000 <- subset(quantis.por.fator, Source=="Radio" & tau=="1" & N=="1000")
+Rt1N1000 <- subset(quantis.por.fator, Source=="Radio" & tau=="1" & N=="50k")[,-c(1,2,4)]
+summary(Rt1N1000)
 Rt1N1000
 plot(x=c(min(Rt1N1000$`90%`), max(Rt1N1000$`99.9%`)), y=c(3,6), type="n")
 lines(x=Rt1N1000$`90%`, y=strtoi(Rt1N1000$D), col='red')
@@ -24,3 +25,7 @@ lines(x=Rt1N1000$`90%`, y=strtoi(Rt1N1000$D), col='red')
 lines(x=Rt1N1000$`95%`, y=strtoi(Rt1N1000$D), col='black')
 lines(x=Rt1N1000$`99%`, y=strtoi(Rt1N1000$D), col='blue')
 lines(x=Rt1N1000$`99.9%`, y=strtoi(Rt1N1000$D), col='green')
+
+### Usando ggplot
+meltRt1N1000 <- melt(Rt1N1000) 
+ggplot(data=meltRt1N1000, aes(x=value, y=D)) + geom_point()
