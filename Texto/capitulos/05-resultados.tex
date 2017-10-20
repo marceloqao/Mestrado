@@ -9,16 +9,31 @@
 		{Neste capítulo tratamos os resultados esperados com a realização do trabalho enquanto que no próximo faremos a conclusão alcançada com o mesmo.}} }
 \end{center}
 
-Para cada gerador considerado, cada tamanho de palavra e cada \textit{lag} coletamos \num{52429} sequências disjuntas.
+Trabalhamos com sequências de observações provindas de três geradores: dois físicos (considerados ``verdadeiramente aleatorios'') e um algorítmico (o gerador Mersenne-Twister, que é reputado um dos melhores geradores pseudoaleatórios).
+
+Para cada gerador considerado coletamos sequências disjuntas de tamanho \num{1000} e \num{50000}, de cada tamanho de palavra $D$ e a cada \textit{lag} $\tau$.
+Temos, assim, quatro fatores a serem analisados.
+
 Cada sequência passou pelo processo de simbolização, e foi calculado o histograma dos símbolos.
 Foram então calculados os valores de Entropia e de Complexidade de cada histograma, bem como a distância euclidiana desses valores ao ponto de referência $(1,0)$.
 
-Acompanhando a análise realizada por \citet{NewPermutationEntropy}, calculamos os valores máximo e mínimo, bem como os quantis de ordem $1/1000$, $1/100$, $5/100$ e $10/100$ (arredondadas) das distâncias.
+O primeiro passo consistiu em fazer uma análise visual das distâncias dentro do plano $(H,C)$.
+Dessa análise visual concluímos que é plausível eliminar o fator gerador e, para tanto, aplicamos o teste de Kolmogorov-Smirnov aos pares de distâncias oriundas de distâncias comparáveis, isto é, provindas dos mesmo fatores $N$, $D$ e $\tau$.
+
+Os testes de Kolmogorov-Smirnov não nos fazem rejeitar a hipótese de que os diferentes geradores produzem sequências com idênticas propriedades no que diz respeito à distância ao ponto de referência.
+Assim, nos passos seguintes analisamos o agregado das distâncias provindas dos três geradores considerados.
+
+Acompanhando a análise realizada por \citet{NewPermutationEntropy}, calculamos os quantis de ordem $999/1000$, $1/100$, $5/100$ e $10/100$ das distâncias agrupadas pelos fatores relevantes ($N$, $D$ e $\tau$).
+Com isso, produzimos intervalos de confiança para testar a hipótese de que a
+distância do ponto característico de uma sequência é compatível com a de uma sequência de ruído branco.
+No repositório associado a esta dissertação deixamos disponíveis as funções de distribuição acumuladas dessas distâncias, com as quais é possível calcular o $p$-valor, e não apenas a decisão binária ``rejeita'' ou ``não rejeita''.
 
 \section{Análise global das sequências}
 
+Em todos os casos os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenciar as regiões mais e menos densas.
+
 As figuras~\ref{Fig:ScatterAll_Quant_1k} e~\ref{Fig:ScatterAll_Quant_50k} mostram os planos Entropia-Complexidade com as respectivas curvas de complexidade mínima e máxima para cada par $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com os \num{52429} pontos observados a partir das sequências obtidas pelo gerador quântico tomando $1.000$ e $50.000$ sequências respectivamente.
-Os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenciar as regiões mais e menos densas.
+
 
 \begin{figure}[hbt]
 	\centering
@@ -33,7 +48,7 @@ Os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenci
 \end{figure}
 
 As figuras~\ref{Fig:ScatterAll_Radio_1k} e~\ref{Fig:ScatterAll_Radio_50k} mostram os planos Entropia-Complexidade com as respectivas curvas de complexidade mínima e máxima para cada par $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com os \num{52429} pontos observados a partir das sequências obtidas pelo gerador de rádio tomando $1.000$ e $50.000$ sequências respectivamente.
-Os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenciar as regiões mais e menos densas.
+
 
 \begin{figure}[hbt]
 	\centering
@@ -48,7 +63,7 @@ Os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenci
 \end{figure}
 
 As figuras~\ref{Fig:ScatterAll_MT_1k} e~\ref{Fig:ScatterAll_MT_50k} mostram os planos Entropia-Complexidade com as respectivas curvas de complexidade mínima e máxima para cada par $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com os \num{52429} pontos observados a partir das sequências obtidas pelo gerador Mersenne-Twister tomando $1.000$ e $50.000$ sequências respectivamente.
-Os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenciar as regiões mais e menos densas.
+
 
 \begin{figure}[hbt]
 	\centering
@@ -63,18 +78,18 @@ Os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenci
 \end{figure}
 
 A olho nu, D é um fator relevante pois os diagramas de dispersão mostram comportamentos que merecem uma análise mais aprofundada, por outro lado não temos certeza de como $\tau$ e o gerador influenciam os resultados. Baseado nisto realizamos testes Kolmogorov-Smirnov afim de analisar a inflluência desses dois fatores.
-\begin{table}
-\begin{center}
+
+\begin{table}[hbt]
+\centering
+\caption{Teste de Kolmogorov-Smirnov aplicado a pares de sequências quânticas e de rádio para $1.000$ observações.}\label{my-label}
 \begin{tabular}{c | c | c | c | c}
-\label{my-label}
-  &    $\tau$=1   &   $\tau$=10   &   $\tau$=30   &   $\tau$=50   \\ \hline
-D=3 & 0.18034676 & 0.08582490 & 0.58096350 & 0.32626542 \\
-D=4 & 0.21708776 & 0.60690204 & 0.08116764 & 0.46372312  \\
-D=5 & 0.32388371 & 0.53394280 & 0.46970138 & 0.02768674  \\
-D=6 & 0.61501858 & 0.63403661 & 0.54795745 & 0.15353799  \\
+\toprule
+  &    $\tau=1$   &   $\tau=10$   &   $\tau=30$   &   $\tau=50$   \\ \midrule
+$D=3$ & 0.18034676 & 0.08582490 & 0.58096350 & 0.32626542 \\
+$D=4$ & 0.21708776 & 0.60690204 & 0.08116764 & 0.46372312  \\
+$D=5$ & 0.32388371 & 0.53394280 & 0.46970138 & 0.02768674  \\
+$D=6$ & 0.61501858 & 0.63403661 & 0.54795745 & 0.15353799  \\ \bottomrule
 \end{tabular}
-\caption{Teste de Kolmogorov-Smirnov aplicado a sequências quânticas e de rádio para $1.000$ observações.}
-\end{center}
 \end{table}
 
 %A figura~\ref{Fig:ScatterAllRandom} mostra os planos Entropia-Complexidade com as respectivas curvas de complexidade mínima e máxima para cada par $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com os \num{52429} pontos observados a partir das sequências obtidas pelo gerador de rádio.
@@ -121,7 +136,7 @@ No que segue analisaremos o comportamento dessas distâncias em detalhes.
 \centering
 \subfigure[Escala linear\label{Fig:ScatterQuantD3tau10}]{\includegraphics[width=.48\linewidth]{ScatterQuantD3tau1}}
 \subfigure[Escala logarítmica\label{Fig:ScatterQuantD3tau10log}]{\includegraphics[width=.48\linewidth]{ScatterQuantD3tau10log}}
-\caption{Diagramas de dispersão das sequências quânticas para o caso $D=3$ e $\tau=10$.}\label{Fig:QuantD3tau10}
+\caption{Diagramas de dispersão das sequências quânticas para o caso $D=3$ e $\tau=10$.}\label{Fig:QuantD3tau10log}
 \end{figure}
 
 \begin{figure}[hbt]
@@ -149,7 +164,7 @@ No que segue analisaremos o comportamento dessas distâncias em detalhes.
 	\centering
 	%\subfigure[Escala linear\label{Fig:ScatterRandD3tau1}]{\includegraphics[width=.48\linewidth]{ScatterRandD3tau1}}
 	\subfigure[Escala logarítmica\label{Fig:ScatterRandD3tau1log}]{\includegraphics[width=.48\linewidth]{ScatterRandD3tau1log}}
-	\caption{Diagramas de dispersão das sequências de rádio para o caso $D=3$ e $\tau=1$.}\label{Fig:QuantD3tau1}
+	\caption{Diagramas de dispersão das sequências de rádio para o caso $D=3$ e $\tau=1$.}\label{Fig:RadioD3tau1}
 \end{figure}
 
 \begin{figure}
@@ -167,7 +182,7 @@ Constatamos notáveis diferenças na distribuição espacial dos pontos segundo 
 \begin{figure}
 	\centering
 	%	\subfigure[Escala linear\label{Fig:ScatterRandD3tau10}]{\includegraphics[width=.48\linewidth]{ScatterRandD3tau1}}
-	\subfigure[Intervalos de Confiança\label{Fig:Conf_Int_1k_T1}]{\includegraphics[width=.8\linewidth]{Conf_Int_1k_T1}}
+	\includegraphics[width=.8\linewidth]{Conf_Int_1k_T1}
 	\caption{Intervalos de confiança para o caso $N=1000$ e $\tau=1$.}\label{Fig:Conf_Int_1k_T1}
 \end{figure}
 
