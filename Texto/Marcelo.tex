@@ -83,10 +83,27 @@ pdfview = {XYZ null null null}
 %======================= RESUMO =======================%
 %======================================================%
 \begin{resumo}
-% \noindent 
-% Este trabalho busca comparar alguns geradores de números aleatórios bem conhecidos pela comunidade acadêmica. Geradores de números aleatórios são amplamente utilizados em algoritmos probabilísticos como "Simulated Annealing", Algoritmos Genéticos e GRASP, assumindo assim um importante papel na utilização destes. Primeiramente falaremos sobre o histórico dos geradores de números aleatórios e de geradores em ambientes paralelos. Em seguida faremos a avaliação de alguns geradores segundo as abordagens clássica e numa segunda abordagem baseada na teoria da informação, procurando, desta forma, uma melhoria nos geradores de números pseudoaleatórios. Na sequência, discutiremos a avaliação paralela dos geradores utilizando três geradores disponíveis no R através dos trinta e um testes disponíveis no pacote "Dieharder", além de realizar um teste baseado da teoria da informação, encontrar regiões de confiança no plano (H,C) (Entropia x Complexidade) utilizando como dados de entrada as sequências aleatórias oriundas dos geradores testados. Como contribuição, proporemos uma ferramenta web para realizar os testes de sequências aleatórias.
-% \vspace{1em}
-% \noindent {\bf Palavras-chave}: Geradores de Números Aleatórios. Testes Teóricos. Testes Estatísticos.
+\noindent 
+%O nosso ponto de partida é o desejo de verificar se é estatisticamente viável verificar se sequências de observações são ruído branco no plano (HxC).
+
+O nosso ponto de partida é o desejo de verificar a viabilidade estatística de sequências de observações serem ruído branco no plano (HxC).
+
+Na literatura encontramos diversos trabalhos que fazem isso de forma "ad hoc", verificando se o ponto característico de uma sequência nesse plano é próximo ao ponto (1,0). Contudo, tal como afirma Bandt (2017), não encontramos análises detalhadas que permitam asignar significância estatística a tais afirmações.
+
+Para elucidar essa questão, e diante da impossibilidade de contar com sequências infinitamente longas e que garantidamente sejam ruído branco, coletamos sequências candidatas de três fontes diferentes: duas físicas e uma algorítmica considerada de qualidade.
+
+Analisamos a dispersão dos pontos característicos dessas sequências no plano (HxC) utilizando quatro fatores: o tamanho da sequência, o delay, o tamanho da palavra e a fonte geradora, observando a distância dos pontos característicos ao ponto de referência. Sugiram então evidências de que a fonte geradora seria um fator irrelevante para a análise.
+
+Com o intuito de consolidar essa possibilidade, aplicamos o teste de Kolmogorov-Smirnov a pares de sequências comparáveis, e a verificamos.
+
+Descartada a influência da fonte geradora na nossa análise, agrupamos os dados e procuramos regiões de confiança. Adotamos uma abordagem não-paramétrica por não termos nenhuma evidência teórica acerca da distribuição que segue a distância do ponto característico ao de referência quando é analisada uma sequência finita de ruído branco.
+
+Calculamos então os quantis, respeitados os fatores tamanho da sequência, delay e tamanho da palavra, que servem como regiões de confiança para o teste que deu origem a este trabalho.
+
+Concluimos a dissertação verificando que sequências produzidas por geradores aceitos pela comunidade geram pontos característicos dentro de regiões de confiança, enquanto que um gerador que foi descartado pelas estruturas que as suas sequências apresentam leva a pontos fora dessas mesmas regiões.
+
+\vspace{1em}
+\noindent {\bf Palavras-chave}: Geradores de Números Aleatórios. Testes Teóricos. Testes Estatísticos.
 \end{resumo}
 
 %======================================================%

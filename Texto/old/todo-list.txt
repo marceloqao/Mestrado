@@ -1,4 +1,0 @@
-ToDo list
-
-buscar a referência {Almiron2009} no trabalho do Torres
-verificar se os Hiperlinks continuam funcionando depois de comentar a linha % \RequirePackage[dvips]{hyperref} % em ic.cls

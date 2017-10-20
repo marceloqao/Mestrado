@@ -17,32 +17,83 @@ Acompanhando a análise realizada por \citet{NewPermutationEntropy}, calculamos 
 
 \section{Análise global das sequências}
 
-A figura~\ref{Fig:ScatterAllQuantic} mostra os planos Entropia-Complexidade com as respectivas curvas de complexidade mínima e máxima para cada par $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com os \num{52429} pontos observados a partir das sequências obtidas pelo gerador quântico.
-Os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenciar as regiões mais e menos densas.
-
-\begin{figure}[hbt]
-\centering
-\includegraphics[width=\linewidth]{ScatterAllQuantic}
-\caption{Diagramas de dispersão das sequências quânticas para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAllQuantic}
-\end{figure}
-
-A figura~\ref{Fig:ScatterAllRandom} mostra os planos Entropia-Complexidade com as respectivas curvas de complexidade mínima e máxima para cada par $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com os \num{52429} pontos observados a partir das sequências obtidas pelo gerador de rádio.
+As figuras~\ref{Fig:ScatterAll_Quant_1k} e~\ref{Fig:ScatterAll_Quant_50k} mostram os planos Entropia-Complexidade com as respectivas curvas de complexidade mínima e máxima para cada par $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com os \num{52429} pontos observados a partir das sequências obtidas pelo gerador quântico tomando $1.000$ e $50.000$ sequências respectivamente.
 Os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenciar as regiões mais e menos densas.
 
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=\linewidth]{ScatterAllRandom}
-	\caption{Diagramas de dispersão das sequências de rádio para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAllRandom}
+	\includegraphics[width=\linewidth]{ScatterAll_Quant_1k}
+	\caption{Diagramas de dispersão das sequências quânticas com $1.000$ observações para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAll_Quant_1k}
 \end{figure}
 
-A figura~\ref{Fig:ScatterAllMT} mostra os planos Entropia-Complexidade com as respectivas curvas de complexidade mínima e máxima para cada par $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com os \num{52429} pontos observados a partir das sequências obtidas pelo gerador de Mersenne-Twister.
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=\linewidth]{ScatterAll_Quant_50k}
+	\caption{Diagramas de dispersão das sequências quânticas com $50.000$ observações para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAll_Quant_50k}
+\end{figure}
+
+As figuras~\ref{Fig:ScatterAll_Radio_1k} e~\ref{Fig:ScatterAll_Radio_50k} mostram os planos Entropia-Complexidade com as respectivas curvas de complexidade mínima e máxima para cada par $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com os \num{52429} pontos observados a partir das sequências obtidas pelo gerador de rádio tomando $1.000$ e $50.000$ sequências respectivamente.
 Os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenciar as regiões mais e menos densas.
 
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=\linewidth]{ScatterAllMT}
-	\caption{Diagramas de dispersão das sequências de Mersenne-Twister para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAllMT}
+	\includegraphics[width=\linewidth]{ScatterAll_Radio_1k}
+	\caption{Diagramas de dispersão das sequências de rádio com $1.000$ observações para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAll_Radio_1k}
 \end{figure}
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=\linewidth]{ScatterAll_Radio_50k}
+	\caption{Diagramas de dispersão das sequências de rádio com $50.000$ observações para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAll_Radio_50k}
+\end{figure}
+
+As figuras~\ref{Fig:ScatterAll_MT_1k} e~\ref{Fig:ScatterAll_MT_50k} mostram os planos Entropia-Complexidade com as respectivas curvas de complexidade mínima e máxima para cada par $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com os \num{52429} pontos observados a partir das sequências obtidas pelo gerador Mersenne-Twister tomando $1.000$ e $50.000$ sequências respectivamente.
+Os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenciar as regiões mais e menos densas.
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=\linewidth]{ScatterAll_MT_1k}
+	\caption{Diagramas de dispersão das sequências de Mersenne-Twister com $1.000$ observações para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAll_MT_1k}
+\end{figure}
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=\linewidth]{ScatterAll_MT_50k}
+	\caption{Diagramas de dispersão das sequências de Mersenne-Twister com $50.000$ observações para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAll_MT_50k}
+\end{figure}
+
+A olho nu, D é um fator relevante pois os diagramas de dispersão mostram comportamentos que merecem uma análise mais aprofundada, por outro lado não temos certeza de como $\tau$ e o gerador influenciam os resultados. Baseado nisto realizamos testes Kolmogorov-Smirnov afim de analisar a inflluência desses dois fatores.
+\begin{table}
+\begin{center}
+\begin{tabular}{c | c | c | c | c}
+\label{my-label}
+  &    $\tau$=1   &   $\tau$=10   &   $\tau$=30   &   $\tau$=50   \\ \hline
+D=3 & 0.18034676 & 0.08582490 & 0.58096350 & 0.32626542 \\
+D=4 & 0.21708776 & 0.60690204 & 0.08116764 & 0.46372312  \\
+D=5 & 0.32388371 & 0.53394280 & 0.46970138 & 0.02768674  \\
+D=6 & 0.61501858 & 0.63403661 & 0.54795745 & 0.15353799  \\
+\end{tabular}
+\caption{Teste de Kolmogorov-Smirnov aplicado a sequências quânticas e de rádio para $1.000$ observações.}
+\end{center}
+\end{table}
+
+%A figura~\ref{Fig:ScatterAllRandom} mostra os planos Entropia-Complexidade com as respectivas curvas de complexidade mínima e máxima para cada par $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com os \num{52429} pontos observados a partir das sequências obtidas pelo gerador de rádio.
+%Os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenciar as regiões mais e menos densas.
+%
+%\begin{figure}[hbt]
+%	\centering
+%	\includegraphics[width=\linewidth]{ScatterAllRandom}
+%	\caption{Diagramas de dispersão das sequências de rádio para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAllRandom}
+%\end{figure}
+%
+%A figura~\ref{Fig:ScatterAllMT} mostra os planos Entropia-Complexidade com as respectivas curvas de complexidade mínima e máxima para cada par $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com os \num{52429} pontos observados a partir das sequências obtidas pelo gerador de Mersenne-Twister.
+%Os pontos foram desenhados com \SI{1}{\percent} de transparência, para evidenciar as regiões mais e menos densas.
+%
+%\begin{figure}[hbt]
+%	\centering
+%	\includegraphics[width=\linewidth]{ScatterAllMT}
+%	\caption{Diagramas de dispersão das sequências de Mersenne-Twister para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAllMT}
+%\end{figure}
 
 Antes de analisar os diagramas de dispersão, analisaremos a distribuição empírica das distâncias ao ponto de referência.
 
@@ -113,6 +164,11 @@ Constatamos notáveis diferenças na distribuição espacial dos pontos segundo 
 
 \section{Análise das sequências Mersenne-Twister}
 
-
+\begin{figure}
+	\centering
+	%	\subfigure[Escala linear\label{Fig:ScatterRandD3tau10}]{\includegraphics[width=.48\linewidth]{ScatterRandD3tau1}}
+	\subfigure[Intervalos de Confiança\label{Fig:Conf_Int_1k_T1}]{\includegraphics[width=.8\linewidth]{Conf_Int_1k_T1}}
+	\caption{Intervalos de confiança para o caso $N=1000$ e $\tau=1$.}\label{Fig:Conf_Int_1k_T1}
+\end{figure}
 
 
