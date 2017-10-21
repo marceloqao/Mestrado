@@ -407,7 +407,7 @@ Instituto de Computação da Universidade Federal de Alagoas.
   \framebox[14.5cm][l]{
    \parbox{14.4cm}{
     \mbox{}\newline
-    T693n\hspace{.7cm} Oliveira, Marcelo Queiroz de Assis.\newline
+    T693n\hspace{.7cm}Oliveira, Marcelo Queiroz de Assis.\newline
     \mbox{}\hspace{1.9cm}\parbox{12.3cm}{
     \begin{flushleft}
       \mbox{}\hspace{.5cm}\@titulo -- 2015\\
@@ -459,7 +459,7 @@ Bacharel em Ciência da Computação do Instituto de Computação da Universidad
 Federal de Alagoas, aprovada pela comissão examinadora que abaixo assina.}%
         {
  Membros da Comissão Julgadora da Dissertação de Mestrado de 
- Marcelo Queiroz de Assis Oliveira, intitulada ``Geradores de N\'umeros Aleat\'orios, um estudo comparativo utilizando a linguagem R'', 
+ Marcelo Queiroz de Assis Oliveira, intitulada ``Análise de geradores de números pseudo aleatórios através de técnicas da teoria da informação.'', 
  apresentada ao Programa de Pós-Graduação em Modelagem Computacional de Conhecimento 
  da Universidade Federal de Alagoas em 30 de marco de 2015, às 10h00min, 
  na sala de aula do Mestrado em Modelagem Computacional de Conhecimento.

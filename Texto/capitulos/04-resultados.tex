@@ -78,70 +78,67 @@ As figuras~\ref{Fig:ScatterAll_MT_1k} e~\ref{Fig:ScatterAll_MT_50k} mostram os p
 
 A olho nu, $D$ é um fator relevante pois os diagramas de dispersão mostram comportamentos que merecem uma análise mais aprofundada, por outro lado não temos certeza de como $\tau$ e o gerador influenciam os resultados. 
 
-A figura~\ref{fig:GeradorIrrelevante} mostra os histogramas suavizados das distâncias para palavras de tamanho $D=6$, os dois tamanhos de sequências ($N=1.000$, $50.000$) e quatro valores de \textit{lag} ($\tau=1$, $10$, $30$, $50$), sobrepondo os três geradores.
+As figuras~\ref{fig:GeradorIrrelevante1k} e~\ref{fig:GeradorIrrelevante50k} mostram os histogramas suavizados das distâncias para sequências de tamanho ($N=1.000$, $50.000$) respectivamente, com palavras de tamanho $D=6$  e valores de \textit{lag} ($\tau=1, 50$), sobrepondo os três geradores.
 Os gráficos sugerem que o gerador é um fator irrelevante para a distribuição da distância.
 
-\begin{figure}
-\centering
-\subfigure[$D=6$, $N=1.000$]{\includegraphics[width=.48\linewidth]{Hist_D6_1k}}
-\subfigure[$D=6$, $N=50.000$]{\includegraphics[width=.48\linewidth]{Hist_D6_50k}}
-%D=6
-%N 1000 t1 t 50
-%N 50000 t1 t 50
-\caption{Histogramas suavizados de situações que sugerem que o gerador é um fator irrelevante}\label{fig:GeradorIrrelevante}
+\begin{figure} %D=6 %N 1000 t1 t 50
+	\centering
+		\subfigure[$D=6, \tau=1$]{\includegraphics[width=.48\linewidth]{Hist_D6_1k_t1}}
+		\subfigure[$D=6, \tau=50$]{\includegraphics[width=.48\linewidth]{Hist_D6_1k_t50}}
+		\caption{Histogramas suavizados de situações que sugerem que o gerador é um fator irrelevante para $N=1.000$}\label{fig:GeradorIrrelevante1k}
+\end{figure}
+
+\begin{figure} %D=6 %N 50000 t1 t 50
+	\centering
+		\subfigure[$D=6, \tau=1$]{\includegraphics[width=.48\linewidth]{Hist_D6_50k_t1}}
+		\subfigure[$D=6, \tau=50$]{\includegraphics[width=.48\linewidth]{Hist_D6_50k_t50}}
+		\caption{Histogramas suavizados de situações que sugerem que o gerador é um fator irrelevante também para $N=50.000$}\label{fig:GeradorIrrelevante50k}
 \end{figure}
 
 A figura~\ref{fig:NRelevante} mostra os histogramas suavizados das distâncias dos três geradores para palavras de tamanho $D=6$ e dois valores de \textit{lag} ($\tau=1$, $50$), sobrepondo os resultados obtidos com os dois tamanhos de sequências ($N=1.000$, $50.000$).
 Os gráficos sugerem fortemente que o tamanho das sequências é um fator relevante para a distribuição da distância.
 
-\begin{figure}
-\centering
-\subfigure[$D=6$, $\tau=1$]{\includegraphics[width=.48\linewidth]{Hist_D6_t1}}
-\subfigure[$D=6$, $\tau=50$]{\includegraphics[width=.48\linewidth]{Hist_D6_t50}}
-%D=6
-%t 1 N 1000 N 50000 (três geradores)
-%t 50 N 1000 N 50000 (três geradores)
-\caption{Histogramas suavizados de situações que sugerem que o $N$ é um fator relevante}\label{fig:NRelevante}
+\begin{figure} %D=6 %t 1 N 1000 N 50000 (três geradores) %t 50 N 1000 N 50000 (três geradores)
+	\centering
+		\subfigure[$D=6$, $\tau=1$]{\includegraphics[width=.48\linewidth]{Hist_D6_t1}}
+		\subfigure[$D=6$, $\tau=50$]{\includegraphics[width=.48\linewidth]{Hist_D6_t50}}
+	\caption{Histogramas suavizados de situações que sugerem que o $N$ é um fator relevante}\label{fig:NRelevante}
 \end{figure}
 
 A figura~\ref{fig:DRelevante} mostra os histogramas suavizados das distâncias dos três geradores para dois tamanhos de sequências ($N=1.000$, $50.000$) e dois valores de \textit{lag} ($\tau=1$, $50$), sobrepondo os resultados obtidos com os diferentes tamanhos de palavras ($D=3$, $4$, $5$, $6$).
 Os gráficos sugerem fortemente que o tamanho das palavras é um fator relevante para a distribuição da distância.
 
-\begin{figure}
-\centering
-\subfigure[$\tau=1$, $D=1.000$]{\includegraphics[width=.48\linewidth]{Hist_t1_1k}}
-\subfigure[$D=6$, $\tau=50$]{\includegraphics[width=.48\linewidth]{Hist_t50_50k}}
-%t 1 N 1000, D 3 D 4 D 5 D 6
-%t 50 N 50000, D 3 D 4 D 5 D 6
-\caption{Histogramas suavizados de situações que sugerem que o $D$ é um fator relevante}\label{fig:DRelevante}
+\begin{figure} %t 1 N 1000, D 3 D 4 D 5 D 6 %t 50 N 50000, D 3 D 4 D 5 D 6
+	\centering
+		\subfigure[$\tau=1$, $D=1.000$]{\includegraphics[width=.48\linewidth]{Hist_t1_1k}}
+		\subfigure[$D=6$, $\tau=50$]{\includegraphics[width=.48\linewidth]{Hist_t50_50k}}
+	\caption{Histogramas suavizados de situações que sugerem que o $D$ é um fator relevante}\label{fig:DRelevante}
 \end{figure}
 
 % % % ACF ATÉ AQUI
 
-\begin{figure}
-\centering
-\subfigure[$\tau=1$, $D=1.000$]{\includegraphics[width=.48\linewidth]{Hist_D6_1k}}
-\subfigure[$D=6$, $\tau=50$]{\includegraphics[width=.48\linewidth]{Hist_D6_50k}}
-%D 6
-%N 1000, t 1 t 10 t 30 t 50
-%N 50000, t 1 t 10 t 30 t 50
+\begin{figure} %D 6 %N 1000, t 1 t 10 t 30 t 50 %N 50000, t 1 t 10 t 30 t 50
+	\centering
+	\subfigure[$\tau=1$, $D=1.000$]{\includegraphics[width=.48\linewidth]{Hist_D6_1k}}
+	\subfigure[$D=6$, $\tau=50$]{\includegraphics[width=.48\linewidth]{Hist_D6_50k}}
 \caption{Histogramas suavizados de situações que sugerem que o $\tau$ é um fator relevante}\label{fig:tRelevante}
 \end{figure}
 
 Para consolidar esta análise realizamos a seguir testes Kolmogorov-Smirnov afim de analisar a inflluência desses dois fatores.
 
 \begin{table}[hbt]
-\centering
-\caption{Teste de Kolmogorov-Smirnov aplicado a pares de sequências quânticas e de rádio para $1.000$ observações.}\label{KS_Quantum_x_Radio_1k}
-\begin{tabular}{c | c | c | c | c}
-\toprule
-  &    $\tau=1$   &   $\tau=10$   &   $\tau=30$   &   $\tau=50$   \\ \midrule
-$D=3$ & 0.18034676 & 0.08582490 & 0.58096350 & 0.32626542 \\
-$D=4$ & 0.21708776 & 0.60690204 & 0.08116764 & 0.46372312  \\
-$D=5$ & 0.32388371 & 0.53394280 & 0.46970138 & 0.02768674  \\
-$D=6$ & 0.61501858 & 0.63403661 & 0.54795745 & 0.15353799  \\ \bottomrule
-\end{tabular}
-\end{table}
+	\centering
+	\caption{Teste de Kolmogorov-Smirnov aplicado a pares de sequências quânticas e de rádio para $1.000$ observações.}\label{KS_Quantum_x_Radio_1k}
+	\begin{tabular}{c | c | c | c | c}
+		\toprule
+		  &    $\tau=1$   &   $\tau=10$   &   $\tau=30$   &   $\tau=50$   \\ \midrule
+		$D=3$ & 0.18034676 & 0.08582490 & 0.58096350 & 0.32626542 \\
+		$D=4$ & 0.21708776 & 0.60690204 & 0.08116764 & 0.46372312  \\
+		$D=5$ & 0.32388371 & 0.53394280 & 0.46970138 & 0.02768674  \\
+		$D=6$ & 0.61501858 & 0.63403661 & 0.54795745 & 0.15353799  \\ 
+		\bottomrule
+	\end{tabular}
+	\end{table}
 
 \begin{table}[hbt]
 	\centering

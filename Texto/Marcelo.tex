@@ -46,6 +46,7 @@ pdfview = {XYZ null null null}
 %======================================================%
 %================ CAPA DA DISSERTAÇÃO =================%
 %======================================================%
+
 \titulo{Análise de geradores de números pseudo aleatórios através de técnicas da teoria da informação.}
 
 \autor{Marcelo Queiroz de Assis Oliveira}{marceloqao@gmail.com}{http://sites.google.com/site/marceloqao/}
@@ -54,13 +55,13 @@ pdfview = {XYZ null null null}
 
 \orientadorDois{Dr. Heitor Soares Ramos Filho}{https://sites.google.com/a/ic.ufal.br/heitor/}{Instituto de Computação}{Universidade Federal de Alagoas}
 
-\examinador{Dr. Osvaldo Anibal Rosso}{oarosso@gmail.com}{Pesquisador Visitante -- Instituto de Computação}{Universidade Federal de Alagoas}
+\examinador{Dr. Osvaldo Anibal Rosso}{oarosso@gmail.com}{Instituto de Física}{Universidade Federal de Alagoas}
 
-\examinadorDois{Dra.\ Juliana Gambini}{}{}{Instituto Tecnológico de Buenos Aires}
+\examinadorDois{Dra.\ Juliana Gambini}{ }{ }{Instituto Tecnológico de Buenos Aires}
 
 % \examinadorQuatro{Examinador 4}{ex4@email.com}{Instituto ou Departamento}{Universidade do Examinador 4}
 
-\dataMesAno{Setembro}{2015}
+\dataMesAno{Novembro}{2017}
 
 \begin{document}
 
@@ -87,24 +88,24 @@ pdfview = {XYZ null null null}
 
 %O nosso ponto de partida é o desejo de verificar se é estatisticamente viável verificar se sequências de observações são ruído branco no plano (HxC).
 
-O nosso ponto de partida é o desejo de verificar a viabilidade estatística de sequências de observações serem ruído branco no plano (HxC).
+O nosso ponto de partida é o desejo de verificar a viabilidade estatística de sequências de observações serem ruído branco no plano ($HxC$).
 
-Na literatura encontramos diversos trabalhos que fazem isso de forma "ad hoc", verificando se o ponto característico de uma sequência nesse plano é próximo ao ponto (1,0). Contudo, tal como afirma \citet{NewPermutationEntropy}, não encontramos análises detalhadas que permitam asignar significância estatística a tais afirmações.
+Na literatura encontramos diversos trabalhos que fazem isso de forma ``ad hoc'', verificando se o ponto característico de uma sequência nesse plano é próximo ao ponto ($1,0$). Contudo, tal como afirma \citet{NewPermutationEntropy}, não encontramos análises detalhadas que permitam asignar significância estatística a tais afirmações.
 
 Para elucidar essa questão, e diante da impossibilidade de contar com sequências infinitamente longas e que garantidamente sejam ruído branco, coletamos sequências candidatas de três fontes diferentes: duas físicas e uma algorítmica considerada de qualidade.
 
-Analisamos a dispersão dos pontos característicos dessas sequências no plano (HxC) utilizando quatro fatores: o tamanho da sequência, o delay, o tamanho da palavra e a fonte geradora, observando a distância dos pontos característicos ao ponto de referência. Sugiram então evidências de que a fonte geradora seria um fator irrelevante para a análise.
+Analisamos a dispersão dos pontos característicos dessas sequências no plano ($HxC$) utilizando quatro fatores: o tamanho da sequência ($N$), o tamanho da palavra ($D$), o \textit{delay} $(\tau)$ e a fonte geradora, observando a distância dos pontos característicos ao ponto de referência. Sugiram então evidências de que a fonte geradora seria um fator irrelevante para a análise.
 
-Com o intuito de consolidar essa possibilidade, aplicamos o teste de Kolmogorov-Smirnov a pares de sequências comparáveis, e a verificamos.
+Com o intuito de consolidar essa possibilidade, aplicamos o teste de \textit{Kolmogorov-Smirnov} a pares de sequências comparáveis, e a verificamos.
 
 Descartada a influência da fonte geradora na nossa análise, agrupamos os dados e procuramos regiões de confiança. Adotamos uma abordagem não-paramétrica por não termos nenhuma evidência teórica acerca da distribuição que segue a distância do ponto característico ao de referência quando é analisada uma sequência finita de ruído branco.
 
-Calculamos então os quantis, respeitados os fatores tamanho da sequência, delay e tamanho da palavra, que servem como regiões de confiança para o teste que deu origem a este trabalho.
+Calculamos então os quantis, respeitados os fatores tamanho da sequência ($N$), tamanho da palavra ($D$) e \textit{delay} ($\tau$), que servem como regiões de confiança para o teste que deu origem a este trabalho.
 
 Concluimos a dissertação verificando que sequências produzidas por geradores aceitos pela comunidade geram pontos característicos dentro de regiões de confiança, enquanto que um gerador que foi descartado pelas estruturas que as suas sequências apresentam leva a pontos fora dessas mesmas regiões.
 
 \vspace{1em}
-\noindent {\bf Palavras-chave}: Geradores de Números Aleatórios. Testes Teóricos. Testes Estatísticos.
+\noindent {\bf Palavras-chave}: Geradores de Números Aleatórios. Testes Teóricos. Testes Estatísticos. Teoria da Informação.
 \end{resumo}
 
 %======================================================%
@@ -112,10 +113,26 @@ Concluimos a dissertação verificando que sequências produzidas por geradores 
 %======================================================%
 \selectlanguage{english}
 \begin{abstract}
-% \noindent
-% This work aims to compare some Random Numbers Generators well known by the Scientific Community. Random Numbers Generators (RNG's) are used in probabilistic algorithms, such the Simulated Annealing, Genetics algorithms and GRASP. Also, the use of a robust RNG method is key factor to the success of a simulation. To introduce, some theoretic concepts about generators will be showed
-% \vspace{1em}
-\noindent {\bf Keywords}: Random Number Generators. Theoretical tests. Statistical Tests.
+\noindent
+Our starting point is the desire to verify the statistical feasibility of sequences of observations are white noise in the plane ($HxC$).
+
+In the literature we find several works that do this in an "ad hoc" way, verifying if the characteristic point of a sequence in that plane is close to the point ($1,0$).
+
+However, as \citet{NewPermutationEntropy} states, we do not find detailed analyzes to assign statistical significance to such statements.
+
+To elucidate this question, and in the face of the impossibility of counting infinitely long sequences that are guaranteed to be white noise, we collected candidate sequences of three different sources: two physical and one algorithmic considered as a good source.
+
+We analyze the dispersion of the characteristic points of these sequences in the plane ($HxC$) using four factors: the size of the sequence ($N$), the size of the word ($D$), the delay ($\tau$) and the generating source, observing the distance from the characteristic points to the reference point.
+
+Then evidence suggests that the source would be a factor that is irrelevant to the analysis. In order to consolidate this possibility, we applied the \textit{Kolmogorov-Smirnov} test to pairs of comparable sequences, and we verify it.
+Having discarded the influence of the generating source in our analysis, we grouped the data and searched trust regions. We adopted a non-parametric approach because we did not have no theoretical evidence about the distribution that follows the distance from the characteristic point to the reference when a finite sequence of white noise is analyzed.
+
+We then calculated the quantiles, respecting the factors sequence size ($N$), size of the word ($D$) and delay ($\tau$), which serve as trust regions for the test that gave rise to this work.
+
+We conclude the dissertation by verifying that sequences produced by community accepted generators generate characteristic points within trust regions, while a generator that has been discarded by the structures that its sequences present leads to points outside these regions.
+\vspace{1em}
+\noindent 
+{\bf Keywords}: Random Number Generators. Theoretical tests. Statistical Tests. Information theory.
 \end{abstract}
 
 %======================================================%
@@ -182,10 +199,10 @@ Marcelo Queiroz de A. Oliveira
 % 
 
 \include{./capitulos/01-introducao}
-\include{./capitulos/02-fundamentacao}
-\include{./capitulos/04-proposta}
-\include{./capitulos/05-resultados}
-\include{./capitulos/06-conclusao}
+\include{./capitulos/02-delimitacao-do-problema}
+\include{./capitulos/03-proposta}
+\include{./capitulos/04-resultados}
+\include{./capitulos/05-conclusao}
 
 % Apêndices e Anexos
 % \appendix
