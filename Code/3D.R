@@ -7,7 +7,7 @@ MMersenneTwister <- matrix(data=runif(50000*3), nrow = 50000, ncol = 3)
 plot3d(MMersenneTwister)
 
 
-seed <- as.double(1)
+sseed <- as.double(1)
 RANDU <- function() {
   seed <<- ((2^16 + 3) * seed) %% (2^31)
   seed/(2^31)

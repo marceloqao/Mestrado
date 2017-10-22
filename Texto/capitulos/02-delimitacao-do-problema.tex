@@ -28,9 +28,9 @@ Existem dois tipos básicos de geradores utilizados para produzir sequências al
 
 \section{Principais Testes Clássicos} %Revisão Cronológica/Conceitual
 
-Existem duas abordagens para testar-se a capacidade de um GNPA gerar sequências ditas aleatórias, segundo \citep{LEcuyer:92} são elencados em teóricos e empíricos, os testes teóricos são bastante específicos para cada tipo de gerador, pois analisam o comportamento das sequências, já os testes empíricos valem-se de técnicas estatísticas objetivando avaliar o quão boas são as sequências produzidas por um determinado gerador, neste trabalho propomos um teste não paramétrico baseado em ferramentas da teoria da informação, na seção a seguir daremos uma breve introdução cronológica aos testes disponíveis na literatura e ao estado da arte.
+Existem duas abordagens para testar-se a capacidade de um GNPA gerar sequências ditas aleatórias, segundo \citet{LEcuyer:92} são elencados em teóricos e empíricos, os testes teóricos são bastante específicos para cada tipo de gerador, pois analisam o comportamento das sequências, já os testes empíricos valem-se de técnicas estatísticas objetivando avaliar o quão boas são as sequências produzidas por um determinado gerador, neste trabalho propomos um teste não paramétrico baseado em ferramentas da teoria da informação, na seção a seguir daremos uma breve introdução cronológica aos testes disponíveis na literatura e ao estado da arte.
   
- \subsection{Diehard}
+% \subsection{Diehard}
  
  \subsection{NIST}
   Fundado em 1991, o NIST (Instituto Nacional de Padrões e Tecnologia) é uma agência não regulatória do Departamento de Comércio dos Estados Unidos da América (EUA) que tem por missão promover a inovação e a competitividade nos EUA através da ciência de medidas, padrões e tecnologia de forma a alavancar a segurança econômica e melhorar a qualidade de vida do povo americano.
@@ -159,9 +159,38 @@ Existem duas abordagens para testar-se a capacidade de um GNPA gerar sequências
 %   \item \textbf{DAB Monobit 2 Test. Id(209)} - Block-monobit test. Since we don't know what block size to use, try multiple block sizes. In particular, try all block sizes of $2^k$ words, where k={0 \dots n}.  The value of n is calculated from the word size of the generator and the sample size used, and is shown as ntuple.
 % \end{itemize} 
 
-  \subsection{ENT}
+%  \subsection{ENT}
   
-  \subsection{TestU01}
+%  \subsection{TestU01}
+
+\subsection{Visualização}
+
+O intuito desses testes é a verificação de que os dados produzidos por um gerador, seja ele algoritmico ou físico, não se afastam significativamente da hipótese de serem eventos de variáveis independentes e identicamente distribuídas segundo uma lei Uniforme no intervalo $(0,1]$.
+
+Verificar que os dados seguem uma lei Uniforme é relativamente simples, e há para eles uma bateria de testes que observam diversas propriedades.
+
+A componente mais difícil é a de verificar a independência, por se tratar de independência coletiva e não apenas aos pares.
+
+A falta de independência de uma sequência de $N$ pontos pode se manifestar de várias maneiras.
+Uma dela é quando os pontos jazem em subespaços de dimensão menor a $N$, ao invés de preencher o espaço por completo.
+
+As figuras~\ref{fig:3DMT} e~\ref{fig:3DRandu} mostram sequências de três pontos não sobrepostos desenhadas no cubo unitário.
+A primeira perspectiva (figs.~\ref{MTa} e~\ref{Ra}) mostram uma perspectiva dos pontos que não levanta nenhuma suspeita.
+Já as figuras~\ref{MTb} e~\ref{Rb} mostram que as sequências produzidas pelo gerador RANDU não preenchem o espaço, mas ficam confinadas a alguns planos, enquanto que as produzidas por Mersenne-Twister não apresentam essa deficiência.
+
+\begin{figure}[hbt]
+\centering
+\subfigure[Primeira perspectiva\label{MTa}]{\includegraphics[width=.48\linewidth]{MT3D}}
+\subfigure[Segunda perspectiva\label{MTb}]{\includegraphics[width=.48\linewidth]{MT3Dsubspace}}
+\caption{Visualização 3D de sequências disjuntas produzidas pelo gerador Mersenne-Twister}\label{fig:3DMT}
+\end{figure}
+
+\begin{figure}[hbt]
+\centering
+\subfigure[Primeira perspectiva\label{Ra}]{\includegraphics[width=.48\linewidth]{Randu3D}}
+\subfigure[Segunda perspectiva\label{Rb}]{\includegraphics[width=.48\linewidth]{Randu3Dsubspace}}
+\caption{Visualização 3D de sequências disjuntas produzidas pelo gerador RANDU}\label{fig:3DRandu}
+\end{figure}
 
 \section{Delimitação do problema} %Delimitação do problema  
 

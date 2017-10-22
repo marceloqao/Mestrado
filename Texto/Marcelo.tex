@@ -47,7 +47,7 @@ pdfview = {XYZ null null null}
 %================ CAPA DA DISSERTAÇÃO =================%
 %======================================================%
 
-\titulo{Análise de geradores de números pseudo aleatórios através de técnicas da teoria da informação.}
+\titulo{Análise de geradores de números aleatórios e pseudoaleatórios através de técnicas da teoria da informação}
 
 \autor{Marcelo Queiroz de Assis Oliveira}{marceloqao@gmail.com}{http://sites.google.com/site/marceloqao/}
 
@@ -94,9 +94,9 @@ Na literatura encontramos diversos trabalhos que fazem isso de forma ``ad hoc'',
 
 Para elucidar essa questão, e diante da impossibilidade de contar com sequências infinitamente longas e que garantidamente sejam ruído branco, coletamos sequências candidatas de três fontes diferentes: duas físicas e uma algorítmica considerada de qualidade.
 
-Analisamos a dispersão dos pontos característicos dessas sequências no plano ($HxC$) utilizando quatro fatores: o tamanho da sequência ($N$), o tamanho da palavra ($D$), o \textit{delay} $(\tau)$ e a fonte geradora, observando a distância dos pontos característicos ao ponto de referência. Sugiram então evidências de que a fonte geradora seria um fator irrelevante para a análise.
+Analisamos a dispersão dos pontos característicos dessas sequências no plano ($H\times C$) utilizando quatro fatores: o tamanho da sequência ($N$), o tamanho da palavra ($D$), o \textit{delay} $(\tau)$ e a fonte geradora, observando a distância dos pontos característicos ao ponto de referência. Sugiram então evidências de que a fonte geradora seria um fator irrelevante para a análise.
 
-Com o intuito de consolidar essa possibilidade, aplicamos o teste de \textit{Kolmogorov-Smirnov} a pares de sequências comparáveis, e a verificamos.
+Com o intuito de consolidar essa possibilidade, aplicamos o teste de Kolmogorov-Smirnov a pares de sequências comparáveis, e a verificamos.
 
 Descartada a influência da fonte geradora na nossa análise, agrupamos os dados e procuramos regiões de confiança. Adotamos uma abordagem não-paramétrica por não termos nenhuma evidência teórica acerca da distribuição que segue a distância do ponto característico ao de referência quando é analisada uma sequência finita de ruído branco.
 
@@ -122,14 +122,15 @@ However, as \citet{NewPermutationEntropy} states, we do not find detailed analyz
 
 To elucidate this question, and in the face of the impossibility of counting infinitely long sequences that are guaranteed to be white noise, we collected candidate sequences of three different sources: two physical and one algorithmic considered as a good source.
 
-We analyze the dispersion of the characteristic points of these sequences in the plane ($HxC$) using four factors: the size of the sequence ($N$), the size of the word ($D$), the delay ($\tau$) and the generating source, observing the distance from the characteristic points to the reference point.
+We analyze the dispersion of the characteristic points of these sequences in the plane ($H\times C$) using four factors: the size of the sequence ($N$), the size of the word ($D$), the delay ($\tau$) and the generating source, observing the distance from the characteristic points to the reference point.
 
-Then evidence suggests that the source would be a factor that is irrelevant to the analysis. In order to consolidate this possibility, we applied the \textit{Kolmogorov-Smirnov} test to pairs of comparable sequences, and we verify it.
+Then evidence suggests that the source would be a factor that is irrelevant to the analysis. In order to consolidate this possibility, we applied the Kolmogorov-Smirnov test to pairs of comparable sequences, and we verify it.
 Having discarded the influence of the generating source in our analysis, we grouped the data and searched trust regions. We adopted a non-parametric approach because we did not have no theoretical evidence about the distribution that follows the distance from the characteristic point to the reference when a finite sequence of white noise is analyzed.
 
 We then calculated the quantiles, respecting the factors sequence size ($N$), size of the word ($D$) and delay ($\tau$), which serve as trust regions for the test that gave rise to this work.
 
 We conclude the dissertation by verifying that sequences produced by community accepted generators generate characteristic points within trust regions, while a generator that has been discarded by the structures that its sequences present leads to points outside these regions.
+
 \vspace{1em}
 \noindent 
 {\bf Keywords}: Random Number Generators. Theoretical tests. Statistical Tests. Information theory.
