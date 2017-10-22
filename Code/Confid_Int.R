@@ -1,13 +1,13 @@
 require(Hmisc)
 
-attach(HC)
+attach(HC_no_MT)
 quant = function(x){quantile(x, probs=c(900/1000, 950/1000, 990/1000, 999/1000), type=4)}
 quantis.por.fator <- summarize(dEuclid, llist(Source, N, D, tau), quant)
 names(quantis.por.fator) <- c( "Source", "N", "D", "tau", "90%", "95%", "99%", "99.9%")
-detach(HC)
+detach(HC_no_MT)
 
 ## N=1000 Tau = 1
-HCN1000tau1melt <- melt(subset(HC, N=="1000" & tau=="50"), measure.vars = "dEuclid")
+HCN1000tau1melt <- melt(subset(HC_no_MT, N=="1000" & tau=="1"), measure.vars = "dEuclid")
 HCN1000tau1melt <- HCN1000tau1melt[,c(5,9)]
 names(HCN1000tau1melt) <- c("D", "dEuclid")
 HCN1000tau1meltQuant <- summarize(dEuclid, llist(D), quant)
@@ -24,6 +24,6 @@ ggplot() +
   theme_light() +
   xlab("D") +
   ylab("Distância Euclidiana") +
-  labs(caption = "(N=1000, tau=50)")
+  labs(caption = "(N=1000, tau=1)")
   
   

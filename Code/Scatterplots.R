@@ -121,9 +121,14 @@ ggplot(data=subset(HC, N=="50k" & Source=="M-T"), aes(x=H, y=C)) +
 # Visualização por grupos
 # Com os pontos de interesse para os quantis
 
-D.current <- 6
+
+# Removing MT from HC Dataframe (Marcelo em 22/10)
+HC_no_MT <- subset(HC, Source!="M-T")
+
+D.current <- 6 
 tau.current <- 50
-HC_subset <- subset(HC, D==D.current & tau==tau.current)
+# HC_subset <- subset(HC, D==D.current & tau==tau.current) #(Marcelo em 22/10)
+HC_subset <- subset(HC_no_MT, D==D.current & tau==tau.current)
 Cinf <- subset(inf, D==D.current)
 Csup <- subset(sup, D==D.current)
 
