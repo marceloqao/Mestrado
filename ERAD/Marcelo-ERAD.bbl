@@ -1,0 +1,108 @@
+\begin{thebibliography}{}
+
+\bibitem[Bandt and Pompe 2002]{Bandt2002}
+Bandt, C. and Pompe, B. (2002).
+\newblock Permutation {E}ntropy: A {N}atural {C}omplexity {M}easure for {T}ime
+  {S}eries.
+\newblock {\em Physical Review Letters}, 88(17):174102--174106.
+
+\bibitem[Cipra 2000]{topten}
+Cipra, B.~A. (2000).
+\newblock The best of the 20th century: Editors name top 10 algorithms.
+\newblock {\em SIAM News}, 33(4):1--2.
+
+\bibitem[Diaconis 2009]{MarkovChainMonteCarloRevolution}
+Diaconis, P. (2009).
+\newblock The {M}arkov {C}hain {M}onte {C}arlo revolution.
+\newblock {\em Bulletin of the American Mathematical Society}, 46(2):180--205.
+
+\bibitem[Gabriel et~al. 2010]{Gabriel2010}
+Gabriel, C., Wittmann, C., Sych, D., Dong, R., Mauerer, W., Andersen, U.~L.,
+  Marquardt, C., and Leuchs, G. (2010).
+\newblock {A generator for unique quantum random numbers based on vacuum
+  states}.
+\newblock {\em Nature Photonics}, 4(10):711--715.
+
+\bibitem[Kendall and Babington-Smith 1938]{Kendall:38}
+Kendall, M.~G. and Babington-Smith, B. (1938).
+\newblock {Randomness and other random sampling numbers}.
+\newblock {\em Journal of the Royal Statistical Society}, 101:147--166.
+
+\bibitem[Knuth 1998]{Knuth:98}
+Knuth, D.~E. (1998).
+\newblock {\em The Art of Computer Programming, Volume 2: (2Nd Ed.)
+  Seminumerical Algorithms}.
+\newblock Addison Wesley Longman Publishing Co., Inc., Redwood City, CA, USA.
+
+\bibitem[Lamberti et~al. 2004]{Lamberti2004}
+Lamberti, P., Martin, M., Plastino, A., and Rosso, O. (2004).
+\newblock Intensive entropic non-triviality measure.
+\newblock {\em Physica {A}: {S}tatistical {M}echanics and its {A}pplications},
+  334(1):119--131.
+
+\bibitem[Larrondo et~al. 2013]{Larrondo:13}
+Larrondo, H.~A., {De Micco}, L., Gonzalez, C.~M., Plastino, A., and Rosso,
+  O.~A. (2013).
+\newblock {Statistical Complexity of Chaotic Pseudorandom Number Generators |
+  BenthamScience}.
+\newblock {\em Concepts and Recent Advances in Generalized Information Measures
+  and Statistics}, pages 283--308.
+
+\bibitem[L'Ecuyer 1992]{LEcuyer:92}
+L'Ecuyer, P. (1992).
+\newblock {Testing Random Number Generators}.
+\newblock In {\em Proceedings of the 1992 Winter Simulation Conference}, pages
+  305--313. {IEEE} Press.
+
+\bibitem[L'Ecuyer 2007]{LEcuyer:98}
+L'Ecuyer, P. (2007).
+\newblock {\em Random Number Generation}, pages 93--137.
+\newblock John Wiley \& Sons, Inc.
+
+\bibitem[L'Ecuyer and Simard 2007]{LEcuyer:07}
+L'Ecuyer, P. and Simard, R. (2007).
+\newblock {{TestU01}: A {C} Library for Empirical Testing of Random Number
+  Generators}.
+\newblock {\em {ACM} Transactions on Mathematical Software}, 33(4):Article 22.
+
+\bibitem[L\'opez-Ruiz et~al. 1995]{Lopez1995}
+L\'opez-Ruiz, R., Mancini, H.~L., and Calbet, X. (1995).
+\newblock A statistical measure of complexity.
+\newblock {\em Physics Letters A}, 209(5-6):321--326.
+
+\bibitem[Marsaglia 1995]{Marsaglia:14}
+Marsaglia, G. (1995).
+\newblock Diehard.
+\newblock \url{http://stat.fsu.edu/pub/diehard/}.
+\newblock Acessado em 11/2014.
+
+\bibitem[Mart\'in et~al. 2006]{Martin2006}
+Mart\'in, M., Plastino, A., and Rosso, O. (2006).
+\newblock Generalized statistical complexity measures: Geometrical and
+  analytical properties.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  369(2):439 -- 462.
+
+\bibitem[NIST 1999]{NIST:99}
+NIST (1999).
+\newblock Nist statistical test suite.
+\newblock \url{http://www.itl.nist.gov/div893/staff/soto/jshome.html}.
+\newblock Acessado em 11/2014.
+
+\bibitem[{R Core Team} 2015]{R2012}
+{R Core Team} (2015).
+\newblock {\em R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+
+\bibitem[Rosso et~al. 2007]{Rosso2007a}
+Rosso, O.~A., Larrondo, H.~A., Martin, M.~T., Plastino, A., and Fuentes, M.~A.
+  (2007).
+\newblock Distinguishing noise from chaos.
+\newblock {\em Physical Review Letters}, 99(15).
+
+\bibitem[Shannon 1948]{Shannon1948}
+Shannon, C.~E. (1948).
+\newblock A {M}athematical {T}heory of {C}ommunication.
+\newblock {\em Bell system technical journal}, 27.
+
+\end{thebibliography}

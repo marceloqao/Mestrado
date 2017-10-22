@@ -52,7 +52,7 @@ Dada uma série temporal a tempo discreto $X = {x_t:1\leq t\leq M}$ de comprimen
 %%% ACF Reescreva usando modo matemático sempre que necessário, e respeitando a notação
 %%% Use o pacote "listings"
 	\item \textbf{Composição dos grupos:} Os conjuntos, ou palavras, de comprimento $D$ e \textit{delay} $\tau$ são definidas por um segmento da série: 
-	 $$ (x_{t+1)},x_{t+\tau},\ldots, x_{t+D\tau}).$$ 
+	 $$ (x_{t+1},x_{t+\tau},\ldots, x_{t+D\tau}).$$ 
 
 	\item \textbf{Formação dos padrões: } Cada palavra é então relacionada a um padrão ordinal $\pi_j$ de ordem $D$, isto é, um elemento indexado univocamente por
 	$$ j\in\{1, 2,\ldots, D-1, D\}. $$
@@ -92,7 +92,7 @@ $$
 
 \section{Regiões de Confiança no Plano Entropia-Complexidade}
 
-Seja $\bm X = (X_1, X_n)$ uma amostra a respeito da qual temos uma conjectura que queremos verificar.
+Seja $\bm X = (X_1, \dots, X_n)$ uma amostra a respeito da qual temos uma conjectura que queremos verificar.
 Essa conjectura é a respeito dos parâmetros que caracterizam a distribuição da amostra, ou a respeito de parâmetros que caracterizam a distribuição de atributos relacionados à distribuição da amostra.
 Chamaremos ``hipótese nula'' àquela que convimos em não rejeitar a não ser que obtenhamos suficiente evidência para isso; a denotaremos $H_0$.
 Por vezes precisaremos da ``hipótese alternativa'', que denotaremos $H_1$.
@@ -112,14 +112,14 @@ A partir dessa análise, pode se ter uma ideia do comportamento global do gerado
 Sob a conjectura de aleatoriedade, cada estatística de teste $T$ tem uma distribuição, que pode ser determinada ou de forma exata ou de forma aproximada, mas sempre precisa ser conhecida.
 Com ela é possível informar o $p$-valor de uma determinada amostra.
 
-Não conhecemos, contudo, a distribuição conjunta do par $(E,JS)$ para uma sequência de variáveis aleatórias coletivamente independente e identicamente distribuída segundo uma lei uniforme.
-Decidimos, então, fazer a análise empírica de dados obtidos de fontes ``confiáveis''.
+Não conhecemos, contudo, a distribuição conjunta do par $(E,JS)$ para uma sequência de variáveis aleatórias coletivamente independente e identicamente distribuídas segundo uma lei uniforme.
+Como também não conhecemos a distribuição do par $(H,C)$ decidimos fazer a análise empírica de dados obtidos de fontes ``confiáveis''.
 
 Para isso, utilizamos três fontes de dados: duas físicas e uma algorítmica.
 As fontes físicas foram dados de medidas de estados quânticos \citep{RNGVacuumStates} (que denominaremos \textit{sequências quânticas}) e de sinais de rádio \citep{RandomHostingAdvice} (que chamaremos \textit{sequências de rádio}).
 A fonte algorítmica é o gerador Mersenne-Twister \citep{Matsumoto98}, considerado um padrão de qualidade de algoritmos de geração de números pseudoaleatórios.
 
-Obtivemos com os autores \num{54000000} de observações de cada gerador, e as submetemos à análise dos padrões de Bandt \& Pompe.
+Obtivemos com os autores \num{54000000} de observações de cada gerador físico, e as submetemos à análise dos padrões de Bandt \& Pompe.
 
 Obtivemos os valores de entropia e complexidade estatística para todas as sequências possíveis de tamanho \num{18000}, palavras de tamanho $D\in\{3, 4, 5, 6\}$ e \textit{lag} $\tau\in\{1, 10, 30,50\}$.
 
@@ -163,7 +163,13 @@ Adicionalmente, para o processamento dos dados das sequências, foi utilizado a 
 \end{table}
 
 
+<<<<<<< HEAD
   Do ponto de vista técnico deste trabalho, foi utilizada a plataforma de análise estatística R. Esta plataforma foi desenvolvida originalmente por Ross Ihaka e Robert Gentleman, com o intuito de ser uma linguagem de código aberto voltada para a análise estatística e, consequentemente, a precisão numérica com fortes características funcionais \citep{Rmanual}. Por este motivo, ela será utilizada para a geração e manipulação das sequências pseudoaleatórias, análise dos dados e geração dos gráficos desse trabalho. A precisão numérica desta ferramenta, sendo aferida por \citet{Almiron:09}, é adequada para essa abordagem.
+=======
+Do ponto de vista técnico deste trabalho, foi utilizada a plataforma de análise estatística R. 
+Esta plataforma foi desenvolvida originalmente por Ross Ihaka e Robert Gentleman, com o intuito de ser uma linguagem de código aberto voltada para a análise estatística e, consequentemente, a precisão numérica com fortes características funcionais \citep{Rmanual}. 
+Por este motivo, ela será utilizada para a geração e manipulação das sequências pseudoaleatórias, análise dos dados e geração dos gráficos desse trabalho. A precisão numérica desta ferramenta, sendo aferida por \citet{Almiron:09}, é adequada para essa abordagem.
+>>>>>>> Avançando
 
   As ferramentas utilizadas no desenvolvimento deste trabalho, são preferencialmente multiplataforma e código aberto com licença de uso \emph{GNU General Public License}~(GPL).
 

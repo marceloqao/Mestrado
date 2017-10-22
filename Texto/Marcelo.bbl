@@ -1,0 +1,176 @@
+\begin{thebibliography}{xx}
+
+\harvarditem[Almiron et al.]{Almiron, Almeida \& Miranda}{2009}{Almiron:09}
+Almiron, M.~G., Almeida, E.~S. \& Miranda, M.~N.  (2009), `{The reliability of
+  statistical functions in four software packages freely used in numerical
+  computation}', {\em Brazilian Journal of Probability and Statistics} {\bf
+  23}(2),~107--119.
+
+\harvarditem[Aquino et al.]{Aquino, Cavalcante, Almeida, Frery \&
+  Rosso}{2015}{CharacterizationVehicleBehaviorInformationTheory}
+Aquino, A. L.~L., Cavalcante, T. S.~G., Almeida, E.~S., Frery, A.~C. \& Rosso,
+  O.~A.  (2015), `Characterization of vehicle behavior with information
+  theory', {\em The European Physical Journal B: Condensed Matter and Complex
+  Systems} {\bf 88}(10),~257--269.
+\newblock URL \url{http://dx.doi.org/10.1140/epjb/e2015-60384-x}.
+
+\harvarditem[Aquino et al.]{Aquino, Ramos, Frery, Viana, Cavalcante \&
+  Rosso}{2017}{CharacterizationElectricLoadInformationTheoryQuantifiers}
+Aquino, A. L.~L., Ramos, H.~S., Frery, A.~C., Viana, L.~P., Cavalcante, T.
+  S.~G. \& Rosso, O.~A.  (2017), `Characterization of electric load with
+  information theory quantifiers', {\em Physica A} {\bf 465},~277--284.
+
+\harvarditem[Bandt]{Bandt}{2017}{NewPermutationEntropy}
+Bandt, C.  (2017), `A new kind of permutation entropy used to classify sleep
+  stages from invisible {EEG} microstructure', {\em Entropy} {\bf 19}(5),~197.
+
+\harvarditem[Bandt \& Pompe]{Bandt \&
+  Pompe}{2002}{PermutationEntropyBandtPompe}
+Bandt, C. \& Pompe, B.  (2002), `Permutation entropy: A natural complexity
+  measure for time series', {\em Physical Review Letters} {\bf
+  88},~174102--1--174102--4.
+
+\harvarditem[Brockwell \& Davis]{Brockwell \& Davis}{1991}{BrockwellDavis91}
+Brockwell, P.~J. \& Davis, R.~A.  (1991), {\em Time Series: Theory and
+  Methods}, 2 ed., Springer-Verlag, Berlin.
+
+\harvarditem[Bustos \& Fraiman]{Bustos \& Fraiman}{1984}{BustosFraiman1984}
+Bustos, O. \& Fraiman, R.  (1984), Robust and nonlinear time series, Vol.~29 of
+  {\em Lectures Notes in Statistics}, Springer, New York, chapter Asymptotic
+  behavior of the estimates based on residual autocovariances for {ARMA}
+  models, pp.~26--49.
+
+\harvarditem[Cabral et al.]{Cabral, Aquino, Frery, Rosso \&
+  Ram\'irez}{2013}{StructuralChangesDataCommunicationWSN}
+Cabral, R.~S., Aquino, A. L.~L., Frery, A.~C., Rosso, O.~A. \& Ram\'irez, J.~A.
+   (2013), `Structural changes in data communication in wireless sensor
+  networks', {\em Central European Journal of Physics} {\bf
+  11}(12),~1645--1652.
+
+\harvarditem[Carpi et al.]{Carpi, Rosso, Saco \& {Gómez
+  Ravetti}}{2011}{ComplexNetworksEvolution}
+Carpi, L.~C., Rosso, O.~A., Saco, P.~M. \& {Gómez Ravetti}, M.  (2011),
+  `Analyzing complex networks evolution through {I}nformation {T}heory
+  quantifiers', {\em Physics Letters A} {\bf 375},~801--804.
+
+\harvarditem[{De Micco} et al.]{{De Micco}, Gonz\'alez, Larrondo, Martin,
+  Plastino \& Rosso}{2008}{De_Micco_2008}
+{De Micco}, L., Gonz\'alez, C.~M., Larrondo, H.~A., Martin, M.~T., Plastino, A.
+  \& Rosso, O.~A.  (2008), `Randomizing nonlinear maps via symbolic dynamics',
+  {\em Physica A: Statistical Mechanics and its Applications} {\bf
+  387}(14),~3373--3383.
+\newblock URL \url{http://dx.doi.org/10.1016/j.physa.2008.02.037}.
+
+\harvarditem[{De Micco} et al.]{{De Micco}, Larrondo, Plastino \&
+  Rosso}{2009}{De_Micco_2009}
+{De Micco}, L., Larrondo, H.~A., Plastino, A. \& Rosso, O.~A.  (2009),
+  `Quantifiers for randomness of chaotic pseudo-random number generators', {\em
+  Philosophical Transactions of the Royal Society A: Mathematical, Physical and
+  Engineering Sciences} {\bf 367}(1901),~3281--3296.
+\newblock URL \url{http://dx.doi.org/10.1098/rsta.2009.0075}.
+
+\harvarditem[Fairfield et al.]{Fairfield, Mortenson \&
+  Coulthart}{1985}{Fairfield:85}
+Fairfield, R.~C., Mortenson, R.~L. \& Coulthart, K.~B.  (1985), {An LSI Random
+  Number Generator (RNG)}, {\em in} `Proceedings of CRYPTO 84 on Advances in
+  Cryptology', Springer-Verlag New York, Inc., New York, NY, USA, pp.~203--230.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=19478.19496}.
+
+\harvarditem[Gabriel et al.]{Gabriel, Wittmann, Sych, Dong, Mauerer, Andersen,
+  Marquardt \& Leuchs}{2010}{RNGVacuumStates}
+Gabriel, C., Wittmann, C., Sych, D., Dong, R., Mauerer, W., Andersen, U.~L.,
+  Marquardt, C. \& Leuchs, G.  (2010), `A generator for unique quantum random
+  numbers based on vacuum states', {\em Nature Photonics} {\bf
+  4}(10),~711--715.
+\newblock URL \url{http://dx.doi.org/10.1038/NPHOTON.2010.197}.
+
+\harvarditem[Knuth]{Knuth}{1998}{Knuth:98}
+Knuth, D.~E.  (1998), {\em The Art of Computer Programming, Volume 2: (2Nd Ed.)
+  Seminumerical Algorithms}, Addison Wesley Longman Publishing Co., Inc.,
+  Redwood City, CA, USA.
+
+\harvarditem[Larrondo et al.]{Larrondo, Mart\'in, Gonz\'alez, Plastino \&
+  Rosso}{2006}{RandomNumberGeneratorsCausality}
+Larrondo, H.~A., Mart\'in, M.~T., Gonz\'alez, C.~M., Plastino, A. \& Rosso,
+  O.~A.  (2006), `Random number generators and causality', {\em Physics Letters
+  A} {\bf 352}(4--5),~421--425.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0375960105018232}.
+
+\harvarditem[L'Ecuyer]{L'Ecuyer}{1992}{LEcuyer:92}
+L'Ecuyer, P.  (1992), {Testing Random Number Generators}, {\em in} `Proceedings
+  of the 1992 Winter Simulation Conference', \{IEEE\} Press, pp.~305--313.
+
+\harvarditem[L'Ecuyer]{L'Ecuyer}{2007}{LEcuyer:98}
+L'Ecuyer, P.  (2007), {\em Random Number Generation}, John Wiley \& Sons, Inc.,
+  pp.~93--137.
+\newblock URL \url{http://dx.doi.org/10.1002/9780470172445.ch4}.
+
+\harvarditem[Martin et al.]{Martin, Plastino \&
+  Rosso}{2006}{GeneralizedStatisticalComplexityMeasuresGeometricalAnalyticalProperties}
+Martin, M.~T., Plastino, A. \& Rosso, O.~A.  (2006), `Generalized statistical
+  complexity measures: Geometrical and analytical properties', {\em Physica A}
+  {\bf 369},~439--462.
+
+\harvarditem[Matsumoto \& Nishimura]{Matsumoto \& Nishimura}{1998}{Matsumoto98}
+Matsumoto, M. \& Nishimura, T.  (1998), `Mersenne {T}wister: a
+  623-dimensionally equidistributed uniform pseudo-random number generator',
+  {\em ACM Transactions Model. Comput. Simul.} {\bf 8}(1),~3--30.
+\newblock URL \url{https://doi.org/10.1145/272991.272995}.
+
+\harvarditem[{R Core Team}]{{R Core Team}}{2017}{Rmanual}
+{R Core Team}  (2017), {\em {R: A Language and Environment for Statistical
+  Computing}}, {R Foundation for Statistical Computing}, Vienna, Austria.
+\newblock URL \url{https://www.R-project.org/}.
+
+\harvarditem[Ravetti et al.]{Ravetti, Carpi, Gon{\c c}alves, Frery \&
+  Rosso}{2014}{DistinguishingNoiseFromChaos}
+Ravetti, M.~G., Carpi, L.~C., Gon{\c c}alves, B.~A., Frery, A.~C. \& Rosso,
+  O.~A.  (2014), `Distinguishing noise from chaos: objective versus subjective
+  criteria using {H}orizontal {V}isibility {G}raph', {\em PLOS One} {\bf
+  9}(9),~1--15.
+
+\harvarditem[Rosso et al.]{Rosso, Martin, Figliola, Keller \&
+  Plastino}{2006}{EEGAnalysisWaveletInformationTools}
+Rosso, O.~A., Martin, M.~T., Figliola, A., Keller, K. \& Plastino, A.  (2006),
+  `{EEG} analysis using wavelet-based information tools', {\em Journal of
+  Neuroscience Methods} {\bf 153},~163--182.
+
+\harvarditem[Rosso et al.]{Rosso, Ospina \&
+  Frery}{2016}{ClassificationVerificationOnlineHandwrittenSignatures}
+Rosso, O.~A., Ospina, R. \& Frery, A.~C.  (2016), `Classification and
+  verification of handwritten signatures with time causal information theory
+  quantifiers', {\em PLoS ONE} {\bf 11}(12),~e0166868.
+
+\harvarditem[Schieber et al.]{Schieber, Carpi, Frery, Rosso, Pardalos \&
+  Ravetti}{2016}{InformationTheoryPerspectiveNetworkRobustness}
+Schieber, T.~A., Carpi, L., Frery, A.~C., Rosso, O.~A., Pardalos, P.~M. \&
+  Ravetti, M.~G.  (2016), `Information theory perspective on network
+  robustness', {\em Physics Letters A} {\bf 380},~359--364.
+
+\harvarditem[Sippel et al.]{Sippel, Lange, Mahecha, Hauhs, Bodesheim, Kaminski,
+  Gans \& Rosso}{2016}{DiagnosingDynamicsObservedSimulatedEcosystem}
+Sippel, S., Lange, H., Mahecha, M.~D., Hauhs, M., Bodesheim, P., Kaminski, T.,
+  Gans, F. \& Rosso, O.~A.  (2016), `Diagnosing the dynamics of observed and
+  simulated ecosystem gross primary productivity with time causal information
+  theory quantifiers', {\em PLoS One} {\bf 11}(10),~e0164960.
+
+\harvarditem[Stamey]{Stamey}{2016}{RandomHostingAdvice}
+Stamey, L.  (2016), `How {RANDOM.ORG}'s journey from radio static to true
+  randomness generates reliable results for games, security, and clinical
+  trials'.
+\newblock URL
+  \url{http://www.hostingadvice.com/blog/random-dot-org-true-randomness-reliable-results/}.
+
+\harvarditem[Volchan]{Volchan}{2002}{Volchan:02}
+Volchan, S.~B.  (2002), `{What is a random sequence?}', {\em AMERICAN
+  MATHEMATICAL MONTHLY} {\bf 109}(1),~46--63.
+
+\harvarditem[Zunino et al.]{Zunino, Soriano \&
+  Rosso}{2012}{DistinguishingChaoticStochasticDynamicsTimeSeriesMultiscaleSymbolicApproach}
+Zunino, L., Soriano, M.~C. \& Rosso, O.~A.  (2012), `Distinguishing chaotic and
+  stochastic dynamics from time series by using a multiscale symbolic
+  approach', {\em Phys. Rev. E} {\bf 86},~046210.
+\newblock URL \url{http://link.aps.org/doi/10.1103/PhysRevE.86.046210}.
+
+\end{thebibliography}

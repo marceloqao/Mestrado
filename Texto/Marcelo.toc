@@ -1,0 +1,26 @@
+\select@language {english}
+\select@language {portuguese}
+\select@language {english}
+\select@language {portuguese}
+\contentsline {chapter}{1\hspace {1em}Introdu\IeC {\c c}\IeC {\~a}o e Delimita\IeC {\c c}\IeC {\~a}o do Problema}{9}{mychaptercounter.1}
+\contentsline {section}{\numberline {1.1}N\IeC {\'u}meros Aleat\IeC {\'o}rios}{9}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Geradores de N\IeC {\'u}meros Aleat\IeC {\'o}rios -- GNA}{11}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Geradores de N\IeC {\'u}meros Pseudoaleat\IeC {\'o}rios -- GNPA}{11}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Principais Testes Cl\IeC {\'a}ssicos}{11}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}NIST}{12}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Diehard e Dieharder}{12}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Visualiza\IeC {\c c}\IeC {\~a}o}{13}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Descritores baseados em Teoria da Informa\IeC {\c c}\IeC {\~a}o}{14}{subsection.1.2.4}
+\contentsline {section}{\numberline {1.3}Delimita\IeC {\c c}\IeC {\~a}o do problema}{16}{section.1.3}
+\contentsline {chapter}{2\hspace {1em}Proposta}{17}{mychaptercounter.2}
+\contentsline {section}{\numberline {2.1}Fundamenta\IeC {\c c}\IeC {\~a}o Te\IeC {\'o}rica}{17}{section.2.1}
+\contentsline {section}{\numberline {2.2}Regi\IeC {\~o}es de Confian\IeC {\c c}a no Plano Entropia-Complexidade}{19}{section.2.2}
+\contentsline {section}{\numberline {2.3}Artefatos}{20}{section.2.3}
+\contentsline {chapter}{3\hspace {1em}Resultados}{22}{mychaptercounter.3}
+\contentsline {section}{\numberline {3.1}An\IeC {\'a}lise global das sequ\IeC {\^e}ncias}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}An\IeC {\'a}lise das sequ\IeC {\^e}ncias aleat\IeC {\'o}rias}{27}{section.3.2}
+\contentsline {section}{\numberline {3.3}An\IeC {\'a}lise das sequ\IeC {\^e}ncias de r\IeC {\'a}dio}{27}{section.3.3}
+\contentsline {section}{\numberline {3.4}An\IeC {\'a}lise das sequ\IeC {\^e}ncias Mersenne-Twister}{27}{section.3.4}
+\contentsline {chapter}{4\hspace {1em}Conclus\IeC {\~a}o}{35}{mychaptercounter.4}
+\contentsline {section}{\numberline {4.1}Trabalhos Futuros}{35}{section.4.1}
+\contentsline {chapter}{Refer\IeC {\^e}ncias Bibliogr\IeC {\'a}ficas}{36}{chapter*.12}

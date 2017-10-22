@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Marcelo.aux
+The style file: agsm_url.bst
+A level-1 auxiliary file: ./capitulos/02-delimitacao-do-problema.aux
+A level-1 auxiliary file: ./capitulos/03-proposta.aux
+A level-1 auxiliary file: ./capitulos/04-resultados.aux
+A level-1 auxiliary file: ./capitulos/05-conclusao.aux
+Database file #1: references.bib
+Warning--empty booktitle in BustosFraiman1984
+You've used 28 entries,
+            2679 wiz_defined-function locations,
+            842 strings with 11672 characters,
+and the built_in function-call counts, 15670 in all, are:
+= -- 1238
+> -- 1262
+< -- 2
++ -- 394
+- -- 388
+* -- 1519
+:= -- 2991
+add.period$ -- 39
+call.type$ -- 28
+change.case$ -- 221
+chr.to.int$ -- 28
+cite$ -- 29
+duplicate$ -- 446
+empty$ -- 970
+format.name$ -- 460
+if$ -- 3004
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 29
+newline$ -- 98
+num.names$ -- 168
+pop$ -- 108
+preamble$ -- 1
+purify$ -- 224
+quote$ -- 0
+skip$ -- 299
+stack$ -- 0
+substring$ -- 928
+swap$ -- 98
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 106
+warning$ -- 1
+while$ -- 160
+width$ -- 0
+write$ -- 428
+(There was 1 warning)

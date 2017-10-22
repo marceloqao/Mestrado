@@ -1,0 +1,45 @@
+\select@language {english}
+\select@language {portuguese}
+\select@language {english}
+\select@language {portuguese}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Vis\IeC {\~a}o de Dilbert de um gerador de n\IeC {\'u}meros aleat\IeC {\'o}rios}}{10}{figure.1.1}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Visualiza\IeC {\c c}\IeC {\~a}o 3D de sequ\IeC {\^e}ncias disjuntas produzidas pelo gerador Mersenne-Twister}}{13}{figure.1.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Primeira perspectiva}}}{13}{figure.1.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Segunda perspectiva}}}{13}{figure.1.2}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Visualiza\IeC {\c c}\IeC {\~a}o 3D de sequ\IeC {\^e}ncias disjuntas produzidas pelo gerador RANDU}}{14}{figure.1.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Primeira perspectiva}}}{14}{figure.1.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Segunda perspectiva}}}{14}{figure.1.3}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagramas de dispers\IeC {\~a}o das sequ\IeC {\^e}ncias qu\IeC {\^a}nticas com $1.000$ observa\IeC {\c c}\IeC {\~o}es para $D\in \{3, 4, 5, 6\}$ (colunas) e $\tau \in \{1, 10, 30, 50\}$ (linhas), com curvas de complexidade m\IeC {\'\i }nima e m\IeC {\'a}xima no plano Entropia-Complexidade.}}{23}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagramas de dispers\IeC {\~a}o das sequ\IeC {\^e}ncias qu\IeC {\^a}nticas com $50.000$ observa\IeC {\c c}\IeC {\~o}es para $D\in \{3, 4, 5, 6\}$ (colunas) e $\tau \in \{1, 10, 30, 50\}$ (linhas), com curvas de complexidade m\IeC {\'\i }nima e m\IeC {\'a}xima no plano Entropia-Complexidade.}}{24}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagramas de dispers\IeC {\~a}o das sequ\IeC {\^e}ncias de r\IeC {\'a}dio com $1.000$ observa\IeC {\c c}\IeC {\~o}es para $D\in \{3, 4, 5, 6\}$ (colunas) e $\tau \in \{1, 10, 30, 50\}$ (linhas), com curvas de complexidade m\IeC {\'\i }nima e m\IeC {\'a}xima no plano Entropia-Complexidade.}}{25}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Diagramas de dispers\IeC {\~a}o das sequ\IeC {\^e}ncias de r\IeC {\'a}dio com $50.000$ observa\IeC {\c c}\IeC {\~o}es para $D\in \{3, 4, 5, 6\}$ (colunas) e $\tau \in \{1, 10, 30, 50\}$ (linhas), com curvas de complexidade m\IeC {\'\i }nima e m\IeC {\'a}xima no plano Entropia-Complexidade.}}{26}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagramas de dispers\IeC {\~a}o das sequ\IeC {\^e}ncias de Mersenne-Twister com $1.000$ observa\IeC {\c c}\IeC {\~o}es para $D\in \{3, 4, 5, 6\}$ (colunas) e $\tau \in \{1, 10, 30, 50\}$ (linhas), com curvas de complexidade m\IeC {\'\i }nima e m\IeC {\'a}xima no plano Entropia-Complexidade.}}{27}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagramas de dispers\IeC {\~a}o das sequ\IeC {\^e}ncias de Mersenne-Twister com $50.000$ observa\IeC {\c c}\IeC {\~o}es para $D\in \{3,4,5,6\}$ (colunas) e $\tau \in \{1,10,30,50\}$ (linhas), com curvas de complexidade m\IeC {\'\i }nima e m\IeC {\'a}xima no plano Entropia-Complexidade.}}{28}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Histogramas suavizados de situa\IeC {\c c}\IeC {\~o}es que sugerem que o gerador \IeC {\'e} um fator irrelevante para $N=1.000$}}{28}{figure.3.7}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$D=6, \tau =1$}}}{28}{figure.3.7}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$D=6, \tau =50$}}}{28}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Histogramas suavizados de situa\IeC {\c c}\IeC {\~o}es que sugerem que o gerador \IeC {\'e} um fator irrelevante tamb\IeC {\'e}m para $N=50.000$}}{29}{figure.3.8}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$D=6, \tau =1$}}}{29}{figure.3.8}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$D=6, \tau =50$}}}{29}{figure.3.8}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Histogramas suavizados de situa\IeC {\c c}\IeC {\~o}es que sugerem que o $N$ \IeC {\'e} um fator relevante}}{29}{figure.3.9}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$D=6$, $\tau =1$}}}{29}{figure.3.9}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$D=6$, $\tau =50$}}}{29}{figure.3.9}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Histogramas suavizados de situa\IeC {\c c}\IeC {\~o}es que sugerem que o $D$ \IeC {\'e} um fator relevante}}{29}{figure.3.10}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\tau =1$, $D=1.000$}}}{29}{figure.3.10}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$D=6$, $\tau =50$}}}{29}{figure.3.10}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Histogramas suavizados de situa\IeC {\c c}\IeC {\~o}es que sugerem que o $\tau $ \IeC {\'e} um fator relevante}}{30}{figure.3.11}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\tau =1$, $D=1.000$}}}{30}{figure.3.11}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$D=6$, $\tau =50$}}}{30}{figure.3.11}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Histogramas suavizados das dist\IeC {\^a}ncias euclidianas dos padr\IeC {\~o}es ao ponto de refer\IeC {\^e}ncia, para $D\in \{3,4,5,6\}$ (colunas) e $\tau \in \{1,10,30,50\}$ (linhas).}}{31}{figure.3.12}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Diagramas de dispers\IeC {\~a}o das sequ\IeC {\^e}ncias qu\IeC {\^a}nticas para o caso $D=3$ e $\tau =1$.}}{32}{figure.3.13}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Escala linear}}}{32}{figure.3.13}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Escala logar\IeC {\'\i }tmica}}}{32}{figure.3.13}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Diagramas de dispers\IeC {\~a}o das sequ\IeC {\^e}ncias qu\IeC {\^a}nticas para o caso $D=3$ e $\tau =10$.}}{32}{figure.3.14}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Escala linear}}}{32}{figure.3.14}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Escala logar\IeC {\'\i }tmica}}}{32}{figure.3.14}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Histogramas suavizados das dist\IeC {\^a}ncias euclidianas dos padr\IeC {\~o}es ao ponto de refer\IeC {\^e}ncia, para $D\in \{3,4,5,6\}$ (colunas) e $\tau \in \{1,10,30,50\}$ (linhas).}}{33}{figure.3.15}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Diagramas de dispers\IeC {\~a}o das sequ\IeC {\^e}ncias de r\IeC {\'a}dio para o caso $D=3$ e $\tau =1$.}}{33}{figure.3.16}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Escala logar\IeC {\'\i }tmica}}}{33}{figure.3.16}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Diagramas de dispers\IeC {\~a}o das sequ\IeC {\^e}ncias qu\IeC {\^a}nticas para o caso $D=3$ e $\tau =10$.}}{34}{figure.3.17}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Escala logar\IeC {\'\i }tmica}}}{34}{figure.3.17}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Intervalos de confian\IeC {\c c}a para o caso $N=1000$ e $\tau =1$.}}{34}{figure.3.18}
