@@ -53,4 +53,7 @@ maxC <- max(HC$C)
 HC$D <- as.factor(HC$D)
 HC$dEuclid = sqrt((HC$H-1)^2 + HC$C^2)
 
+# Removendo Mersenne-Twister do Dataframe
+HC_no_MT <- subset(HC, Source!="M-T")
+
 

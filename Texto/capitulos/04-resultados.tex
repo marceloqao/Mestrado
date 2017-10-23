@@ -215,16 +215,16 @@ Por se tratar de um gerador algorítmico e, portanto, pseudoaleatório, ele ser�
 
 \begin{figure}
 \centering
-\subfigure[Escala linear\label{Fig:ScatterQuantD3tau1}]{\includegraphics[width=.48\linewidth]{ScatterQuantD3tau1}}
-\subfigure[Escala logarítmica\label{Fig:ScatterQuantD3tau1log}]{\includegraphics[width=.48\linewidth]{ScatterQuantD3tau1log}}
-\caption{Diagramas de dispersão das sequências quânticas para o caso $D=3$ e $\tau=1$.}\label{Fig:QuantD3tau1}
+\subfigure[Escala linear\label{Fig:scatter1000D3t1}]{\includegraphics[width=.48\linewidth]{scatter1000D3t1}}
+\subfigure[Escala logarítmica\label{Fig:scatter1000D3t1_log}]{\includegraphics[width=.48\linewidth]{scatter1000D3t1_log}}
+\caption{Diagramas de dispersão das sequências aleatórias para o caso $N=1.000$, $D=3$ e $\tau=1$.}\label{Fig:AleattD3tau1}
 \end{figure}
 
 \begin{figure}
 \centering
-\subfigure[Escala linear\label{Fig:ScatterQuantD3tau10}]{\includegraphics[width=.48\linewidth]{ScatterQuantD3tau1}}
-\subfigure[Escala logarítmica\label{Fig:ScatterQuantD3tau10log}]{\includegraphics[width=.48\linewidth]{ScatterQuantD3tau10log}}
-\caption{Diagramas de dispersão das sequências quânticas para o caso $D=3$ e $\tau=10$.}\label{Fig:QuantD3tau10log}
+\subfigure[Escala linear\label{Fig:scatter50kD6t50}]{\includegraphics[width=.48\linewidth]{scatter50kD6t50}}
+\subfigure[Escala logarítmica\label{Fig:scatter50kD6t50_log}]{\includegraphics[width=.48\linewidth]{scatter50kD6t50_log}}
+\caption{Diagramas de dispersão das sequências aleatórias para o caso $N=50.000$, $D=6$ e $\tau=50$.}\label{Fig:QuantD3tau10log}
 \end{figure}
 
 \begin{figure}[hbt]
@@ -263,12 +263,67 @@ No que segue analisaremos o comportamento dessas distâncias em detalhes.
 
 \section{Análise das sequências Mersenne-Twister}
 
+%\begin{figure}
+%	\centering
+%	%	\subfigure[Escala linear\label{Fig:ScatterRandD3tau10}]{\includegraphics[width=.48\linewidth]{ScatterRandD3tau1}}
+%	\includegraphics[width=.8\linewidth]{Conf_Int_1k_T1}
+%	\caption{Intervalos de confiança para o caso $N=1000$ e $\tau=1$.}\label{Fig:Conf_Int_1k_T1}
+%\end{figure}
+
+\section{Análise das regiões de confiança}
+
+%% N=1.000
 \begin{figure}
 	\centering
-	%	\subfigure[Escala linear\label{Fig:ScatterRandD3tau10}]{\includegraphics[width=.48\linewidth]{ScatterRandD3tau1}}
-	\includegraphics[width=.8\linewidth]{Conf_Int_1k_T1}
-	\caption{Intervalos de confiança para o caso $N=1000$ e $\tau=1$.}\label{Fig:Conf_Int_1k_T1}
+	\includegraphics[width=1\linewidth]{Conf_Int_1k_T1_noMT}
+	\caption{Intervalos de confiança para o caso $N=1.000$ e $\tau=1$.}\label{Fig:Conf_Int_1k_T1}
 \end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{Conf_Int_1k_T10_noMT}
+	\caption{Intervalos de confiança para o caso $N=1.000$ e $\tau=10$.}\label{Fig:Conf_Int_1k_T10}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{Conf_Int_1k_T30_noMT}
+	\caption{Intervalos de confiança para o caso $N=1.000$ e $\tau=30$.}\label{Fig:Conf_Int_1k_30}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{Conf_Int_1k_T50_noMT}
+	\caption{Intervalos de confiança para o caso $N=1.000$ e $\tau=50$.}\label{Fig:Conf_Int_1k_T50}
+\end{figure}
+%%
+
+%% N=50.000
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{Conf_Int_50k_T1_noMT}
+	\caption{Intervalos de confiança para o caso $N=50.000$ e $\tau=1$.}\label{Fig:Conf_Int_50k_T1}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{Conf_Int_50k_T10_noMT}
+	\caption{Intervalos de confiança para o caso $N=50.000$ e $\tau=10$.}\label{Fig:Conf_Int_50k_T10}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{Conf_Int_50k_T30_noMT}
+	\caption{Intervalos de confiança para o caso $N=50.000$ e $\tau=30$.}\label{Fig:Conf_Int_50k_30}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{Conf_Int_50k_T50_noMT}
+	\caption{Intervalos de confiança para o caso $N=50.000$ e $\tau=50$.}\label{Fig:Conf_Int_50k_T50}
+\end{figure}
+%%
+
 
 \begin{center}
 	\fbox{
