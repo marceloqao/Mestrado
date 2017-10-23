@@ -205,13 +205,31 @@ Já as distâncias das sequências produzidas pelos geradores Quântico e de Rá
 A figura~\ref{Fig:HistoDistanciasQuantTodas} sugere que o comportamento das distâncias euclidianas ao ponto de referência muda conforme o tamanho do padrão $D$ varia.
 Além disso, também são perceptíveis mudanças de comportamento em função do \textit{lag} $\tau$ quando $D=5,6$.
 
+%A figura~\ref{Fig:HistoDistanciasRandTodas} sugere que o comportamento das distâncias euclidianas ao ponto de referência muda conforme o tamanho do padrão $D$ varia.
+%Além disso, também são perceptíveis mudanças de comportamento em funçao do \textit{lag} $\tau$ quando $D=5,6$.
+
+
+%\begin{figure}[hbt]
+%	\centering
+%	\includegraphics[width=\linewidth]{HistoDistanciasRandTodas}
+%	\caption{Histogramas suavizados das distâncias euclidianas dos padrões ao ponto de referência, para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas).}\label{Fig:HistoDistanciasRandTodas}
+%\end{figure}
+
 Da análise aqui apresentada concluímos que, à luz da distância do ponto característico de uma sequência ao ponto de referência, os dois geradores físicos produzem sequências indistinguíveis.
 Diante disso, nos cálculos subsequentes faremos a junção desses conjuntos de dados, que denominaremos simplesmente ``aleatórios'' no que segue.
 
 Já o gerador de Mersenne-Twister apresenta diferenças em relação aos geradores de origem física.
 Por se tratar de um gerador algorítmico e, portanto, pseudoaleatório, ele será tratado como objeto de análise e não como padrão para estabelecer critérios de qualidade.
 
-\section{Análise das sequências aleatórias}
+No que segue analisaremos o comportamento dessas distâncias em detalhes.
+
+\section{Análise das regiões de confiança}
+
+Feita a junção das distâncias dos pontos característicos ao ponto de referência das sequências produzidas pelos geradores quântico e de rádio (sequências aleatórias), 
+para cada situação de $N=1000,50000$, $D=3,4,5,6$ e $\tau=1,10,30,50$, o próximo passo consiste em calcular os quantis relevantes.
+
+Inicialmente ilustraremos apenas duas situações.
+A figura~\ref{Fig:AleattD3tau1} mostra os padrões das sequências aleatórias para o caso $N=1000$, $D=3$ e $\tau=1$ no plano Entropia-Complexidade, junto com os quantis de \SI{90}{\percent}, \SI{95}{\percent}, \SI{99}{\percent} e \SI{99,9}{\percent} em escala linear (figura~\ref{Fig:scatter1000D3t1}) e em escala logarítmica (figura~\ref{Fig:scatter1000D3t1_log}).
 
 \begin{figure}
 \centering
@@ -220,6 +238,8 @@ Por se tratar de um gerador algorítmico e, portanto, pseudoaleatório, ele ser�
 \caption{Diagramas de dispersão das sequências aleatórias para o caso $N=1.000$, $D=3$ e $\tau=1$.}\label{Fig:AleattD3tau1}
 \end{figure}
 
+A figura~\ref{Fig:QuantD3tau10log} mostra os padrões das sequências aleatórias para o caso $N=50000$, $D=6$ e $\tau=50$ no plano Entropia-Complexidade, junto com os quantis de \SI{90}{\percent}, \SI{95}{\percent}, \SI{99}{\percent} e \SI{99,9}{\percent} em escala linear (figura~\ref{Fig:scatter50kD6t50}) e em escala logarítmica (figura~\ref{Fig:scatter50kD6t50_log}).
+
 \begin{figure}
 \centering
 \subfigure[Escala linear\label{Fig:scatter50kD6t50}]{\includegraphics[width=.48\linewidth]{scatter50kD6t50}}
@@ -227,50 +247,13 @@ Por se tratar de um gerador algorítmico e, portanto, pseudoaleatório, ele ser�
 \caption{Diagramas de dispersão das sequências aleatórias para o caso $N=50.000$, $D=6$ e $\tau=50$.}\label{Fig:QuantD3tau10log}
 \end{figure}
 
-\begin{figure}[hbt]
-	\centering
-	\includegraphics[width=\linewidth]{HistoDistanciasRandTodas}
-	\caption{Histogramas suavizados das distâncias euclidianas dos padrões ao ponto de referência, para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas).}\label{Fig:HistoDistanciasRandTodas}
-\end{figure}
+Nestas duas figuras, os pontos característicos foram desenhados com um gradiente de cores que vai do amarelo ao preto em função da distância ao ponto de referência.
+Identificamos também os valores de Entropia e de Complexidade Estatística correspondentes a cada quantil de interesse.
 
-
-
-\section{Análise das sequências de rádio}
-
-
-Antes de analisar os diagramas de dispersão, analisaremos a distribuição empírica das distâncias ao ponto de referência.
-
-A figura~\ref{Fig:HistoDistanciasRandTodas} sugere que o comportamento das distâncias euclidianas ao ponto de referência muda conforme o tamanho do padrão $D$ varia.
-Além disso, também são perceptíveis mudanças de comportamento em funçao do \textit{lag} $\tau$ quando $D=5,6$.
-
-No que segue analisaremos o comportamento dessas distâncias em detalhes.
-
-
-\begin{figure}
-	\centering
-	%\subfigure[Escala linear\label{Fig:ScatterRandD3tau1}]{\includegraphics[width=.48\linewidth]{ScatterRandD3tau1}}
-	\subfigure[Escala logarítmica\label{Fig:ScatterRandD3tau1log}]{\includegraphics[width=.48\linewidth]{ScatterRandD3tau1log}}
-	\caption{Diagramas de dispersão das sequências de rádio para o caso $D=3$ e $\tau=1$.}\label{Fig:RadioD3tau1}
-\end{figure}
-
-\begin{figure}
-	\centering
-%	\subfigure[Escala linear\label{Fig:ScatterRandD3tau10}]{\includegraphics[width=.48\linewidth]{ScatterRandD3tau1}}
-	\subfigure[Escala logarítmica\label{Fig:ScatterRandD3tau10log}]{\includegraphics[width=.48\linewidth]{ScatterRandD3tau10log}}
-	\caption{Diagramas de dispersão das sequências quânticas para o caso $D=3$ e $\tau=10$.}\label{Fig:QuantD3tau10}
-\end{figure}
-
-
-\section{Análise das sequências Mersenne-Twister}
-
-%\begin{figure}
-%	\centering
-%	%	\subfigure[Escala linear\label{Fig:ScatterRandD3tau10}]{\includegraphics[width=.48\linewidth]{ScatterRandD3tau1}}
-%	\includegraphics[width=.8\linewidth]{Conf_Int_1k_T1}
-%	\caption{Intervalos de confiança para o caso $N=1000$ e $\tau=1$.}\label{Fig:Conf_Int_1k_T1}
-%\end{figure}
-
-\section{Análise das regiões de confiança}
+Os resultados centrais dessa dissertação são exibidos nas figuras~\ref{Fig:Conf_Int_1k_T1}, \ref{Fig:Conf_Int_1k_T10}, 
+\ref{Fig:Conf_Int_1k_30} e~\ref{Fig:Conf_Int_1k_T50} (os quantis de interesse para amostras de tamanho $1000$ e $\tau=1,10,30,50$), e nas figuras~\ref{Fig:Conf_Int_50k_T1}, \ref{Fig:Conf_Int_50k_T10},
+\ref{Fig:Conf_Int_50k_30} e~\ref{Fig:Conf_Int_50k_T50} (os quantis de interesse para amostras de tamanho $50000$ e $\tau=1,10,30,50$).
+Cada uma destas figuras inclui as quatro situações de $D=3,4,5,6$.
 
 %% N=1.000
 \begin{figure}
@@ -323,12 +306,4 @@ No que segue analisaremos o comportamento dessas distâncias em detalhes.
 	\caption{Intervalos de confiança para o caso $N=50.000$ e $\tau=50$.}\label{Fig:Conf_Int_50k_T50}
 \end{figure}
 %%
-
-
-\begin{center}
-	\fbox{
-	\colorbox[RGB]{227, 227, 227}{
-	\parbox[t]{.8\linewidth}
-		{Neste capítulo tratamos os resultados esperados com a realização do trabalho enquanto que no próximo faremos a conclusão alcançada com o mesmo.}} }
-\end{center}
 
