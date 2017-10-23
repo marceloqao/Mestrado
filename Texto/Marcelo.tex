@@ -88,11 +88,14 @@ pdfview = {XYZ null null null}
 
 %O nosso ponto de partida é o desejo de verificar se é estatisticamente viável verificar se sequências de observações são ruído branco no plano (HxC).
 
-O nosso ponto de partida é o desejo de verificar a viabilidade estatística de sequências de observações serem ruído branco no plano ($H\times C$).
+O nosso ponto de partida é o desejo de analisar
+se é viável verificar no plano ($H\times C$), dentro de uma abordagem estatística, se sequências de observações são ruído branco.
 
-Na literatura encontramos diversos trabalhos que fazem isso de forma ``ad hoc'', verificando se o ponto característico de uma sequência nesse plano é próximo ao ponto ($1,0$). Contudo, tal como afirma \citet{NewPermutationEntropy}, não encontramos análises detalhadas que permitam asignar significância estatística a tais afirmações.
+Na literatura encontramos diversos trabalhos que fazem isso de forma ``ad hoc'', verificando se o ponto característico de uma sequência nesse plano é próximo ao ponto ($1,0$). 
+Contudo, tal como afirma \citet{NewPermutationEntropy}, não encontramos análises detalhadas que permitam atribuir significância estatística a tais afirmações.
 
-Para elucidar essa questão, e diante da impossibilidade de contar com sequências infinitamente longas e que garantidamente sejam ruído branco, coletamos sequências candidatas de três fontes diferentes: duas físicas e uma algorítmica considerada de qualidade.
+Para elucidar essa questão, e diante da impossibilidade de contar com sequências infinitamente longas e que garantidamente sejam ruído branco, coletamos sequências de três fontes diferentes: duas físicas e uma algorítmica considerada de qualidade.
+Verificamos se é possível considerá-las ideais para os nossos fins.
 
 Analisamos a dispersão dos pontos característicos dessas sequências no plano ($H\times C$) utilizando quatro fatores: o tamanho da sequência ($N$), o tamanho da palavra ($D$), o \textit{delay} $(\tau)$ e a fonte geradora, observando a distância dos pontos característicos ao ponto de referência. Sugiram então evidências de que a fonte geradora seria um fator irrelevante para a análise.
 
@@ -102,11 +105,12 @@ Com o intuito de consolidar essa possibilidade, aplicamos o teste de Kolmogorov-
 
 %Descartada a influência da fonte geradora na nossa análise
 
-Agrupamos, então os dados das fontes físicas e passamos a tratá-los como nossa referência, em seguida procuramos po regiões de confiança. Adotamos uma abordagem não-paramétrica por não termos nenhuma evidência teórica acerca da distribuição que segue a distância do ponto característico ao de referência quando é analisada uma sequência finita de ruído branco.
+Agrupamos, então os dados das fontes físicas e passamos a tratá-los como nossa referência, em seguida procuramos por regiões de confiança. 
+Adotamos uma abordagem não-paramétrica por não termos nenhuma evidência teórica acerca da distribuição que segue a distância do ponto característico ao de referência quando é analisada uma sequência finita de ruído branco.
 
 Calculamos então os quantis, respeitados os fatores tamanho da sequência ($N$), tamanho da palavra ($D$) e \textit{delay} ($\tau$), que servem como regiões de confiança para o teste que deu origem a este trabalho.
 
-Concluimos a dissertação verificando que sequências produzidas por geradores aceitos pela comunidade geram pontos característicos dentro de regiões de confiança, enquanto que um gerador que foi descartado pelas estruturas que as suas sequências apresentam leva a pontos fora dessas mesmas regiões.
+Concluímos a dissertação verificando que sequências produzidas por geradores aceitos pela comunidade geram pontos característicos dentro de regiões de confiança, enquanto que um gerador que foi descartado pelas estruturas que as suas sequências apresentam leva a pontos fora dessas mesmas regiões.
 
 \vspace{1em}
 \noindent {\bf Palavras-chave}: Geradores de Números Aleatórios. Testes Teóricos. Testes Estatísticos. Teoria da Informação.
