@@ -96,9 +96,13 @@ Para elucidar essa questão, e diante da impossibilidade de contar com sequênci
 
 Analisamos a dispersão dos pontos característicos dessas sequências no plano ($H\times C$) utilizando quatro fatores: o tamanho da sequência ($N$), o tamanho da palavra ($D$), o \textit{delay} $(\tau)$ e a fonte geradora, observando a distância dos pontos característicos ao ponto de referência. Sugiram então evidências de que a fonte geradora seria um fator irrelevante para a análise.
 
-Com o intuito de consolidar essa possibilidade, aplicamos o teste de Kolmogorov-Smirnov a pares de sequências comparáveis, e a verificamos.
+%Com o intuito de consolidar essa possibilidade, aplicamos o teste de Kolmogorov-Smirnov a pares de sequências comparáveis, e a verificamos.
 
-Descartada a influência da fonte geradora na nossa análise, agrupamos os dados e procuramos regiões de confiança. Adotamos uma abordagem não-paramétrica por não termos nenhuma evidência teórica acerca da distribuição que segue a distância do ponto característico ao de referência quando é analisada uma sequência finita de ruído branco.
+Com o intuito de consolidar essa possibilidade, aplicamos o teste de Kolmogorov-Smirnov a pares de sequências comparáveis, porém verificamos que duas das fontes geradoras são realmente irrelevantes, as duas fontes físicas.
+
+%Descartada a influência da fonte geradora na nossa análise
+
+Agrupamos, então os dados das fontes físicas e passamos a tratá-los como nossa referência, em seguida procuramos po regiões de confiança. Adotamos uma abordagem não-paramétrica por não termos nenhuma evidência teórica acerca da distribuição que segue a distância do ponto característico ao de referência quando é analisada uma sequência finita de ruído branco.
 
 Calculamos então os quantis, respeitados os fatores tamanho da sequência ($N$), tamanho da palavra ($D$) e \textit{delay} ($\tau$), que servem como regiões de confiança para o teste que deu origem a este trabalho.
 
@@ -230,7 +234,7 @@ Marcelo Queiroz de A. Oliveira
 \thispagestyle{empty}
 \begin{center}
 Este trabalho foi redigido em {\large \LaTeX}\ utilizando uma modificação do estilo \textsf{IC-UFAL}.
-As referências bibliográficas foram preparadas no \textsf{Mendeley} e administradas pelo {\large\BibTeX}\ com o estilo \textsf{LaCCAN}.
+As referências bibliográficas foram preparadas no \textsf{JabRef} e administradas pelo {\large\BibTeX}\ com o estilo \textsf{LaCCAN}.
 O texto utiliza fonte \NomeFonte\ e os elementos matemáticos a família tipográfica \NomeFonteMat, ambas em corpo de 12 pontos.
 % A numeração dos capítulos segue com a família tipográfica \NomeFonteCap.\\ 
 \vspace{.5cm}
