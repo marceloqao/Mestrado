@@ -15,7 +15,7 @@ Algumas questões emergem naturalmente como, o que vem a ser aleatoriedade?
 Existem eventos aleatórios na natureza? 
 Faz algum sentido buscar leis da aleatoriedade? 
 É possível simular a aleatoriedade? 
-Estas são questões são muito difíceis, envolvendo, inclusive, os primórdios da investigação filosófica como discute \citep{Volchan:02}.
+Estas são questões muito difíceis, envolvendo, inclusive, os primórdios da investigação filosófica como discute \citep{Volchan:02}.
 Essa dificuldade é bem ilustrada de forma humorística na Figura~\ref{fig:Dilbert}.
 
 \begin{figure}[hbt]
@@ -209,11 +209,31 @@ A página Web \url{http://webhome.phy.duke.edu/~rgb/General/dieharder.php} é o 
 %   \item \textbf{DAB Monobit 2 Test. Id(209)} - Block-monobit test. Since we don't know what block size to use, try multiple block sizes. In particular, try all block sizes of $2^k$ words, where k={0 \dots n}.  The value of n is calculated from the word size of the generator and the sample size used, and is shown as ntuple.
 % \end{itemize} 
 
-%  \subsection{ENT}
-  
-%  \subsection{TestU01}
+\subsection{ENT}
 
-O principal problema com o uso dos testes NIST, Dieharder e outros similares é que estão direcionados a usuários especializados.
+ENT \citet{ENTTestSuite} realiza uma variedade de testes no fluxo de bytes de um arquivo (ou na entrada padrão se nenhum arquivo for especificado) e produz uma saída como esta:
+
+\begin{verbatim}
+Entropy = 7.980627 bits per character.
+
+Optimum compression would reduce the size
+of this 51768 character file by 0 percent.
+
+Chi square distribution for 51768 samples is 1542.26, and randomly
+would exceed this value less than 0.01 percent of the times.
+
+Arithmetic mean value of data bytes is 125.93 (127.5 = random).
+Monte Carlo value for Pi is 3.169834647 (error 0.90 percent).
+Serial correlation coefficient is 0.004249 (totally uncorrelated = 0.0).
+\end{verbatim}
+
+ENT é distribuido em forma de binário para a plataforma Win32 e pode ter descarregado o seu código fonte para construção sob ambiente \textit{Unix-Like}
+  
+\subsection{TestU01}	
+
+Considerado como o estado da arte dos testes para geradores de números aleatórios \citet{LEcuyer:07}, o $TestU01$ se apresenta como uma biblioteca de software escrita em $ANSI$ $C$ que oferece uma coleção de utilitários para testagem, ele provê implemetações generalistas dos testes estatísticos clássicos para geradores de números aleatórios, bem como de vários outros propostos na literatura, além de propor alguns originais. Pode ser aplicado a números aleatórios produzidos por qualquer tipo de dispositivo ou armazenados em arquivos.
+
+O principal problema com o uso dos testes NIST, Diehard$[$er$]$, U01 e outros similares é que estão direcionados a usuários especializados.
 Uma parcela significativa de pesquisadores prefere ferramentas visuais, como a descrita a seguir.
 
 \subsection{Visualização}

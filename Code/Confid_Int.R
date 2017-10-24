@@ -7,11 +7,17 @@ names(quantis.por.fator) <- c( "Source", "N", "D", "tau", "90%", "95%", "99%", "
 detach(HC_no_MT)
 
 ## N=1000 Tau = 1
-HCN1000tau1melt <- melt(subset(HC_no_MT, N=="50k" & tau=="10"), measure.vars = "dEuclid")
+HCN1000tau1melt <- melt(subset(HC_no_MT, N=="1000" & tau=="10"), measure.vars = "dEuclid")
+# HCN1000tau1melt <- HC_no_MT
 HCN1000tau1melt <- HCN1000tau1melt[,c(5,9)]
 names(HCN1000tau1melt) <- c("D", "dEuclid")
 HCN1000tau1meltQuant <- summarize(dEuclid, llist(D), quant)
-names(HCN1000tau1meltQuant) <- c("D", "90%", "95%", "99%", "99,9%") #Gerar a tabela com os Quantis
+names(HCN1000tau1meltQuant) <- c("D", "90%", "95%", "99%", "99,9%") 
+
+#Gerar a tabela com os Quantis
+HCN1000tau1meltQuant <- summarize(dEuclid, llist(N,D,tau), quant)
+names(HCN1000tau1meltQuant) <- c("N", "D", "tau", "90%", "95%", "99%", "99,9%") 
+#Gerar a tabela com os Quantis
 
 ### Plotando ...
 tt <- melt(HCN1000tau1meltQuant)

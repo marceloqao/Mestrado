@@ -72,21 +72,21 @@ pdfview = {XYZ null null null}
 % %======================================================%
 % %====================== DEDICAÇÃO =====================%
 % %======================================================%
-% \newpage
-% \thispagestyle{empty}
-% \mbox{}\vfill
-% \begin{flushright}
-% À minha esposa, Genuclécia, e aos meus \emph{pets},\\
-% Milly e Galego, dedico este trabalho.
-% \end{flushright}
+ \newpage
+ \thispagestyle{empty}
+ \mbox{}\vfill
+ \begin{flushright}
+ À minha amada esposa Élida, aos meus \emph{filhos} Duda, \\
+ Gabriel, João Marcelo e Melissa, a minha querida Mãe,\\
+ Francisca \textit{(In Memorian)} dedico este trabalho. \\
+ Por vocês, faria tudo de novo.
+ \end{flushright}
 
 %======================================================%
 %======================= RESUMO =======================%
 %======================================================%
 \begin{resumo}
 \noindent 
-
-%O nosso ponto de partida é o desejo de verificar se é estatisticamente viável verificar se sequências de observações são ruído branco no plano (HxC).
 
 O nosso ponto de partida é o desejo de analisar
 se é viável verificar no plano ($H\times C$), dentro de uma abordagem estatística, se sequências de observações são ruído branco.
@@ -118,22 +118,23 @@ Concluímos a dissertação verificando que sequências produzidas por geradores
 \selectlanguage{english}
 \begin{abstract}
 \noindent
-Our starting point is the desire to verify the statistical feasibility of sequences of observations are white noise in the plane ($H\times C$).
+Our starting point is the desire to verify in the plane ($H\times C$) in a  statistical approach, if sequences of observations are white noise .
 
-In the literature we find several works that do this in an "ad hoc" way, verifying if the characteristic point of a sequence in that plane is close to the point ($1,0$).
+In the literature we find several works that do this in an "ad hoc" way, checking if the characteristic point of a sequence in that plane is close to the point ($1,0$).
 
-However, as \citet{NewPermutationEntropy} states, we do not find detailed analyzes to assign statistical significance to such statements.
+However, as \citet{NewPermutationEntropy} states, we do not found detailed analyzes to assign statistical significance to such statements.
 
-To elucidate this question, and in the face of the impossibility of counting infinitely long sequences that are guaranteed to be white noise, we collected candidate sequences of three different sources: two physical and one algorithmic considered as a good source.
+To elucidate this question, and in the face of the impossibility of counting infinitely long sequences that are guaranteed to be white noise, we gather candidate sequences from three different sources: two physical and one algorithmic considered as a good source. Checked, if we may consider them ideals for our purposes.
 
-We analyze the dispersion of the characteristic points of these sequences in the plane ($H\times C$) using four factors: the size of the sequence ($N$), the size of the word ($D$), the delay ($\tau$) and the generating source, observing the distance from the characteristic points to the reference point.
+We analyze the dispersion of the characteristic points of these sequences in the plane ($H\times C$) using four factors: the size of the sequence ($N$), the size of the word ($D$), the delay ($\tau$) and the generating source, observing the distance from the characteristic points to the reference point. Then, emerged evidences about the fact that the generating source would be an irrelevant factor to the analyses.
 
-Then evidence suggests that the source would be a factor that is irrelevant to the analysis. In order to consolidate this possibility, we applied the Kolmogorov-Smirnov test to pairs of comparable sequences, and we verify it.
-Having discarded the influence of the generating source in our analysis, we grouped the data and searched trust regions. We adopted a non-parametric approach because we did not have no theoretical evidence about the distribution that follows the distance from the characteristic point to the reference when a finite sequence of white noise is analyzed.
+In order to consolidate this possibility, we applied the Kolmogorov-Smirnov test to pairs of comparable sequences, however we verify that only two sources are really irrelevant, the both physical.
 
-We then calculated the quantiles, respecting the factors sequence size ($N$), size of the word ($D$) and delay ($\tau$), which serve as trust regions for the test that gave rise to this work.
+So, we grouped the data from physical sources, and it became our groundtruth, then in sequence, we searched for trust regions. We adopted a non-parametric approach because we did not have no theoretical evidence about the distribution that follows the distance from the characteristic point to our groundtruth when a finite sequence of white noise is analyzed.
 
-We conclude the dissertation by verifying that sequences produced by community accepted generators generate characteristic points within trust regions, while a generator that has been discarded by the structures that its sequences present leads to points outside these regions.
+We then calculated the quantiles, respecting the factors sequence size ($N$), size of the word ($D$) and delay ($\tau$), which serve as confidence regions for the test that gave rise to this work.
+
+We conclude the dissertation by verifying that sequences produced by community accepted generators generate characteristic points within confidence regions, while a generator that has been discarded by the structures that its sequences present leads to points outside these regions.
 
 \vspace{1em}
 \noindent 
@@ -179,7 +180,7 @@ Marcelo Queiroz de A. Oliveira
 \mylistofcontents
 
 \inicio
-\setcounter{page}{9} %verificar quantas páginas possuem até iniciar o capítulo 1 (subtraindo capa, folha de aprovação e catalogação).
+\setcounter{page}{8} %verificar quantas páginas possuem até iniciar o capítulo 1 (subtraindo capa, folha de aprovação e catalogação).
 
 %======================================================%
 %============= CAPÍTULOS DA DISSERTAÇÃO ===============%
@@ -233,12 +234,16 @@ Marcelo Queiroz de A. Oliveira
 \singlespacing
 \thispagestyle{empty}
 \begin{center}
+\includegraphics[width=.3\textwidth]{./capitulos/figs/knot}
+
+\vspace{.5cm}
+
 Este trabalho foi redigido em {\large \LaTeX}\ utilizando uma modificação do estilo \textsf{IC-UFAL}.
 As referências bibliográficas foram preparadas no \textsf{JabRef} e administradas pelo {\large\BibTeX}\ com o estilo \textsf{LaCCAN}.
 O texto utiliza fonte \NomeFonte\ e os elementos matemáticos a família tipográfica \NomeFonteMat, ambas em corpo de 12 pontos.
 % A numeração dos capítulos segue com a família tipográfica \NomeFonteCap.\\ 
 \vspace{.5cm}
-\includegraphics[width=.5\textwidth]{./capitulos/figs/celtic_knot_cross_stitch}
+%\includegraphics[width=.5\textwidth]{./capitulos/figs/celtic_knot_cross_stitch}
 \end{center}
 
 \end{document}
