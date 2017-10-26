@@ -375,13 +375,13 @@ Adicionalmente, aos gráficos são apresentadas tabelas \ref{tab:dEuclid_1000} e
 
 \section{Aplicações}
 
-Nesta seção mostramos a aplicação da nossa proposta a sequências de tamanho \num{50000}.
+Nesta seção mostramos a aplicação da nossa proposta a sequências de tamanho \num{1000}.
 
-Utilizando a metodologia descrita, aplicamos o teste a uma seqência de \num{50000} observações produzidas pelos geradores Mersenne-Twister e Randu, além de séries não estacionárias, estacionárias e mapas logísticos, todos com a mesma dimensão.
+Utilizando a metodologia descrita, aplicamos o teste a uma seqência de \num{1000} observações produzidas pelos geradores Mersenne-Twister e Randu, além de séries não estacionárias, estacionárias e mapas logísticos, todos com a mesma dimensão.
 
 Os resultados de aplicar a nossa abordagem às sequências oriundas dos geradores de números pseudoaleatórios podem ser observados na figura~\ref{fig:ConfInt_PRNGs}: Mersenne-Twister na figura~\ref{ConfidInt__MT_1k_t10} Randu na figura~\ref{ConfidInt__Randu_1k_t10}.
-Para obter as sequências de Mersenne Twister utilizou-se a implementação interna do $R$~\ref{code:MersenneTwister},
-já para as seqências de Randu foi implementada  função~\ref{code:Randu}.
+Para obter as sequências de Mersenne Twister utilizou-se a implementação interna do $R$ (ver código~\ref{code:MersenneTwister}),
+já para as sequências de Randu foi implementada  função~\ref{code:Randu}.
 
 \begin{figure}
 	\centering
@@ -407,9 +407,34 @@ O código~\ref{code:NaoEstacionaria} foi utilizado para gerar a sequência; ver 
 	\caption{Pontos característicos das séries não estacionárias e intervalos de confiança.}\label{Fig:ConfidInt_nao_estacionaria_1k_t10}
 \end{figure}
 
-A aplicação do teste à sequência obtida pelo método de séries estacionárias pode ser observada na figura~\ref{Fig:ConfidInt_estacionaria_1k_t10}.
+A uma série estacionária em que aplicamos nosso teste foi obtida pela convolução de uma sequência de variáveis aleatórias independentes e identicamente distribuídas segundo uma lei gaussiana padrão, convolucionada com uma máscara de tamanho \num{3} com valores não negativos: $(\beta,1,\beta)$, $0\leq \beta\leq 1$.
+Quando $\beta=0$ temos a sequência original, e para valores crescentes de $\beta$ temos sequências com cada vez maior estrutura de correlação.
+Calculamos o ponto característico da série assim obtida, e o contrastamos com os quantis empíricos obtidos anteriormente.
+
+A aplicação do teste à sequência obtida pelo método de séries estacionárias pode ser observada na figura~\ref{Fig:beta}.
 Novamente, o teste leva à rejeição da sequência pois para qualquer $D= 3, 4, 5, 6$ os descritores produzem pontos a distâncias euclidianas maiores do que as estipuladas pelos intervalos de confiança estabelecidos. 
 O código~\ref{code:Estacionaria} foi utilizado para gerar a sequência; ver apêndice~\ref{codigo}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{beta_1k_D6_t1}
+	\caption{Poder do teste.}\label{Fig:beta}
+\end{figure}
+
+As abscissas da figura~\ref{Fig:beta} descrevem a variação de $\beta$, e para cada valor calculamos a distância euclidiana ao ponto de referência $(1,0)$ para palavras de tamanho $D=6$ e $\tau=1$
+No gráfico desenhamos também os quantis que correspondem a essa situação, e verificamos quais situações não são rejeitadas a cada nível de significância:
+\begin{description}
+\item[\SI{90}{\percent}:] máscaras com $\beta\leq 0,15$.
+\item[\SI{95}{\percent}:] máscaras com $\beta\leq 0,17$.
+\item[\SI{99}{\percent}:] máscaras com $\beta\leq 0,17$.
+\item[\SI{99,9}{\percent}:] máscaras com $\beta\leq 0,20$.
+\end{description}
+
+Estes resultados sugerem a necessidade de se fazer uma análise exaustiva do poder do teste em função de uma diversidade de parâmetros.
+Esse estudo é objeto de trabalhos futuros.
+
+A figura~\ref{Fig:ConfidInt_estacionaria_1k_t10} mostra os pontos característicos da sequência de valores estacionários obtida com $\beta=1$, para $D=3,4,5,6$ e $\tau=10$.
+Percebe-se que ao aumentar o \textit{lag} perde-se o poder discriminatório do teste, pois nenhuma delas é considerada excessivamente afastada do ponto de referência.
 
 \begin{figure}
 	\centering
@@ -439,17 +464,3 @@ Convém notar que o mapa logístico já foi usado como fonte de dados pseudoalea
 	\caption{Pontos característicos do mapa logístico e intervalos de confiança.}\label{Fig:ConfidInt_mapa_logistico_1k_t1}
 \end{figure}
 
-Poder do teste
-Seja T um teste estatístico com região crítica C para avaliarmos hipóteses a respeito do parâmetro $\theta$. A função poder do teste é a probabilidade de rejeitarmos H0 dado o valor de $\theta$. Neste caso, temos que
-\begin{equation}
-\pi(\theta) = P[rejeitar H_0|\theta] = P[T \in C|\theta]
-\end{equation}
-
-
-Aqui analizamos 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{beta_1k_D6_t1}
-	\caption{Poder do teste.}\label{Fig:beta}
-\end{figure}

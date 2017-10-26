@@ -1,11 +1,14 @@
 \mychapter{Conclusão}{chp:conclusao}
 \lhead{CONCLUSÃO}
 
-%Breve resumo do capítulo.
-\lettrine{A}{} análise 
+Neste trabalho analisamos a possibilidade de a distância euclidiana de pontos no plano $(H\times C)$ de sequências ao ponto $(1,0)$, referência teórica de ruído branco, poderem ser usadas como uma estatística de teste para a hipótese de a sequência ser ruído branco.
+Verificamos que essa possibilidade existe, e que essa estatística é capaz de identificar, com limitações, o mapa logístico (que já foi usado como gerador de números pseudoaleatórios), movimento browniano e ruído com autocorrelação.
+Para este último, fizemos uma análise preliminar do poder do teste em função da intensidade da correlação.
 
+Verificamos, também, que os geradores Mersenne-Twister e Randu são considerados ruído branco, mesmo sendo eles técnicas algorítmicas de geração de observações pseudoaleatórias.
 
-\section{Trabalhos Futuros}
+A técnica permite discriminar observações de ruído browniano (não estacionário), do mapa logístico e, com limitações, de ruído estacionário obtido pela convolução de uma sequência de ruído branco com uma máscara.
+Sendo a máscara parametrizada, fizemos uma análise preliminar do poder do teste.
 
 Uma limitação deste trabalho é que apenas verificamos a qualidade do gerador em relação a um de estrutura ideal.
 Com isso, limitamos a aplicabilidade do nosso trabalho à análise de séries que, potencialmente, são ocorrências de variáveis aleatórias independentes e identicamente distribuídas.

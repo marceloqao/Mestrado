@@ -251,7 +251,7 @@ de Curso e Dissertacoes]
 %%------------------------------------------------------------------------------
 % A distancia entre o topo do cabeçalho e o topo do texto é de 1cm, 
 % isto é, 1cm=\headheight+\headsep
-% ...mas, nós consideramos a profundidade do cabeçalho, adicionando 2mm.
+ a profundidade do cabeçalho, adicionando 2mm.
 \setlength{\headsep}{1.2cm-\headheight}
 % A distância entre a borda do papel e o número deve ser de 2cm
 % 2cm=\topmargin+\voffset+1in
@@ -459,7 +459,7 @@ Bacharel em Ciência da Computação do Instituto de Computação da Universidad
 Federal de Alagoas, aprovada pela comissão examinadora que abaixo assina.}%
         {
  Membros da Comissão Julgadora da Dissertação de Mestrado de 
- Marcelo Queiroz de Assis Oliveira, intitulada ``Análise de geradores de números aleatórios e pseudoaleatórios através de técnicas da teoria da informação'', 
+ Marcelo Queiroz de Assis Oliveira, intitulada ``Teste para Verificação da Hipótese de Ruído Branco utilizando Teoria da Informação'', 
  apresentada ao Programa de Pós-Graduação em Modelagem Computacional de Conhecimento 
  da Universidade Federal de Alagoas em 09 de novembro de 2017, às 10h00min, 
  na sala de aula do Mestrado em Modelagem Computacional de Conhecimento.

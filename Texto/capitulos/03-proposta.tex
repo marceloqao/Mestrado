@@ -102,6 +102,12 @@ Idealmente, conhecemos a distribuição de $T$ sob a hipótese nula e, com isso,
 Definimos, assim, o $p$-valor do teste baseado em $T(\bm X)$ para o valor observado $\eta$ como $\Pr_{H_0}(T(\bm X) \geq \eta)$.
 O procedimento básico consiste em rejeitar a hipótese nula ao nível de significância $100(1-\alpha)\%$ se o $p$-valor for inferior a $\alpha$, e em não rejeitá-la caso contrário.
 Mais modernamente, não se fala em ``rejeição'', reporta-se o $p$-valor, deixando a decisão para o leitor. Desta forma, chamaremos de ``valor crítico'' o conjunto de valores, definidos pelo leitor tais que, quando assumidos pela estatística de teste $T$ levam à rejeição da hipótese, nula $H_0$. 
+
+Um teste pode incorrer em dois tipos de erro, ou rejeitar a hipótese nula quando, na verdade, os dados provêm dela, ou não rejeitá-la quando os dados provêm de outro modelo.
+O primeiro chama-se ``Erro Tipo~I'' ou ``Falso Positivo'', e o segundo ``Erro Tipo~II'' ou ``Falso Negativo''.
+A probabilidade de incorrer no Erro Tipo~I chama-se ``Tamanho do Teste'', enquanto a probabilidade do complementar do evento que leva ao Erro Tipo~II é o ``Poder do Teste''.
+
+
 % De forma análoga, utilizaremos o termo ``nível de significância'' como a probabilidade máxima de $\alpha$ que nos leve a não rejeitar $H_0$ e acima da qual rejeita-se $H_0$, ou seja a probabilidade de rejeitar $H_0$ quando a mesma é verdadeira.
 
 Diversos testes foram desenvolvidos ao longo do tempo com o objetivo de testar a aleatoriedade de sequências de números.
@@ -167,14 +173,6 @@ Do ponto de vista técnico deste trabalho, foi utilizada a plataforma de anális
 Esta plataforma foi desenvolvida originalmente por Ross Ihaka e Robert Gentleman, com o intuito de ser uma linguagem de código aberto voltada para a análise estatística e, consequentemente, a precisão numérica com fortes características funcionais \citep{Rmanual}. 
 Por este motivo, ela será utilizada para a geração e manipulação das sequências pseudoaleatórias, análise dos dados e geração dos gráficos desse trabalho. A precisão numérica desta ferramenta, sendo aferida por \citet{Almiron:09}, é adequada para essa abordagem.
 
-  As ferramentas utilizadas no desenvolvimento deste trabalho, são preferencialmente multiplataforma e código aberto com licença de uso \emph{GNU General Public License}~(GPL).
+As ferramentas utilizadas no desenvolvimento deste trabalho, são preferencialmente multiplataforma e código aberto com licença de uso \emph{GNU General Public License}~(GPL).
 
-  Todos esses aplicativos, métodos e informações obtidas, forneceram grandes contribuições para o traçado da linha mestra deste trabalho, indicando que o mesmo está na fronteira do conhecimento produzindo um estado da arte fidedigno aos temas e ferramentas adotadas para norteá-lo.
-
-\begin{center}
-	\fbox{
-	\colorbox[RGB]{227, 227, 227}{
-	\parbox[t]{.8\linewidth}
-		{Neste capítulo tratamos da metodologia utilizada do desenvolvimento do trabalho, no capítulo seguinte analisaremos os impactos esperados com a realização do mesmo.}} }
-\end{center}
-
+Todos esses aplicativos, métodos e informações obtidas, forneceram grandes contribuições para o traçado da linha mestra deste trabalho, indicando que o mesmo está na fronteira do conhecimento produzindo um estado da arte fidedigno aos temas e ferramentas adotadas para norteá-lo.
