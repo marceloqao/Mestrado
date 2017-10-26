@@ -373,39 +373,68 @@ Adicionalmente, aos gráficos são apresentadas tabelas \ref{tab:dEuclid_1000} e
 
 % % % ACF Coloque na seguinte sequência: tabela 1000, gráficos, tabela 50000, gráficos
 
-Utilizando a metodologia descrita, aplicamos o teste a uma seqência de $50.000$ observações produzida pelos geradores Mersenne Twister e Randu, além de séries não estacionárias, estacionárias e mapas logísticos, todos com a mesma dimensão.
+\section{Aplicações}
 
-As seqências oriundas dos geradores de números pseudo aleatórios podem ser observadas na figura ~\ref{fig:ConfInt_PRNGs}, onde a sequência gerada por Mersenne Twister e Randu podem ser observadas nas figuras ~\ref{ConfidInt__MT_1k_t10} e ~\ref{ConfidInt__Randu_1k_t10}. 
-Para obter as sequências de Mersenne Twister utilizou-se a implementação interna do $R$ ~\ref{code:MersenneTwister},
-já para as seqências de Randu foi implementada  função ~\ref{code:Randu}.
+Nesta seção mostramos a aplicação da nossa proposta a sequências de tamanho \num{50000}.
+
+Utilizando a metodologia descrita, aplicamos o teste a uma seqência de \num{50000} observações produzidas pelos geradores Mersenne-Twister e Randu, além de séries não estacionárias, estacionárias e mapas logísticos, todos com a mesma dimensão.
+
+Os resultados de aplicar a nossa abordagem às sequências oriundas dos geradores de números pseudoaleatórios podem ser observados na figura~\ref{fig:ConfInt_PRNGs}: Mersenne-Twister na figura~\ref{ConfidInt__MT_1k_t10} Randu na figura~\ref{ConfidInt__Randu_1k_t10}.
+Para obter as sequências de Mersenne Twister utilizou-se a implementação interna do $R$~\ref{code:MersenneTwister},
+já para as seqências de Randu foi implementada  função~\ref{code:Randu}.
 
 \begin{figure}
 	\centering
 	\subfigure[Mersenne Twister. \label{ConfidInt__MT_1k_t10}]{\includegraphics[width=.48\linewidth]{ConfidInt__MT_1k_t10}}
 	\subfigure[Randu. \label{ConfidInt__Randu_1k_t10}]{\includegraphics[width=.48\linewidth]{ConfidInt__Randu_1k_t10}}
-	\caption{Aplicação do teste aos pontos de Mersenne Twister e Randu}\label{fig:ConfInt_PRNGs}
+	\caption{Aplicação do teste aos pontos de Mersenne-Twister e Randu}\label{fig:ConfInt_PRNGs}
 \end{figure}
 
-A aplicação do teste à seqência obtida pelo método de séries não estacionárias pode ser observada na figura ~\ref{Fig:ConfidInt_nao_estacionaria_1k_t10}, onde observa-se que o teste leva a rejeição da sequência pois para qualquer $D= 3, 4, 5, 6$ os descritores levam a pontos cuja distância euclidiana fica fora dos intervalos de confiança estabelecidos. O código utilizado para gerar a sequência pode ser visto no apêndice 1 ~\ref{code:NaoEstacionaria}
+As figuras~\ref{ConfidInt__MT_1k_t10} e~\ref{ConfidInt__Randu_1k_t10} mostram que a nossa técnica não é capaz de identificar desvios significativos da hipótese dessas duas fontes de dados não produzirem ocorrências de variáveis independentes e identicamente distribuídas.
+Embora já tenhamos mostrado evidências nesse sentido, através da figura~\ref{fig:3DRandu} para Randu e dos testes de Kolmogorov-Smirnov para o gerador Mersenne-Twister (tabelas~\ref{tab:KS_1000} e~\ref{tab:KS_50k}), as distâncias dos pontos característicos ao ponto de referência é inferior aos limites calculados para a rejeição da hipótese.
+Isso se deve ao poder limitado do teste, característica que será investigada em futuros trabalhos.
+
+A seguir, geramos sequências estocásticas com estrutura de autocorrelação: uma estacionária (ruído gaussiano filtrado) e uma não estacionária (uma trajetória de movimento browniano).
+
+A aplicação do teste à sequência obtida pelo método de séries não estacionárias pode ser observada na figura ~\ref{Fig:ConfidInt_nao_estacionaria_1k_t10}.
+O teste leva à rejeição da sequência, pois para qualquer tamanho de palavra $D= 3, 4, 5, 6$ os descritores levam a pontos cuja distância euclidiana é maior do que quaisquer dos limites estabelecidos. 
+O código~\ref{code:NaoEstacionaria} foi utilizado para gerar a sequência; ver apêndice~\ref{codigo}.
+
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{ConfidInt_nao_estacionaria_1k_t10}
-	\caption{Intervalos de confiança aplicados à sequência de séries não estacionárias.}\label{Fig:ConfidInt_nao_estacionaria_1k_t10}
+	\caption{Pontos característicos das séries não estacionárias e intervalos de confiança.}\label{Fig:ConfidInt_nao_estacionaria_1k_t10}
 \end{figure}
-%
-A aplicação do teste à seqência obtida pelo método de séries estacionárias pode ser observada na figura ~\ref{Fig:ConfidInt_estacionaria_1k_t1}, onde observa-se que o teste leva a rejeição da sequência pois para qualquer $D= 3, 4, 5, 6$ os descritores levam a pontos cuja distância euclidiana fica fora dos intervalos de confiança estabelecidos. O código utilizado para gerar a sequência pode ser visto no apêndice 1 ~\ref{code:Estacionaria}
+
+A aplicação do teste à sequência obtida pelo método de séries estacionárias pode ser observada na figura~\ref{Fig:ConfidInt_estacionaria_1k_t10}.
+Novamente, o teste leva à rejeição da sequência pois para qualquer $D= 3, 4, 5, 6$ os descritores produzem pontos a distâncias euclidianas maiores do que as estipuladas pelos intervalos de confiança estabelecidos. 
+O código~\ref{code:Estacionaria} foi utilizado para gerar a sequência; ver apêndice~\ref{codigo}.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{ConfidInt_nao_estacionaria_1k_t10}
-	\caption{Intervalos de confiança aplicados à sequência de séries não estacionárias.}\label{Fig:ConfidInt_nao_estacionaria_1k_t10}
+	\includegraphics[width=1\linewidth]{ConfidInt_estacionaria_1k_t10}
+	\caption{Pontos característicos das séries estacionárias e intervalos de confiança.}\label{Fig:ConfidInt_estacionaria_1k_t10}
 \end{figure}
-%
-A aplicação do teste à seqência obtida pelo método de mapas logísticos pode ser observada na figura ~\ref{Fig:ConfidInt_mapa_logistico_1k_t1}, onde observa-se que o teste leva a rejeição da sequência pois para qualquer $D= 3, 4, 5, 6$ os descritores levam a pontos cuja distância euclidiana fica fora dos intervalos de confiança estabelecidos. O código utilizado para gerar a sequência pode ser visto no apêndice 1 ~\ref{code:MapaLogistico}
+
+A seguir analisamos uma série determinística com comportamento caótico: o mapa logístico.
+O mapa logístico é a sequência obtida pela recursão
+\begin{equation}
+x_{n+1} = r x_n(1-x_n),
+\end{equation}
+com $0<x_1<1$ e $0<r\leq 4$.
+Utilizamos $r=4$, $x_0=0.01$.
+Iteramos o mapa \num{10000} vezes para alcançar estabilidade, e só coletamos a partir de $n=10001$.
+
+A aplicação do teste à sequência obtida pelo
+mapa logístico pode ser observada na figura~\ref{Fig:ConfidInt_mapa_logistico_1k_t1}.
+Mais uma vez, o teste leva à rejeição da sequência pois para qualquer $D= 3, 4, 5, 6$ os descritores produzem pontos a distâncias euclidianas maiores do que as estipuladas pelos intervalos de confiança estabelecidos. 
+O código~\ref{code:MapaLogistico} foi utilizado para gerar a sequência; ver apêndice~\ref{codigo}.
+
+Convém notar que o mapa logístico já foi usado como fonte de dados pseudoaleatórios, e este resultado mostra que ele não é adequado (com os parâmetros aqui escolhidos) para esse propósito.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{ConfidInt_mapa_logistico_1k_t1}
-	\caption{Intervalos de confiança aplicados à sequência de mapas logísticos.}\label{Fig:ConfidInt_mapa_logistico_1k_t1}
+	\caption{Pontos característicos do mapa logístico e intervalos de confiança.}\label{Fig:ConfidInt_mapa_logistico_1k_t1}
 \end{figure}
