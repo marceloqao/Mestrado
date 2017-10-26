@@ -15,9 +15,9 @@ RANDU <- function() {
 
 Mrandu <- matrix(nrow = 50000, ncol = 3)
 for(i in 1:50000) {
-  
   Mrandu[i,] <- c(RANDU(), RANDU(), RANDU())
-
 }
-
+  
 plot3d(Mrandu)
+
+

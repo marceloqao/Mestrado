@@ -23,7 +23,7 @@ Uma forma de tornar as análises mais imunes a contaminação é através de té
 Outra, mais moderna, é pelo uso de métodos não-paramétricos.
  
 Há diversas ferramentas que auxiliam na análise clássica de séries temporais; na data de redação deste trabalho havia \num{238} bibliotecas para essa finalidade (ver \url{https://cran.r-project.org/web/views/TimeSeries.html}).
-Para essa mesma plataforma, apenas três delas bibliotecas trabalham exclusivamente com técnicas não paramétricas.
+Para essa mesma plataforma, apenas três delas trabalham exclusivamente com técnicas não paramétricas.
 
 Seja a série temporal $\bm x = (x_1, x_2, \dots, x_n)$.
 Ao invés de analisarmos os valores, transformaremos grupos de $N$ valores (não necessariamente adjacentes) em padrões ordinais, e analisaremos a sua distribuição de frequência.
@@ -73,7 +73,7 @@ Os trabalhos já citados utilizam dois descritores: a Entropia de Shannon e a Co
 
 A Entropia de Shannon é definida como
 $$
-E(\mathcal H) = \sum_{j=1}^{D!} p_j \log p_j,
+E(\mathcal H) = -\sum_{j=1}^{D!} p_j \log p_j,
 $$
 em que adotamos a convenção $0(-\infty)=0$.
 Esta é uma medida da desordem ou imprevisibilidade da lei subjacente a $\mathcal H$.

@@ -99,13 +99,13 @@ Os gráficos sugerem fortemente que o tamanho das sequências é um fator releva
 	\caption{Histogramas suavizados de situações que sugerem que o $N$ é um fator relevante}\label{fig:NRelevante}
 \end{figure}
 
-A figura~\ref{fig:DRelevante} mostra os histogramas suavizados das distâncias dos três geradores para dois tamanhos de sequências ($N=1.000$, $50.000$) e dois valores de \textit{lag} ($\tau=1$, $50$), sobrepondo os resultados obtidos com os diferentes tamanhos de palavras ($D=3$, $4$, $5$, $6$).
+A figura~\ref{fig:DRelevante} mostra os histogramas suavizados das distâncias dos três geradores para dois tamanhos de sequências ($N=1.000$, $50.000$) e dois valores de \textit{lag} ($\tau=1$, $50$), sobrepondo os resultados obtidos com os diferentes tamanhos de palavras ($D=3$, $D=4$, $D=5$, $D=6$).
 Os gráficos sugerem fortemente que o tamanho das palavras é um fator relevante para a distribuição da distância.
 
 \begin{figure} %t 1 N 1000, D 3 D 4 D 5 D 6 %t 50 N 50000, D 3 D 4 D 5 D 6
 	\centering
-		\subfigure[$\tau=1$, $D=1.000$]{\includegraphics[width=.48\linewidth]{Hist_t1_1k}}
-		\subfigure[$D=6$, $\tau=50$]{\includegraphics[width=.48\linewidth]{Hist_t50_50k}}
+		\subfigure[$N=1.000$, $\tau=1$]{\includegraphics[width=.48\linewidth]{Hist_t1_1k}}
+		\subfigure[$N=50.000$, $\tau=50$]{\includegraphics[width=.48\linewidth]{Hist_t50_50k}}
 	\caption{Histogramas suavizados de situações que sugerem que o $D$ é um fator relevante}\label{fig:DRelevante}
 \end{figure}
 
@@ -113,8 +113,8 @@ Os gráficos sugerem fortemente que o tamanho das palavras é um fator relevante
 
 \begin{figure} %D 6 %N 1000, t 1 t 10 t 30 t 50 %N 50000, t 1 t 10 t 30 t 50
 	\centering
-	\subfigure[$\tau=1$, $D=1.000$]{\includegraphics[width=.48\linewidth]{Hist_D6_1k}}
-	\subfigure[$D=6$, $\tau=50$]{\includegraphics[width=.48\linewidth]{Hist_D6_50k}}
+	\subfigure[$N=1.000$, $D=6$]{\includegraphics[width=.48\linewidth]{Hist_D6_1k}}
+	\subfigure[$N=50.000$, $D=6$]{\includegraphics[width=.48\linewidth]{Hist_D6_50k}}
 \caption{Histogramas suavizados de situações que sugerem que o $\tau$ é um fator relevante}\label{fig:tRelevante}
 \end{figure}
 
@@ -372,3 +372,40 @@ Adicionalmente, aos gráficos são apresentadas tabelas \ref{tab:dEuclid_1000} e
 %%
 
 % % % ACF Coloque na seguinte sequência: tabela 1000, gráficos, tabela 50000, gráficos
+
+Utilizando a metodologia descrita, aplicamos o teste a uma seqência de $50.000$ observações produzida pelos geradores Mersenne Twister e Randu, além de séries não estacionárias, estacionárias e mapas logísticos, todos com a mesma dimensão.
+
+As seqências oriundas dos geradores de números pseudo aleatórios podem ser observadas na figura ~\ref{fig:ConfInt_PRNGs}, onde a sequência gerada por Mersenne Twister e Randu podem ser observadas nas figuras ~\ref{ConfidInt__MT_1k_t10} e ~\ref{ConfidInt__Randu_1k_t10}. 
+Para obter as sequências de Mersenne Twister utilizou-se a implementação interna do $R$ ~\ref{code:MersenneTwister},
+já para as seqências de Randu foi implementada  função ~\ref{code:Randu}.
+
+\begin{figure}
+	\centering
+	\subfigure[Mersenne Twister. \label{ConfidInt__MT_1k_t10}]{\includegraphics[width=.48\linewidth]{ConfidInt__MT_1k_t10}}
+	\subfigure[Randu. \label{ConfidInt__Randu_1k_t10}]{\includegraphics[width=.48\linewidth]{ConfidInt__Randu_1k_t10}}
+	\caption{Aplicação do teste aos pontos de Mersenne Twister e Randu}\label{fig:ConfInt_PRNGs}
+\end{figure}
+
+A aplicação do teste à seqência obtida pelo método de séries não estacionárias pode ser observada na figura ~\ref{Fig:ConfidInt_nao_estacionaria_1k_t10}, onde observa-se que o teste leva a rejeição da sequência pois para qualquer $D= 3, 4, 5, 6$ os descritores levam a pontos cuja distância euclidiana fica fora dos intervalos de confiança estabelecidos. O código utilizado para gerar a sequência pode ser visto no apêndice 1 ~\ref{code:NaoEstacionaria}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{ConfidInt_nao_estacionaria_1k_t10}
+	\caption{Intervalos de confiança aplicados à sequência de séries não estacionárias.}\label{Fig:ConfidInt_nao_estacionaria_1k_t10}
+\end{figure}
+%
+A aplicação do teste à seqência obtida pelo método de séries estacionárias pode ser observada na figura ~\ref{Fig:ConfidInt_estacionaria_1k_t1}, onde observa-se que o teste leva a rejeição da sequência pois para qualquer $D= 3, 4, 5, 6$ os descritores levam a pontos cuja distância euclidiana fica fora dos intervalos de confiança estabelecidos. O código utilizado para gerar a sequência pode ser visto no apêndice 1 ~\ref{code:Estacionaria}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{ConfidInt_nao_estacionaria_1k_t10}
+	\caption{Intervalos de confiança aplicados à sequência de séries não estacionárias.}\label{Fig:ConfidInt_nao_estacionaria_1k_t10}
+\end{figure}
+%
+A aplicação do teste à seqência obtida pelo método de mapas logísticos pode ser observada na figura ~\ref{Fig:ConfidInt_mapa_logistico_1k_t1}, onde observa-se que o teste leva a rejeição da sequência pois para qualquer $D= 3, 4, 5, 6$ os descritores levam a pontos cuja distância euclidiana fica fora dos intervalos de confiança estabelecidos. O código utilizado para gerar a sequência pode ser visto no apêndice 1 ~\ref{code:MapaLogistico}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{ConfidInt_mapa_logistico_1k_t1}
+	\caption{Intervalos de confiança aplicados à sequência de mapas logísticos.}\label{Fig:ConfidInt_mapa_logistico_1k_t1}
+\end{figure}

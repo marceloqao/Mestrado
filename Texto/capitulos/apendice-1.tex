@@ -1,0 +1,69 @@
+\appendix
+
+\chapter{Apêndice 1 - Agoritmos}\label{codigo}
+
+
+\begin{lstlisting}[language=R, caption={Mersenne Twister}, label=code:MersenneTwister]
+set.seed(1234567890, kind = "Mersenne-Twister")
+
+MT1k <- runif(1000)
+MT50k <- runif(50000)
+\end{lstlisting}
+
+\begin{lstlisting}[language=R, caption={Randu}, label={code:Randu}]
+RANDU <- function() {
+seed <<- ((1103515245 * seed) + 12345 ) %% (2^31)
+}
+
+Randu1k <- vector()
+for(i in 1:1000) {
+
+Randu1k[i] <- c(RANDU())
+}
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=R, caption={Não Estacionária}, label={code:NaoEstacionaria}]
+NoEst1k <- diffinv(rnorm(1000))
+NoEst1k <- abs(NoEst1k/max(NoEst1k))
+
+NoEst50k <- diffinv(rnorm(50000))
+NoEst50k <- abs(Randu50k/max(NoEst50k))
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=R, caption={Estacionária}, label={code:Estacionaria}]
+Est1k <- filter(rnorm(1000), filter=rep(1,3), circular=TRUE)
+
+Est50k <- filter(rnorm(50000), filter=rep(1,3), circular=TRUE)
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=R, caption={Mapa Logístico}, label={code:MapaLogistico}]
+logisticmap <- function(N, x0) {
+
+saida <- vector(mode="double", length=10000)
+saida[1] <- x0
+
+for(i in 2:10000)
+saida[i] <- 4 * saida[i-1] * (1 - saida[i-1])
+
+x0 <- saida[10000]
+saida <- vector(mode="double", length=N)
+saida[1] <- x0
+
+for(i in 2:N)
+saida[i] <- 4 * saida[i-1] * (1 - saida[i-1])
+
+return(saida)
+}
+
+LogMap1k <- logisticmap(1000, .01)
+LogMap50k <- logisticmap(50000, .01)
+
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=R, caption={}, label={code:}]
+
+\end{lstlisting}

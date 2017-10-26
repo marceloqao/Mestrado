@@ -402,7 +402,7 @@ Instituto de Computação da Universidade Federal de Alagoas.
     Biblioteca Central\\
     Divisão de Tratamento Técnico\\
    }
-    Bibliotecária: Fabiana Camargo dos Santos\\
+    Bibliotecária: \\
    }
   \framebox[14.5cm][l]{
    \parbox{14.4cm}{
@@ -421,7 +421,7 @@ Instituto de Computação da Universidade Federal de Alagoas.
     \begin{flushleft}
       \mbox{}\hspace{.5cm} Bibliografia: f.\ 69--74.
       \newline\newline
-      \mbox{}\hspace{.5cm} 1.~Geradores de N\'umeros Aleat\'orios. 2.~ Testes Te\'oricos. 3.~Testes Estat\'isticos.
+      \mbox{}\hspace{.5cm} 1.~Geradores de N\'umeros Aleat\'orios. 2.~ Testes Te\'oricos. 3.~Testes Estat\'isticos. Teoria da Informação.
     \end{flushleft}
     }
     \begin{flushright}
@@ -459,7 +459,7 @@ Bacharel em Ciência da Computação do Instituto de Computação da Universidad
 Federal de Alagoas, aprovada pela comissão examinadora que abaixo assina.}%
         {
  Membros da Comissão Julgadora da Dissertação de Mestrado de 
- Marcelo Queiroz de Assis Oliveira, intitulada ``Análise de geradores de números pseudo aleatórios através de técnicas da teoria da informação'', 
+ Marcelo Queiroz de Assis Oliveira, intitulada ``Análise de geradores de números aleatórios e pseudoaleatórios através de técnicas da teoria da informação'', 
  apresentada ao Programa de Pós-Graduação em Modelagem Computacional de Conhecimento 
  da Universidade Federal de Alagoas em 09 de novembro de 2017, às 10h00min, 
  na sala de aula do Mestrado em Modelagem Computacional de Conhecimento.
