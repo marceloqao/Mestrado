@@ -51,14 +51,14 @@ ggplot(data=HCN1000tau1melt,
 
 
 
-plot(x=c(min(Rt1N1000$`90%`), max(Rt1N1000$`99.9%`)), y=c(3,6), type="n")
-lines(x=Rt1N1000$`90%`, y=strtoi(Rt1N1000$D), col='red')
-lines(x=Rt1N1000$`95%`, y=strtoi(Rt1N1000$D), col='black')
-lines(x=Rt1N1000$`99%`, y=strtoi(Rt1N1000$D), col='blue')
-lines(x=Rt1N1000$`99.9%`, y=strtoi(Rt1N1000$D), col='green')
-
-plot(x=c(min(Rt1N1000$`90%`), max(Rt1N1000$`99.9%`)), y=c(3,6), type="n", log="x")
-lines(x=Rt1N1000$`90%`, y=strtoi(Rt1N1000$D), col='red')
-lines(x=Rt1N1000$`95%`, y=strtoi(Rt1N1000$D), col='black')
-lines(x=Rt1N1000$`99%`, y=strtoi(Rt1N1000$D), col='blue')
-lines(x=Rt1N1000$`99.9%`, y=strtoi(Rt1N1000$D), col='green')
+# plot(x=c(min(Rt1N1000$`90%`), max(Rt1N1000$`99.9%`)), y=c(3,6), type="n")
+# lines(x=Rt1N1000$`90%`, y=strtoi(Rt1N1000$D), col='red')
+# lines(x=Rt1N1000$`95%`, y=strtoi(Rt1N1000$D), col='black')
+# lines(x=Rt1N1000$`99%`, y=strtoi(Rt1N1000$D), col='blue')
+# lines(x=Rt1N1000$`99.9%`, y=strtoi(Rt1N1000$D), col='green')
+# 
+# plot(x=c(min(Rt1N1000$`90%`), max(Rt1N1000$`99.9%`)), y=c(3,6), type="n", log="x")
+# lines(x=Rt1N1000$`90%`, y=strtoi(Rt1N1000$D), col='red')
+# lines(x=Rt1N1000$`95%`, y=strtoi(Rt1N1000$D), col='black')
+# lines(x=Rt1N1000$`99%`, y=strtoi(Rt1N1000$D), col='blue')
+# lines(x=Rt1N1000$`99.9%`, y=strtoi(Rt1N1000$D), col='green')

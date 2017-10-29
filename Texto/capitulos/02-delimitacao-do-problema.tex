@@ -54,7 +54,7 @@ Desta sorte, frequentemente os usuários precisam se valer de técnicas alternat
 
 Dadas as dificuldades descritas anteriormente, atualmente a maneira mais conveniente e confiável de se gerar números aleatórios para diversas aplicações é através de algoritmos com um sólido embasamento matemático. 
 Tais algoritmos produzem sequências de números sabidamente não aleatórios ao todo, mas que aparentam comportar-se como números aleatórios independentes, isto é, tomada uma sequência de variáveis aleatórias independentes e identicamente distribuídas sobre o Intervalo $(0,1)$. 
-Tal sequência pode ser chamada de ``Pseudoaleatória'' e o programa utilizado em sua produção de ``Gerador de Números Pseudoaleatórios'' como definem \citet{LEcuyer:98}.
+Tal sequência pode ser chamada de ``Pseudoaleatória'' e o programa utilizado em sua produção de ``Gerador de Números Pseudoaleatórios'' como define \citet{LEcuyer:98}.
 
 \section{Principais Testes Clássicos} %Revisão Cronológica/Conceitual
 
@@ -66,7 +66,7 @@ Já os testes empíricos valem-se de técnicas estatísticas objetivando avaliar
 Estes últimos podem ser aplicados tanto a GNAs quanto a GNPAs.
 
 Neste trabalho propomos um teste empírico não paramétrico baseado em ferramentas da teoria da informação.
-Na seção a seguir daremos uma breve introdução cronológica aos testes disponíveis na literatura e ao estado da arte.
+A seguir daremos uma breve introdução aos testes disponíveis na literatura e ao estado da arte.
   
 % \subsection{Diehard}
  
@@ -233,7 +233,7 @@ ENT é distribuido em forma de binário para a plataforma Win32 e pode ter desca
 
 Considerado como o estado da arte dos testes para geradores de números aleatórios \citet{LEcuyer:07}, o $TestU01$ se apresenta como uma biblioteca de software escrita em $ANSI$ $C$ que oferece uma coleção de utilitários para testagem, ele provê implemetações generalistas dos testes estatísticos clássicos para geradores de números aleatórios, bem como de vários outros propostos na literatura, além de propor alguns originais. Pode ser aplicado a números aleatórios produzidos por qualquer tipo de dispositivo ou armazenados em arquivos.
 
-O principal problema com o uso dos testes NIST, Diehard$[$er$]$, Test$U01$ e outros similares é que estão direcionados a usuários especializados.
+O principal problema com o uso dos testes NIST, Dieharder, Test$U01$ e outros similares é que estão direcionados a usuários especializados.
 Uma parcela significativa de pesquisadores prefere ferramentas visuais, como a descrita a seguir.
 
 \subsection{Visualização}
@@ -245,7 +245,7 @@ Verificar que os dados seguem uma lei Uniforme é relativamente simples, e há p
 A componente mais difícil é a de verificar a independência, por se tratar de independência coletiva e não apenas aos pares.
 
 A falta de independência de uma sequência de $N$ pontos pode se manifestar de várias maneiras.
-Uma dela é quando os pontos jazem em subespaços de dimensão menor a $N$, ao invés de preencher o espaço por completo.
+Uma delas é quando os pontos jazem em subespaços de dimensão menor a $N$, ao invés de preencher o espaço por completo.
 
 As figuras~\ref{fig:3DMT} e~\ref{fig:3DRandu} mostram sequências de três pontos não sobrepostos desenhadas no cubo unitário.
 A primeira perspectiva (figs.~\ref{MTa} e~\ref{Ra}) mostram uma perspectiva dos pontos que não levanta nenhuma suspeita.
@@ -284,7 +284,7 @@ Alguns dos trabalhos emblemáticos que empregam essa abordagem são:
 \begin{description}
 \item[\citet{RandomNumberGeneratorsCausality}] mostram que o plano Entropia-Complexidade permite prever o resultado dos testes Diehard de qualidade de GNPA.
 \item[\citet{GeneralizedStatisticalComplexityMeasuresGeometricalAnalyticalProperties}] analisam o mapa caótico logístico e discutem cotas no plano Entropia-Complexidade.
-\item[\citet{EEGAnalysisWaveletInformationTools}] analisam estados do sono utilizando decomposição wavelet e o plano Entropia-Complexidade.
+\item[\citet{EEGAnalysisWaveletInformationTools}] analisam dados de eletroencefalogramas de pacientes com epilepsia 	utilizando decomposição wavelet e o plano Entropia-Complexidade.
 
 \item[\citet{De_Micco_2008}] avaliam melhorias da qualidade de sequências pseudoaleatórias.
 \item[\citet{De_Micco_2009}] estudam as componentes caóticas de GNPAs.

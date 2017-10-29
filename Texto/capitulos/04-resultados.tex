@@ -198,11 +198,11 @@ Já as distâncias das sequências produzidas pelos geradores Quântico e de Rá
 
 \begin{figure}[hbt]
 \centering
-\includegraphics[width=\linewidth]{HistoDistanciasQuantTodas}
-\caption{Histogramas suavizados das distâncias euclidianas dos padrões ao ponto de referência, para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas).}\label{Fig:HistoDistanciasQuantTodas}
+\includegraphics[width=\linewidth]{HistoDistanciasAleat}
+\caption{Histogramas suavizados das distâncias euclidianas dos padrões ao ponto de referência, para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas).}\label{Fig:HistoDistanciasAleat}
 \end{figure}
 
-A figura~\ref{Fig:HistoDistanciasQuantTodas} sugere que o comportamento das distâncias euclidianas ao ponto de referência muda conforme o tamanho do padrão $D$ varia.
+A figura~\ref{Fig:HistoDistanciasAleat} sugere que o comportamento das distâncias euclidianas ao ponto de referência muda conforme o tamanho do padrão $D$ varia.
 Além disso, também são perceptíveis mudanças de comportamento em função do \textit{lag} $\tau$ quando $D=5,6$.
 
 %A figura~\ref{Fig:HistoDistanciasRandTodas} sugere que o comportamento das distâncias euclidianas ao ponto de referência muda conforme o tamanho do padrão $D$ varia.
@@ -379,32 +379,32 @@ Nesta seção mostramos a aplicação da nossa proposta a sequências de tamanho
 
 Utilizando a metodologia descrita, aplicamos o teste a uma seqência de \num{1000} observações produzidas pelos geradores Mersenne-Twister e Randu, além de séries não estacionárias, estacionárias e mapas logísticos, todos com a mesma dimensão.
 
-Os resultados de aplicar a nossa abordagem às sequências oriundas dos geradores de números pseudoaleatórios podem ser observados na figura~\ref{fig:ConfInt_PRNGs}: Mersenne-Twister na figura~\ref{ConfidInt__MT_1k_t10} Randu na figura~\ref{ConfidInt__Randu_1k_t10}.
-Para obter as sequências de Mersenne Twister utilizou-se a implementação interna do $R$ (ver código~\ref{code:MersenneTwister}),
+Os resultados de aplicar a nossa abordagem às sequências oriundas dos geradores de números pseudoaleatórios podem ser observados na figura~\ref{fig:ConfInt_PRNGs}: Mersenne-Twister na figura~\ref{ConfidInt_MT_1k_t1} Randu na figura~\ref{ConfidInt_Randu_1k_t1}.
+Para obter as sequências de Mersenne-Twister utilizou-se a implementação interna do $R$ (ver código~\ref{code:MersenneTwister}),
 já para as sequências de Randu foi implementada  função~\ref{code:Randu}.
 
 \begin{figure}
 	\centering
-	\subfigure[Mersenne Twister. \label{ConfidInt__MT_1k_t10}]{\includegraphics[width=.48\linewidth]{ConfidInt__MT_1k_t10}}
-	\subfigure[Randu. \label{ConfidInt__Randu_1k_t10}]{\includegraphics[width=.48\linewidth]{ConfidInt__Randu_1k_t10}}
+	\subfigure[Mersenne-Twister. \label{ConfidInt_MT_1k_t1}]{\includegraphics[width=.48\linewidth]{ConfidInt_MT_1k_t1}}
+	\subfigure[Randu. \label{ConfidInt_Randu_1k_t1}]{\includegraphics[width=.48\linewidth]{ConfidInt_Randu_1k_t1}}
 	\caption{Aplicação do teste aos pontos de Mersenne-Twister e Randu}\label{fig:ConfInt_PRNGs}
 \end{figure}
 
-As figuras~\ref{ConfidInt__MT_1k_t10} e~\ref{ConfidInt__Randu_1k_t10} mostram que a nossa técnica não é capaz de identificar desvios significativos da hipótese dessas duas fontes de dados não produzirem ocorrências de variáveis independentes e identicamente distribuídas.
+As figuras~\ref{ConfidInt_MT_1k_t1} e~\ref{ConfidInt_Randu_1k_t1} mostram que a nossa técnica não é capaz de identificar desvios significativos da hipótese dessas duas fontes de dados não produzirem ocorrências de variáveis independentes e identicamente distribuídas.
 Embora já tenhamos mostrado evidências nesse sentido, através da figura~\ref{fig:3DRandu} para Randu e dos testes de Kolmogorov-Smirnov para o gerador Mersenne-Twister (tabelas~\ref{tab:KS_1000} e~\ref{tab:KS_50k}), as distâncias dos pontos característicos ao ponto de referência é inferior aos limites calculados para a rejeição da hipótese.
 Isso se deve ao poder limitado do teste, característica que será investigada em futuros trabalhos.
 
 A seguir, geramos sequências estocásticas com estrutura de autocorrelação: uma estacionária (ruído gaussiano filtrado) e uma não estacionária (uma trajetória de movimento browniano).
 
-A aplicação do teste à sequência obtida pelo método de séries não estacionárias pode ser observada na figura ~\ref{Fig:ConfidInt_nao_estacionaria_1k_t10}.
+A aplicação do teste à sequência obtida pelo método de séries não estacionárias pode ser observada na figura ~\ref{Fig:ConfidInt_nao_estacionaria_1k_t1}.
 O teste leva à rejeição da sequência, pois para qualquer tamanho de palavra $D= 3, 4, 5, 6$ os descritores levam a pontos cuja distância euclidiana é maior do que quaisquer dos limites estabelecidos. 
 O código~\ref{code:NaoEstacionaria} foi utilizado para gerar a sequência; ver apêndice~\ref{codigo}.
 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{ConfidInt_nao_estacionaria_1k_t10}
-	\caption{Pontos característicos das séries não estacionárias e intervalos de confiança.}\label{Fig:ConfidInt_nao_estacionaria_1k_t10}
+	\includegraphics[width=1\linewidth]{ConfidInt_nao_estacionaria_1k_t1}
+	\caption{Pontos característicos das séries não estacionárias e intervalos de confiança.}\label{Fig:ConfidInt_nao_estacionaria_1k_t1}
 \end{figure}
 
 A uma série estacionária em que aplicamos nosso teste foi obtida pela convolução de uma sequência de variáveis aleatórias independentes e identicamente distribuídas segundo uma lei gaussiana padrão, convolucionada com uma máscara de tamanho \num{3} com valores não negativos: $(\beta,1,\beta)$, $0\leq \beta\leq 1$.
@@ -433,13 +433,13 @@ No gráfico desenhamos também os quantis que correspondem a essa situação, e 
 Estes resultados sugerem a necessidade de se fazer uma análise exaustiva do poder do teste em função de uma diversidade de parâmetros.
 Esse estudo é objeto de trabalhos futuros.
 
-A figura~\ref{Fig:ConfidInt_estacionaria_1k_t10} mostra os pontos característicos da sequência de valores estacionários obtida com $\beta=1$, para $D=3,4,5,6$ e $\tau=10$.
+A figura~\ref{Fig:ConfidInt_estacionaria_1k_t1} mostra os pontos característicos da sequência de valores estacionários obtida com $\beta=1$, para $D=3,4,5,6$ e $\tau=1$.
 Percebe-se que ao aumentar o \textit{lag} perde-se o poder discriminatório do teste, pois nenhuma delas é considerada excessivamente afastada do ponto de referência.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{ConfidInt_estacionaria_1k_t10}
-	\caption{Pontos característicos das séries estacionárias e intervalos de confiança.}\label{Fig:ConfidInt_estacionaria_1k_t10}
+	\includegraphics[width=1\linewidth]{ConfidInt_estacionaria_1k_t1}
+	\caption{Pontos característicos das séries estacionárias e intervalos de confiança.}\label{Fig:ConfidInt_estacionaria_1k_t1}
 \end{figure}
 
 A seguir analisamos uma série determinística com comportamento caótico: o mapa logístico.

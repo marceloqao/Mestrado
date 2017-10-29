@@ -251,7 +251,7 @@ de Curso e Dissertacoes]
 %%------------------------------------------------------------------------------
 % A distancia entre o topo do cabeçalho e o topo do texto é de 1cm, 
 % isto é, 1cm=\headheight+\headsep
- a profundidade do cabeçalho, adicionando 2mm.
+% a profundidade do cabeçalho, adicionando 2mm.
 \setlength{\headsep}{1.2cm-\headheight}
 % A distância entre a borda do papel e o número deve ser de 2cm
 % 2cm=\topmargin+\voffset+1in

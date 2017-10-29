@@ -1,3 +1,5 @@
+## Test Power
+
 set.seed(1234567890)
 
 z <- rnorm(1000)
@@ -69,11 +71,21 @@ ggplot() +
   geom_point(data=Points_Est_1k_D6_t1, aes(beta, dEuclid), size=.5) +
   xlab("Beta") +
   ylab("Distância Euclidiana") +
-  scale_color_discrete(name="beta") +
+  scale_color_discrete(name="Quantis") +
   theme_light() 
+
+## Save the graph
+#
+ggsave("beta_1k_D6_t1.png", plot = last_plot(), device = "png", path = "../newPlots", scale = 1, dpi = 300, limitsize = TRUE)
+
+# ggsave(beta_1k_D6_t1.png, plot = last_plot(), device = NULL, path = NULL,
+#        scale = 1, width = NA, height = NA, units = c("in", "cm", "mm"),
+#        dpi = 300, limitsize = TRUE, ...)
+
 
 ## Select points that are under the confidence intervals
 #
-subset(Points_Est_1k_D6_t1, dEuclid<=(subset(tt, D==6 & tt$variable=="90%")))
-subset(Points_Est_1k_D6_t1, dEuclid>=(subset(tt, D==6 & tt$variable=="90%")) & dEuclid<=(subset(tt, D==6 & tt$variable=="95%")))
-subset(Points_Est_1k_D6_t1, dEuclid>=(subset(tt, D==6 & tt$variable=="95%")) & dEuclid<=(subset(tt, D==6 & tt$variable=="99%")))
+subset(Points_Est_1k_D6_t1, Points_Est_1k_D6_t1$dEuclid<(0.2339387)) #90%
+subset(Points_Est_1k_D6_t1, Points_Est_1k_D6_t1$dEuclid<(0.2391518)) #95%
+subset(Points_Est_1k_D6_t1, Points_Est_1k_D6_t1$dEuclid<(0.247298)) #99%
+subset(Points_Est_1k_D6_t1, Points_Est_1k_D6_t1$dEuclid<(0.2556177)) #99.9%

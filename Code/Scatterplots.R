@@ -125,9 +125,9 @@ ggplot(data=subset(HC, N=="50k" & Source=="M-T"), aes(x=H, y=C)) +
 # Removing MT from HC Dataframe (Marcelo em 22/10)
 HC_no_MT <- subset(HC, Source!="M-T")
 
-N.current <- "1000"   # 1000 ou 50k
-D.current <- 3
-tau.current <- 1
+N.current <- "50k"   # 1000 ou 50k
+D.current <- "6"
+tau.current <- "50"
 # HC_subset <- subset(HC, D==D.current & tau==tau.current) #(Marcelo em 22/10)
 HC_subset <- subset(HC_no_MT, N==N.current & D==D.current & tau==tau.current)
 Cinf <- subset(inf, D==D.current)
@@ -162,3 +162,6 @@ maxC <- max(HC_subset$C)
   geom_point(data=interesting.data, aes(H.interesting, C.interesting), colour="red") +
   geom_segment(data=interesting.data, aes(x=H.interesting, y=10^-6, xend=H.interesting, yend=C.interesting), colour="red", alpha=.3) +
   geom_segment(data=interesting.data, aes(x=H.interesting, y=C.interesting, xend=1, yend=C.interesting), colour="red", alpha=.3)
+
+ ggsave("scatter50kD6t50.png", plot = last_plot(), device = "png", path = "../newPlots", scale = 1, dpi = 300, limitsize = TRUE)
+  

@@ -18,7 +18,7 @@
 \newtheorem{corolario}{Corolário}
 \newtheorem{proposicao}{Proposição}
 
-\graphicspath{{../Plots/}}
+\graphicspath{{../newPlots/}}
 
 %======================================================%
 %=========== Informações do documento PDF =============%
@@ -87,7 +87,6 @@ pdfview = {XYZ null null null}
 %======================================================%
 \begin{resumo}
 \noindent 
-
 O nosso ponto de partida é o desejo de analisar
 se é viável verificar no plano ($H\times C$), dentro de uma abordagem estatística, se sequências de observações são ruído branco.
 
@@ -119,19 +118,21 @@ Analisamos também sequências estacionárias e não estacionárias, e para as p
 \selectlanguage{english}
 \begin{abstract}
 \noindent
-Our starting point is the desire to verify in the plane ($H\times C$) in a  statistical approach, if sequences of observations are white noise .
+%Our starting point is the desire to verify in the plane ($H\times C$) in a  statistical approach, if sequences of observations are white noise .
 
-In the literature we find several works that do this in an ``ad hoc'' way, checking if the characteristic point of a sequence in that plane is close to the point ($1,0$).
+We want to verify  if sequences of observations are white noise  in the plane ($H\times C$).
+
+In the literature, we find several works that do this in an ``ad hoc'' way, checking if the characteristic point of a sequence in that plane is close to the point ($1,0$).
 
 However, as \citet{NewPermutationEntropy} states, we do not found detailed analyzes to assign statistical significance to such statements.
 
-To elucidate this question, and in the face of the impossibility of counting infinitely long sequences that are guaranteed to be white noise, we gather candidate sequences from three different sources: two physical and one algorithmic considered as a good source. Checked, if we may consider them ideals for our purposes.
+To elucidate this question, and in the face of the impossibility of counting infinitely long sequences that are guaranteed to be white noise, we gather candidate sequences from three different sources: two physical and one algorithmic considered as a good source. We checked, if we may consider them ideals for our purposes.
 
-We analyze the dispersion of the characteristic points of these sequences in the plane ($H\times C$) using four factors: the size of the sequence ($N$), the size of the word ($D$), the delay ($\tau$) and the generating source, observing the distance from the characteristic points to the reference point. Then, emerged evidences about the fact that the generating source would be an irrelevant factor to the analyses.
+We analyze the dispersion of the characteristic points of these sequences in the plane ($H\times C$) using four factors: the size of the sequence ($N$), the size of the word ($D$), the delay ($\tau$) and the generating source, observing the distance from the characteristic points to the reference point. We observe that the generating source would be an irrelevant factor to the analyses.
 
-In order to consolidate this possibility, we applied the Kolmogorov-Smirnov test to pairs of comparable sequences, however we verify that only two sources are really irrelevant, the both physical.
+To verify this hipothesis, we applied the Kolmogorov-Smirnov test to pairs of comparable sequences, however we verify that only two sources are equivalents, the both physical.
 
-So, we grouped the data from physical sources, and it became our groundtruth, then in sequence, we searched for trust regions. We adopted a non-parametric approach because we did not have no theoretical evidence about the distribution that follows the distance from the characteristic point to our groundtruth when a finite sequence of white noise is analyzed.
+Therefore, we grouped the data from physical sources, and it became our groundtruth, then in sequence, we searched for trust regions. We adopted a non-parametric approach because we did not have no theoretical evidence about the distribution that follows the distance from the characteristic point to our groundtruth when a finite sequence of white noise candidate is analyzed.
 
 We then calculated the quantiles, respecting the factors sequence size ($N$), size of the word ($D$) and delay ($\tau$), which serve as confidence regions for the test that gave rise to this work.
 
@@ -148,9 +149,32 @@ We also applied the test to stationary and nonstationary sequences and, for the 
 %======================================================%
 \selectlanguage{portuguese}
 \begin{agradecimentos}
-% 
+\noindent
 
-% 
+A Deus pelo dom da vida e por manter-me são durante o desenvolvimento deste trabalho.
+
+A meus Pais pelos ensinamentos que não temos dentro da escola e pelo incentivo a buscar o aperfeiçoamento intelectual.
+
+A minha esposa Elida, pelo companheirismo em tudo!
+
+A meus filhos, Maria Eduarda, Gabriel, João Marcelo e Melissa, por sua enorme alegria de viver e seu sorriso.
+
+Aos colegas do mestrado, com os quais vivi frutíferos e divertidos momentos de estudo, valeu Rodrigo, Domarques, Davy, 
+Felipe, Brião, Torres e todos os colegas do curso e do LaCCAN.
+
+Ao colega Joao Borges pela grande contribuição na implementação.
+
+A todos os colegas da UFAL que direta ou indiretamente contribuiram para este trabalho, no LCCV, NTI e na gesão central da universidade. E ainda a todos que sempre inquiriam acerca do desenvolvimento deste trabalho.
+
+Aos professores do curso de Modelagem Computacional do Conhecimento.
+
+Ao professor Osvaldo Rosso pela imensa contribuição relativa à teoria da informação e pelas ricas conversas acerca do tema
+
+E finalmente aos meus orientadores, Heitor Ramos e Alejandro Frery sem os quais este trabalho não teria se concretizado, obrigado pelo incentivo, pela disponibilidade e pela paciência. 
+
+Muito obrigado!!
+
+\vspace{1em}
 \begin{flushright}
 Marcelo Queiroz de A. Oliveira
 \end{flushright}
@@ -177,12 +201,12 @@ Marcelo Queiroz de A. Oliveira
 
 % \mylistofalgorithm
 
-\mylistofequation
+%\mylistofequation
 
 \mylistofcontents
 
 \inicio
-\setcounter{page}{8} %verificar quantas páginas possuem até iniciar o capítulo 1 (subtraindo capa, folha de aprovação e catalogação).
+\setcounter{page}{9} %verificar quantas páginas possuem até iniciar o capítulo 1 (subtraindo capa, folha de aprovação e catalogação).
 
 %======================================================%
 %============= CAPÍTULOS DA DISSERTAÇÃO ===============%
