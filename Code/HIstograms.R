@@ -30,7 +30,7 @@ ggplot(data=subset(HC, N=="1000" & D=="6" & tau=="1"), aes(x=dEuclid)) +
   #facet_wrap(~tau) +
   theme_light()
 
-ggsave(paste0("Hist_D6_1k_t1.png"), plot = last_plot(), device = "png",
+ggsave(paste0("Hist_D6_50k_t1.png"), plot = last_plot(), device = "png",
        path = "../newPlots", scale = 1, dpi = 300, limitsize = TRUE)
 
 ## N=50k D=6 Tau=1
@@ -41,7 +41,7 @@ ggplot(data=subset(HC, N=="1000" & D=="6" & tau=="50"), aes(x=dEuclid)) +
   #facet_wrap(~tau) +
   theme_light()
 
-ggsave(paste0("Hist_D6_1k_t50.png"), plot = last_plot(), device = "png",
+ggsave(paste0("Hist_D6_50k_t50.png"), plot = last_plot(), device = "png",
        path = "../newPlots", scale = 1, dpi = 300, limitsize = TRUE)
 ################################################################################
 
