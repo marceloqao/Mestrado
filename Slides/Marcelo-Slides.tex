@@ -97,6 +97,28 @@
 % DEFFINING AND REDEFINING COMMANDS
 %-------------------------------------------------------
 %% --
+%-------------------------------------------------------
+%% Show TOC at every new section
+\newif\iflattersubsect
+
+\AtBeginSection[] {
+	\begin{frame}<beamer>
+		\frametitle{Agenda} %
+		\tableofcontents[currentsection]  
+	\end{frame}
+	\lattersubsectfalse
+}
+
+\AtBeginSubsection[] {
+	\iflattersubsect
+	\begin{frame}<beamer>
+		\frametitle{Agenda} %
+		\tableofcontents[currentsubsection]  
+	\end{frame}
+	\fi
+	\lattersubsecttrue
+}
+%% --
 %======================================================%
 %=========== Informações do documento PDF =============%
 %======================================================%
@@ -130,24 +152,25 @@
 % INFORMATION IN THE TITLE PAGE
 %-------------------------------------------------------
 
-\title[] % [] is optional - is placed on the bottom of the sidebar on every slide
+\title[Teste para Verificação da Hipótese de Ruído Branco utilizando Teoria da Informação] % [] is optional - is placed on the bottom of the sidebar on every slide
 { % is placed on the title page
-      \textbf{Marcelo Queiroz de Assis Oliveira}
+      \textbf{Teste para Verificação da Hipótese de Ruído Branco utilizando Teoria da Informação}
 }
 
-\subtitle[Teste para Verificação da Hipótese de Ruído Branco utilizando Teoria da Informação]
+\subtitle[]
 {
-      \textbf{}
+      \textbf{Dissertação de Mestrado}
 }
 
 \author[Marcelo Queiroz de Assis Oliveira]
-{{\ttfamily marcelo@laccan.ufal.br}\\[1em]}
+	{{Marcelo Queiroz de Assis Oliveira}\\[1em]
+	{\ttfamily marcelo@laccan.ufal.br}\\[1em]}
 
 \institute[]
 {
       Universidade Federal de Alagoas\\
       Instituto de Computação\\
-      Pós Graduação em Modelagem Computacional do Conhecimento\\
+      Pós Graduação em Modelagem Computacional de Conhecimento\\
       Laboratório de Computação Científica e Análise Numérica
 }
 
@@ -169,7 +192,7 @@
 \end{frame}}
 
 
-\begin{frame}{Content}{}
+\begin{frame}{Agenda}{}
 \tableofcontents
 \end{frame}
 
@@ -413,7 +436,7 @@ Por fim, analisaremos sequências com o ferramental aqui proposto.
 	\pause
 
 		$$
-		p_j = \frac{1}{T-n+1} \# \{
+		p_j = \frac{1}{t-N+1} \# \{
 		\text{padrões } \pi_j \text{ observados}
 		\}.
 		$$
@@ -551,7 +574,7 @@ $$
 \begin{frame}{Resultados}{Histogramas suavizados}
 \begin{block}{}
 	A olho nu, $D$ é um fator relevante pois os diagramas de dispersão mostram comportamentos que merecem uma análise mais aprofundada, por outro lado não temos certeza de como $\tau$ e o gerador influenciam os resultados. 
-%	As figuras a seguir mostram os histogramas suavizados das distâncias para sequências de tamanho ($N=1.000$, $50.000$) respectivamente, com palavras de tamanho $D=6$  e valores de \textit{lag} ($\tau=1, 50$), sobrepondo-se os três geradores.
+\pause
 	\begin{figure} %D=6 %N 1000 t1 t 50
 		\centering
 		\subfigure[$D=6, \tau=1$]{\includegraphics[width=.48\linewidth]{Hist_D6_1k_t1}}
@@ -681,61 +704,89 @@ $$
 \end{frame}
 
 
-\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{frame}{Resultados}{}
+\begin{block}{}
+	Os $p$-valores observados na Tabela de teste de Kolmogorov-Smirnov aplicado a pares de sequências para $50.000$ observações nos levam a concluir que não é possível desconsiderar a fonte de dados como um fator relevante quando se trata do gerador de Mersenne-Twister.
+	Já as distâncias das sequências produzidas pelos geradores Quântico e de Rádio são indistinguíveis e, portanto, não podemos descartar a hipótese dessas fontes serem idênticas para a medida considerada.
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{}
+\begin{block}{}
+	A figura a seguir sugere que o comportamento das distâncias euclidianas ao ponto de referência muda conforme o tamanho do padrão $D$ varia.
+	
+	Além disso, também são perceptíveis mudanças de comportamento em função do \textit{lag} $\tau$ quando $D=5,6$.
+	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{}
+\begin{block}{}
+	\begin{figure}[hbt]
+		\centering
+		\includegraphics[width=.7\linewidth]{HistoDistanciasAleat}
+		\caption{Histogramas suavizados das distâncias euclidianas dos padrões ao ponto de referência, para $D\in\{3,4,5,6\}$ e $\tau\in\{1,10,30,50\}$.}\label{Fig:HistoDistanciasAleat}
+	\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{}
+\begin{block}{}
+	Da análise aqui apresentada concluímos que, à luz da distância do ponto característico de uma sequência ao ponto de referência, os dois geradores físicos produzem sequências indistinguíveis.
+	Diante disso, nos cálculos subsequentes faremos a junção desses conjuntos de dados, que denominaremos simplesmente ``aleatórios'' no que segue.
+\end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Análise das regiões de confiança}
+%-------------------------------------------------------
+\begin{frame}{Resultados}{Análise das regiões de confiança}
+\begin{block}{Sequências ``Aleatórias''}
+	Feita a junção das distâncias dos pontos característicos ao ponto de referência das sequências produzidas pelos geradores quântico e de rádio (sequências aleatórias), 
+	para cada situação de $N$=($1.000$, $50.000$), $D$=($3$, $4$, $5$, $6$) e $\tau$=($1$, $10$, $30$, $50$), o próximo passo consiste em calcular os quantis relevantes.
+	
+	\pause
+	Inicialmente ilustraremos apenas duas situações.
+	As figuras subsequentes mostram os padrões das sequências aleatórias para o caso $N$=$1.000$, $D$=$3$, $\tau$=$1$ e para o caso $N$=$50.000$, $D$=$6$, $\tau$=$50$ no plano Entropia-Complexidade, junto com os quantis de \SI{90}{\percent}, \SI{95}{\percent}, \SI{99}{\percent} e \SI{99,9}{\percent} em escala linear e em escala logarítmica.
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Análise das regiões de confiança}
+\begin{block}{Análise das regiões de confiança}
+	\begin{figure}
+		\centering
+		\subfigure[Escala linear\label{Fig:scatter1000D3t1}]{\includegraphics[width=.48\linewidth]{scatter1000D3t1}}
+		\subfigure[Escala logarítmica\label{Fig:scatter1000D3t1_log}]{\includegraphics[width=.48\linewidth]{scatter1000D3t1_log}}
+		\caption{Diagramas de dispersão das sequências aleatórias para o caso $N=1.000$, $D=3$ e $\tau=1$.}\label{Fig:AleattD3tau1}
+	\end{figure}	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Análise das regiões de confiança}
+\begin{block}{Análise das regiões de confiança}
+	\begin{figure}
+		\centering
+		\subfigure[Escala linear\label{Fig:scatter50kD6t50}]{\includegraphics[width=.48\linewidth]{scatter50kD6t50}}
+		\subfigure[Escala logarítmica\label{Fig:scatter50kD6t50_log}]{\includegraphics[width=.48\linewidth]{scatter50kD6t50_log}}
+		\caption{Diagramas de dispersão das sequências aleatórias para o caso $N=50.000$, $D=6$ e $\tau=50$.}\label{Fig:QuantD3tau10log}
+	\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Análise das regiões de confiança}
+\begin{block}{Análise das regiões de confiança}
+	Nestas figuras, os pontos característicos foram desenhados com um gradiente de cores que vai do amarelo ao preto em função da distância ao ponto de referência.
+	Identificamos também os valores de Entropia e de Complexidade Estatística correspondentes a cada quantil de interesse, estes últimos plotados em vermelho.
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Análise das regiões de confiança}
 \begin{block}{}
 	
 \end{block}
 \end{frame}
 
-\begin{frame}{Resultados}{Histogramas suavizados}
-\begin{block}{}
-	
-\end{block}
-\end{frame}
-
-\begin{frame}{Resultados}{Histogramas suavizados}
-\begin{block}{}
-	
-\end{block}
-\end{frame}
-
-\begin{frame}{Resultados}{Histogramas suavizados}
-\begin{block}{}
-	
-\end{block}
-\end{frame}
-
-\begin{frame}{Resultados}{Histogramas suavizados}
-\begin{block}{}
-	
-\end{block}
-\end{frame}
-
-\begin{frame}{Resultados}{Histogramas suavizados}
-\begin{block}{}
-	
-\end{block}
-\end{frame}
-
-\begin{frame}{Resultados}{Histogramas suavizados}
-\begin{block}{}
-	
-\end{block}
-\end{frame}
-
-\begin{frame}{Resultados}{Histogramas suavizados}
-\begin{block}{}
-	
-\end{block}
-\end{frame}
-
-\begin{frame}{Resultados}{Histogramas suavizados}
-\begin{block}{}
-	
-\end{block}
-\end{frame}
-
-\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{frame}{Resultados}{Análise das regiões de confiança}
 \begin{block}{}
 	
 \end{block}

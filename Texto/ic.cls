@@ -461,7 +461,7 @@ Federal de Alagoas, aprovada pela comissão examinadora que abaixo assina.}%
  Membros da Comissão Julgadora da Dissertação de Mestrado de 
  Marcelo Queiroz de Assis Oliveira, intitulada ``Teste para Verificação da Hipótese de Ruído Branco utilizando Teoria da Informação'', 
  apresentada ao Programa de Pós-Graduação em Modelagem Computacional de Conhecimento 
- da Universidade Federal de Alagoas em 09 de novembro de 2017, às 10h00min, 
+ da Universidade Federal de Alagoas em 09 de novembro de 2017, às 9h30min, 
  na sala de aula do Mestrado em Modelagem Computacional de Conhecimento.
 }%
          {
