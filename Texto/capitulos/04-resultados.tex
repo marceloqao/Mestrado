@@ -71,7 +71,7 @@ As figuras~\ref{Fig:ScatterAll_MT_1k} e~\ref{Fig:ScatterAll_MT_50k} mostram os p
 
 A olho nu, $D$ é um fator relevante pois os diagramas de dispersão mostram comportamentos que merecem uma análise mais aprofundada, por outro lado não temos certeza de como $\tau$ e o gerador influenciam os resultados. 
 
-As figuras~\ref{fig:GeradorIrrelevante1k} e~\ref{fig:GeradorIrrelevante50k} mostram os histogramas suavizados das distâncias para sequências de tamanho ($N=1.000$, $50.000$) respectivamente, com palavras de tamanho $D=6$  e valores de \textit{lag} ($\tau=1, 50$), sobrepondo os três geradores.
+As figuras~\ref{fig:GeradorIrrelevante1k} e~\ref{fig:GeradorIrrelevante50k} mostram os histogramas suavizados das distâncias para sequências de tamanho ($N=1.000$, $50.000$) respectivamente, com palavras de tamanho $D=6$  e valores de \textit{lag} ($\tau=1, 50$), sobrepondo-se os três geradores.
 Os gráficos sugerem que o gerador é um fator irrelevante para a distribuição da distância.
 Mais adiante veremos que esta impressão não se confirma totalmente.
 
@@ -118,7 +118,7 @@ Os gráficos sugerem fortemente que o tamanho das palavras é um fator relevante
 \caption{Histogramas suavizados de situações que sugerem que o $\tau$ é um fator relevante}\label{fig:tRelevante}
 \end{figure}
 
-Para consolidar esta análise realizamos a seguir testes Kolmogorov-Smirnov afim de analisar a influência dos fatores envolvidos nesta análise.
+Para consolidar esta análise realizamos a seguir testes Kolmogorov-Smirnov afim de analisar a influência dos fatores envolvidos.
 
 A Tabela~\ref{tab:KS_1000} mostra os $p$-valores dos testes de Kolmogorov-Smirnov aplicados a pares de distâncias calculadas sobre sequências de tamanho $1000$, variando $D$ e $\tau$.
 Verificamos que há excelente aderência entre os pares de distâncias de sequências Quânticas e de Rádio.
@@ -418,7 +418,7 @@ O código~\ref{code:Estacionaria} foi utilizado para gerar a sequência; ver ap�
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{beta_1k_D6_t1}
-	\caption{Poder do teste.}\label{Fig:beta}
+	\caption{Poder do teste aplicado a uma sequência de séries estacionárias no caso particular $N=1.000$, $\tau=1$, variando-se a máscara de convolução $(\beta,1,\beta)$.}\label{Fig:beta}
 \end{figure}
 
 As abscissas da figura~\ref{Fig:beta} descrevem a variação de $\beta$, e para cada valor calculamos a distância euclidiana ao ponto de referência $(1,0)$ para palavras de tamanho $D=6$ e $\tau=1$

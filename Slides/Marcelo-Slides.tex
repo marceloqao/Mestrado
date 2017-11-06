@@ -50,6 +50,45 @@
 \usepackage{carlito}
 \usepackage{caladea}
 \usepackage{zi4}
+\usepackage{amssymb,amsmath,graphicx,charter,latexsym}
+
+\RequirePackage{amsmath} 
+\RequirePackage{bbm}
+\usepackage{bbm}
+
+\RequirePackage{siunitx}
+\usepackage{siunitx}
+
+%%Tables
+\usepackage{tabularx,booktabs,dcolumn}
+
+%% Graphics and Subgraphics
+\usepackage{subfigure}
+\usepackage{graphicx}
+
+\graphicspath{{../newPlots/}}
+
+%%Bibliography
+%\setbeamertemplate{bibliography entry title}{}
+%\setbeamertemplate{bibliography entry location}{}
+%\setbeamertemplate{bibliography entry note}{}
+
+%----------Test Bib Style-------------------------------
+\usepackage{natbib}
+\bibliographystyle{apalike}
+% make bibliography entries smaller
+%%\renewcommand\bibfont{\scriptsize}
+% If you have more than one page of references, you want to tell beamer
+% to put the continuation section label from the second slide onwards
+\setbeamertemplate{frametitle continuation}[from second]
+% Now get rid of all the colours
+\setbeamercolor*{bibliography entry title}{fg=black}
+\setbeamercolor*{bibliography entry author}{fg=black}
+\setbeamercolor*{bibliography entry location}{fg=black}
+\setbeamercolor*{bibliography entry note}{fg=black}
+% and kill the abominable icon
+\setbeamertemplate{bibliography item}{}
+%-------------------------------------------------------
 
 %% e.g. using Venturis ADF Serif and Sans
 % \usepackage{venturis}
@@ -57,7 +96,31 @@
 %-------------------------------------------------------
 % DEFFINING AND REDEFINING COMMANDS
 %-------------------------------------------------------
+%% --
+%======================================================%
+%=========== Informações do documento PDF =============%
+%======================================================%
+\hypersetup{
+	colorlinks = {true},
+	linktocpage = {false},
+	plainpages = {false},
+	linkcolor = {Blue},
+	citecolor = {Blue},
+	urlcolor = {Red},
+	unicode = {true},
+	pdftitle ={Teste para Verificação da Hipótese de Ruído Branco utilizando Teoria da Informação},
+	pdfauthor = {Marcelo Queiroz de Assis Oliveira},
+	pdfsubject = {Disserta\c c\~ao de Mestrado},
+	pdfkeywords={Geradores de Números Aleatórios. Testes Teóricos. Testes Estatísticos. Teoria da Informação.},
+	pdfcreator = {LaTeX2e},
+	pdffitwindow = {false},
+	pdfstartview = {FitH},
+	pdftoolbar = {true},
+	pdfpagemode = {UseOutlines},
+	pdfview = {XYZ null null null}
+}
 
+%% --
 % colored hyperlinks
 \newcommand{\chref}[2]{
   \href{#1}{{\usebeamercolor[bg]{Feather}#2}}
@@ -113,155 +176,591 @@
 %-------------------------------------------------------
 \section{Introdução}
 %-------------------------------------------------------
-\subsection{License}
-\begin{frame}{Introduction}{License}
+\subsection{Números Aleatórios}
 %-------------------------------------------------------
 
-  \begin{itemize}
-    \item<1-> The.
-    \item<2-> The. 
-  \end{itemize}
+\begin{frame}{Introdução}{Números Aleatórios}
+	\begin{figure}[hbt]
+		\centering
+		\includegraphics[width=.7\linewidth]{dilbert}
+		\caption{Visão de Dilbert de um gerador de números aleatórios}\label{fig:Dilbert}
+	\end{figure}
 \end{frame}
 
-%-------------------------------------------------------
-\section{Installation}
-%-------------------------------------------------------
-\subsection{Source files}
-\begin{frame}{Installation}{Source files}
-%-------------------------------------------------------
-
+\begin{frame}{Introdução}{Números Aleatórios}
+Números aleatórios perfazem uma das partes mais importantes em aplicações computacionais nos vários campos do conhecimento, como aborda \cite{Knuth:98}: \pause
 \begin{block}{}
-The theme contains 4 source files:
-  \begin{itemize}
-    \item {\tt beamercolorthemeFeather.sty}
-    \item {\tt beamerouterthemeFeather.sty}
-    \item {\tt beamerinnerthemeFeather.sty}
-    \item {\tt beamerthemeFeather.sty}
-  \end{itemize}
+\begin{itemize}
+\item {\tt Simulação} \pause
+\item {\tt Amostragem} \pause
+\item {\tt Programação de Computadores} \pause
+\item {\tt Tomada de Decisão} \pause
+\item {\tt Criptografia} \pause
+\item {\tt Estética} \pause
+\item {\tt Diversão}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Introdução}{GNAs e GNPAs}
+	\begin{block}{Geradores de Números Aleatórios - GNAs}
+		A maior parte dos geradores utiliza-se de fenômenos físicos naturais como, decaimento radioativo, ruidos termais em semiconcutores, amostras de som num local ruidoso, ruído no espectro eletromagnético, dentre outros que, por óbvia dedução, carecem de algum hardware específico para serem capturados, o que dificulta sua obtenção. 
+	\end{block}
+\pause
+	\begin{block}{Geradores de Números Pseudo-Aleatórios - GNPAs}
+		Dadas as dificuldades descritas anteriormente, atualmente a maneira mais conveniente e confiável de se gerar números aleatórios para diversas aplicações é através de algoritmos com um sólido embasamento matemático.
+	\end{block}	
+\end{frame}
+
+\begin{frame}{Introdução}{GNAs e GNPAs}
+	\begin{figure}[hbt]
+		\centering
+		\includegraphics[width=.7\linewidth]{random_org}
+		\caption{Setup do Gerador de Números Aleatórios de www.random.org (1998)}\label{fig:random_org}
+	\end{figure}
+\end{frame}
+%-------------------------------------------------------
+\subsection{Testes}
+%-------------------------------------------------------
+\begin{frame}{Introdução}{Testes}
+Existem duas abordagens para testar-se a capacidade de geradores aleatórios ou pseudoaleatórios produzirem sequências ditas aleatórias.
+Segundo \cite{LEcuyer:92} são elencados em teóricos e empíricos.
+\pause
+\begin{block}{Testes teóricos}
+	Os testes teóricos são bastante específicos para cada tipo de GNPA, pois analisam o as propriedades das sequências a partir da definição do gerador.
+\end{block}
+\pause
+\begin{block}{Testes empíricos}
+	Já os testes empíricos valem-se de técnicas estatísticas objetivando avaliar o quão boas são as sequências produzidas por um determinado gerador.
+\end{block}	
+\end{frame}
+
+\begin{frame}{Introdução}{Testes}
+\pause
+\begin{block}{NIST}
+	Desde 1997, o Grupo de Trabalho Técnico em Geração de Números Aleatórios (RNG-TWG) tem trabalhado no desenvolvimento de uma bateria de testes estatísticos apropriados para a avaliação de geradores de números aleatórios e pseudoaleatórios utilizados em aplicações criptográficas.
+\end{block}
+\pause
+\begin{block}{Diehard[er]}
+	George Marsaglia desenvolveu a bateria de testes Diehard em 1995, e os disponibilizou em CD-ROM.
+	Robert Brown identificou limitações nessa bateria de testes, os implementou novamente na linguagem de programação C, acrescentou testes da bateria NIST e disponibilizou um conjunto ampliado de testes denominado Dieharder.
+\end{block}	
+\end{frame}
+
+\begin{frame}{Introdução}{Testes}
+\pause
+\begin{block}{ENT}
+	ENT \cite{ENTTestSuite} realiza uma variedade de testes no fluxo de bytes de um arquivo (ou na entrada padrão se nenhum arquivo for especificado). É mantido no Fourmilab (\url{http://www.fourmilab.ch/random/}) por John Walker.
+\end{block}
+\pause
+\begin{block}{TestU$01$}
+	Considerado como o estado da arte dos testes para geradores de números aleatórios \cite{LEcuyer:07}, o TestU$01$ se apresenta como uma biblioteca de software escrita em $ANSI$ $C$ que oferece uma coleção de utilitários para testagem, ele provê implemetações generalistas dos testes estatísticos clássicos para geradores de números aleatórios, bem como de vários outros propostos na literatura, além de propor alguns originais.
+\end{block}	
+\end{frame}
+
+\begin{frame}{Introdução}{Testes}
+\pause
+\begin{block}{Visualização}
+	O intuito desses testes é a verificação de que os dados produzidos por um gerador, seja ele algoritmico ou físico, não se afastam significativamente da hipótese de serem eventos de variáveis independentes e identicamente distribuídas segundo uma lei Uniforme no intervalo $(0,1]$.
+\pause	
+	
+	A componente mais difícil é a de verificar a independência, por se tratar de independência coletiva e não apenas aos pares.
+\pause
+	
+	A falta de independência de uma sequência de $N$ pontos pode se manifestar de várias maneiras.
+	Uma delas é quando os pontos jazem em subespaços de dimensão menor a $N$, ao invés de preencher o espaço por completo.
+\end{block}
+\end{frame}
+
+\begin{frame}{Introdução}{Testes}
+\begin{block}{Visualização}
+	\begin{figure}[hbt]
+		\centering
+		\subfigure[Primeira perspectiva\label{MTa}]{\includegraphics[width=.38\linewidth]{MT3D}}
+		\pause
+		\subfigure[Segunda perspectiva\label{MTb}]{\includegraphics[width=.40\linewidth]{MT3Dsubspace}}
+		\caption{Visualização 3D de sequências disjuntas produzidas pelo gerador Mersenne-Twister}\label{fig:3DMT}
+	\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}{Introdução}{Testes}
+\begin{block}{Visualização}
+	\begin{figure}[hbt]
+		\centering
+		\subfigure[Primeira perspectiva\label{Ra}]{\includegraphics[width=.48\linewidth]{Randu3D}}
+		\pause
+		\subfigure[Segunda perspectiva\label{Rb}]{\includegraphics[width=.48\linewidth]{Randu3Dsubspace}}
+		\caption{Visualização 3D de sequências disjuntas produzidas pelo gerador RANDU}\label{fig:3DRandu}
+	\end{figure}
 \end{block}
 \end{frame}
 
 %-------------------------------------------------------
-\subsection{Local and Global installation}
-\begin{frame}{Installation}{Local and Global installation}
-%-------------------------------------------------------
-  The theme can be installed for \textbf{local} or \textbf{global} use.
-  \pause
-  \begin{block}{Local Installation}
-  \begin{itemize}    
-    \item Local installation is the simplest way of installing the theme. 
-    \item You need to placing the 4 source files in the same folder as your presentation. When you download the theme, the 4 theme files are located in the {\tt local} folder.
-  \end{itemize}
-  \end{block}
-
-  \begin{block}{Global Installation}
-  \begin{itemize}
-     \item If you wish to make the theme globally available, you must put the files in your local latex directory tree. The location of the root of the local directory tree depends on your operating system and the latex distribution. 
-     \item Detailed steps on how to proceed installation under various operating systems can be found at Beamer documentation.
-  \end{itemize}
-  \end{block}
-\end{frame}
-     
-
-%-------------------------------------------------------
-\subsection{Required Packages}
-\begin{frame}{Installation}{Required Packages}
+\subsection{Descritores baseados em Teoria da Informação}
 %-------------------------------------------------------
 
-  For using the Feather Theme you will need the Bemaer class installed and the following 2 packages
-  \begin{itemize}
-    \item TikZ\footnote{TikZ is a package for creating beautiful graphics. Have a look at these \chref{http://www.texample.net/tikz/examples/}{online examples} or the \chref{http://tug.ctan.org/tex-archive/graphics/pgf/base/doc/generic/pgf/pgfmanual.pdf}{pgf user manual}.}
-    \item calc
-  \end{itemize}
-  Due to the fact that the packages are very common they should be included in your latex distribution in the first place.
-\end{frame}
+\begin{frame}{Introdução}{Descritores baseados em Teoria da Informação}
 
-%-------------------------------------------------------
-\section{User Interface}
-\subsection{Loading the Theme and Theme Options}
-\begin{frame}{User Interface}{Loading the Theme and Theme Options}
-%-------------------------------------------------------
+\begin{block}{Descritores baseados em Teoria da Informação}
+	\pause
 
-  \begin{block}{The Presentation Theme}
-    The Feather Theme can be loaded in a familiar way. In the reamble of your {\tt tex} file you must type\\ \vspace{5pt} 
-    {\tt \textbackslash usetheme[<options>]\{Feather\}}\\ \vspace{5pt} 
-    The presentation theme loads the inner, outer and color Feather theme files and passes the {\tt <options>} on to these files.
-  \end{block}
-  \begin{block}{The Inner and Outher Themes}
-    If you wish you can load only the inner, or the outher theme directly by\\ \vspace{5pt} 
-    {\tt \textbackslash useinnertheme\{Feather\}} (and it has no options)\\ \vspace{5pt} 
-    {\tt \textbackslash useoutertheme[<options>]\{Feather\}} (it has one option)\\
-    \hspace{20pt}{\tt progressstyle=\{fixedCircCnt or movingCircCnt\}} \\
-    \begin{itemize}
-    \item which set how the progress is illustrated;
-    \item the value {\tt movingCircCnt} is the default.
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}{User Interface}{Loading the Theme and Theme Options}
-
-  \begin{block}{The Color Theme}
-    Also you can load only the color theme by writing in the preamble of the {\tt tex} file 
-    
-    \vspace{5pt} 
-    
-    \begin{itemize}
-    \item {\tt \textbackslash usecolortheme\{Feather\}}
-    \end{itemize}
-    
-    \vspace{5pt}
-    
-    ...or to change the colors of the various elements in the theme
-    
-    \vspace{5pt} 
-    \begin{itemize}
-    \item Change the bar colors: \\    
-    {\tt \textbackslash setbeamercolor \{Feather\}\{fg=<color>, bg=<color>\}}
-    
-    \vspace{2pt} 
-    
-    \item Change the color of the structural elements: \\    
-    {\tt \textbackslash setbeamercolor\{structure\}\{fg=<color>\}}
-    
-    \vspace{2pt} 
-    
-    \item Change the frame title text color:\\
-    {\tt \textbackslash setbeamercolor\{frametitle\}\{fg=<color>\}}
-    
-    \vspace{2pt} 
-    
-    \item Change the normal text color background:    
-    {\tt \textbackslash setbeamercolor\{normal text\}\{fg=<color>, bg=<color>\}}
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-
-%-------------------------------------------------------
-\subsection{Feather image}
-\begin{frame}{User Interface}{The Feather Background Image}
-%-------------------------------------------------------
-
-\begin{block}{The Feather Background Image}
-    \begin{itemize}
-    \item In Feather theme, the title page frame and the last frame have the Feather image as the background image. 
-    \item The Feather background image can be produced to any frame by wrating on the begining at the choosen frame the following
-    \end{itemize} 
-    
-    \vspace{5pt} 
-    
-  {\tt \{\textbackslash 1bg\\
-    \textbackslash begin\{frame\}[<options>]\{Frame Title\}\{Frame Subtitle\}\\
-    \ldots\\
-    \textbackslash end\{frame\}\}}
+	O trabalho pioneiro de \cite{PermutationEntropyBandtPompe} representa uma mudança de paradigma na análise de séries temporais, e será o nosso marco referencial teórico.
+	\pause	
+	
+	Eles propõem uma técnica não-paramétrica de análise de sequências que consiste em transformar palavras de $D$ dados não necessariamente subsequentes em símbolos ordinais.
+	\pause
+	
+	Esses símbolos codificam a ordem que as $D$ observações têm na sequência e, portanto, são bem menos sucetíveis a contaminação dos que os próprios valores.
 \end{block}
 \end{frame}
 
+\begin{frame}{Introdução}{Descritores baseados em Teoria da Informação}
+\begin{block}{Descritores baseados em Teoria da Informação}
+	\pause
+	
+Forma-se então um histograma de proporções dos símbolos observados, e calculam-se duas quantidades: a Entropia e a Divergência de Jensen-Shannon a uma distribuição de referência (usualmente a uniforme).
+
+	\pause
+A série, finalmente, é representada pelo par de valores Entropia-Complexidade Estatística, sendo que esta última é o produto da Entropia e a Divergência de Jensen-Shannon.
+
+	\pause
+O conjunto de valores possíveis dos pontos característicos de qualquer série não varre $\mathbbm{R^2}$, mas constitui-se em um subconjunto compacto do plano: o plano Entropia-Complexidade.
+\end{block}
+\end{frame}
+
+\begin{frame}{Introdução}{Testes}
+\begin{block}{Visualização}
+	\begin{figure}[hbt]
+		\centering
+		\includegraphics[width=.4\linewidth]{plano_HC}
+		\caption{Plano Entropia-Complexidade.}\label{fig:Plano_HC}
+	\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}{Introdução}{Descritores baseados em Teoria da Informação}
+\begin{block}{Algumas aplicações emblemáticas dessa abordagem:}
+\begin{description}
+	\item[\cite{RandomNumberGeneratorsCausality}] mostram que o plano Entropia-Complexidade permite prever o resultado dos testes Diehard de qualidade de GNPA.
+	\item[\cite{GeneralizedStatisticalComplexityMeasuresGeometricalAnalyticalProperties}] analisam o mapa caótico logístico e discutem cotas no plano Entropia-Complexidade.
+	\item[\cite{EEGAnalysisWaveletInformationTools}] analisam dados de eletroencefalogramas de pacientes com epilepsia 	utilizando decomposição wavelet e o plano Entropia-Complexidade.
+	\item[\cite{De_Micco_2008}] avaliam melhorias da qualidade de sequências pseudoaleatórias.
+	%\item[\cite{De_Micco_2009}] estudam as componentes caóticas de GNPAs.
+	\item[\cite{ComplexNetworksEvolution}] analisam a evolução de redes dinâmicas com descritores baseados em Teoria da Informação.
+	%\item[\cite{DistinguishingChaoticStochasticDynamicsTimeSeriesMultiscaleSymbolicApproach}] analisam a relação entre dinâmicas caóticas e estocásticas com uma abordagem multiescala.
+\end{description}
+\end{block}
+\end{frame}
+
+\begin{frame}{Introdução}{Descritores baseados em Teoria da Informação}
+\begin{block}{Algumas aplicações emblemáticas dessa abordagem:}
+	\begin{description}
+		\item[\cite{StructuralChangesDataCommunicationWSN}] utilizam descritores de Teoria da Informação para descrever a dinâmica de redes de sensores sem fios.
+%		\item[\cite{DistinguishingNoiseFromChaos}] caracterizam sequências com componentes caóticas e estocásticas no plano Entropia-Complexidade.
+		\item[\cite{CharacterizationVehicleBehaviorInformationTheory}] analisam o comportamento de veículos em larga escala em função da topologia de diversas cidades.
+%		\item[\cite{DiagnosingDynamicsObservedSimulatedEcosystem}] analisam séries temporais de fenômenos ambientais.
+%		\item[\cite{InformationTheoryPerspectiveNetworkRobustness}] verificam o efeito de ataques em redes complexas através de descritores no plano Entropia-Complexidade.
+		\item[\cite{ClassificationVerificationOnlineHandwrittenSignatures}] mostram a expressividade dos descritores de Teoria da Informação para o problema de classificação e verificação de assinaturas.
+		\item[\cite{CharacterizationElectricLoadInformationTheoryQuantifiers}] conseguem caracterizar o tipo de dispositivo elétrico observando o ponto no plano Entropia-Complexidade em que o histórico do seu consumo é mapeado.
+	\end{description}
+\end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Delimitação do Problema}
+%-------------------------------------------------------
+
+\begin{frame}{Introdução}{Delimitação do Problema}
+\begin{block}{Delimitação do Problema}
+A motivação deste trabalho é o desenvolvimento de um teste baseado em Teoria da Informação para verificar a hipótese de que uma sequência é ruído branco, isto é, formada por observações de variáveis aleatórias independentes e identicamente distribuídas \textit{(vaiid)}.
+\pause
+
+Para tanto, trabalharemos com atributos derivados da simbolização de Bandt \& Pompe.
+Cada sequência sob análise será transformada em um ponto no plano Entropia-Complexidade, e será medida a sua distância ao ponto característico de sequências ideais.
+\pause
+
+Analisaremos, então, a distribuição empírica de uma variedade de situações de interesse para, finalmente, propor regiões de confiança da hipótese nula.
+Por fim, analisaremos sequências com o ferramental aqui proposto.
+\end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\section{Proposta}
+%-------------------------------------------------------
+\subsection{Fundamentação Teórica}
+%-------------------------------------------------------
+
+\begin{frame}{Proposta}{Fundamentação Teórica}
+	\begin{block}{Simbolização}
+		Dada uma série temporal a tempo discreto $ X = {x_t:1\leq t\leq M} $
+ 
+		de comprimento $N$, uma dimensão $D$ e um tempo de atraso (\textit{delay}) $\tau$, o particionamento é efetuado por meio da reorganização do sistema em conjuntos seguindo os passos:
+\pause
+		\begin{itemize}
+			\item \textbf{Composição dos grupos:} Os conjuntos, ou palavras, de comprimento $D$ e \textit{delay} $\tau$ são definidas por um segmento da série: $$ (x_{t+1},x_{t+\tau},\ldots, x_{t+D\tau}).$$ 
+			\pause
+			\item \textbf{Formação dos padrões:} Cada palavra é então relacionada a um padrão ordinal $\pi_j$ de ordem $D$, isto é, um elemento indexado univocamente por $$ j\in\{1, 2,\ldots, D-1, D\}. $$
+		\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Proposta}{Fundamentação Teórica}
+\begin{block}{Simbolização}
+	Neste trabalho utilizaremos a atribuição lexicográfica, isto é, se os valores da palavra $(x_{t+1},x_{t+\tau},\ldots, x_{t+D\tau})$ são tais que, ordenados, eles têm índices crescentes $b_1,b_2,\dots,b_D$, então o padrão correspondente será $$\pi=b_1b_2\dots b_D$$
+	
+	Calcula-se, então, o histograma de proporções $$\mathcal{H} =(p_1,\dots,p_{D!})$$ dos padrões observados:	
+	\pause
+
+		$$
+		p_j = \frac{1}{T-n+1} \# \{
+		\text{padrões } \pi_j \text{ observados}
+		\}.
+		$$
+\pause
+
+	O seguinte passo consiste em calcular descritores a partir desse histograma.
+\end{block}
+\end{frame}
+
+\begin{frame}{Proposta}{Fundamentação Teórica}
+\begin{block}{Simbolização}
+Os trabalhos já citados utilizam dois descritores: a Entropia de Shannon e a Complexidade Estatística da série.
+
+A Entropia de Shannon é definida como
+$$
+E(\mathcal H) = -\sum_{j=1}^{D!} p_j \log p_j,
+$$
+
+Esta é uma medida da desordem ou imprevisibilidade da lei subjacente a $\mathcal H$.
+\pause
+A entropia apenas não consegue caracterizar de forma plena a dinâmica que produz a série.
+Torna-se interessante, então, o uso de um outro descritor baseado em quão diferente o histograma $\mathcal H$ é de uma lei de probabilidade de referência.
+A nossa referência será a lei uniforme, e a medida de distância entre elas será a distância de Jensen-Shannon:
+$$
+JS(\mathcal H, \mathcal H_R) = E((\mathcal H+ \mathcal H_R)/2) -\frac{1}{2}(E(\mathcal H) + E(\mathcal H_R)).
+$$
+\end{block}
+\end{frame}
+
+\begin{frame}{Proposta}{Fundamentação Teórica}
+	\begin{block}{Regiões de confiança no plano Entropia-Complexidade}
+	Não conhecemos, contudo, a distribuição conjunta do par $(E,JS)$ para uma sequência de variáveis aleatórias coletivamente independente e identicamente distribuídas segundo uma lei uniforme.
+	Como também não conhecemos a distribuição do par $(H,C)$ decidimos fazer a análise empírica de dados obtidos de fontes ``confiáveis''.
+	\pause
+	
+	Para isso, utilizamos três fontes de dados: duas físicas e uma algorítmica.
+	As fontes físicas foram dados de medidas de estados quânticos \cite{RNGVacuumStates} (que denominaremos \textit{sequências quânticas}) e de sinais de rádio \cite{RandomHostingAdvice} (que chamaremos \textit{sequências de rádio}).
+	A fonte algorítmica é o gerador Mersenne-Twister \cite{Matsumoto98}, considerado um padrão de qualidade de algoritmos de geração de números pseudoaleatórios.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Proposta}{Fundamentação Teórica}
+	\begin{block}{Regiões de confiança no plano Entropia-Complexidade}
+	Obtivemos com os autores \num{54000000} de observações de cada gerador físico, e as submetemos à análise dos padrões de Bandt \& Pompe.
+	
+	Obtivemos os valores de entropia e complexidade estatística para todas as sequências possíveis de tamanho \num{18000}, palavras de tamanho $D\in\{3, 4, 5, 6\}$ e \textit{lag} $\tau\in\{1, 10, 30,50\}$.
+	
+	Seguindo a proposta de \cite{NewPermutationEntropy}, nossa medida de qualidade é a distância do ponto padrão observado $(E,C)$ no plano Entropia-Complexidade ao ponto ideal $(1,0)$.
+	Empregamos, como esse autor, a distância euclidiana.
+	\end{block}
+\end{frame}
+%-------------------------------------------------------     
+\section{Resultados}
+%-------------------------------------------------------
+%-------------------------------------------------------
+\subsection{Análise global das sequências}
+%-------------------------------------------------------
+\begin{frame}{Resultados}{Análise global das sequências}
+  \begin{block}{Análise global das sequências}
+	Trabalhamos com sequências de observações provindas de três geradores: dois físicos (considerados ``verdadeiramente aleatórios'') e um algorítmico (o gerador Mersenne-Twister, que é reputado um dos melhores geradores pseudoaleatórios).
+	\pause
+	
+	Para cada gerador considerado coletamos sequências disjuntas de tamanho \num{1.000} e \num{50.000}, de cada tamanho de palavra $D$ e a cada \textit{lag} $\tau$.
+	Temos, assim, quatro fatores a serem analisados.
+	\pause
+	
+	Cada sequência passou pelo processo de simbolização, e foi calculado o histograma dos símbolos.
+	Foram então calculados os valores de Entropia e de Complexidade de cada histograma, bem como a distância euclidiana desses valores ao ponto de referência $(1,0)$.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Análise global das sequências}
+\begin{block}{Sequências quânticas com $1.000$ observações}
+	\begin{figure}[hbt]
+		\centering
+		\includegraphics[width=.65\linewidth]{ScatterAll_Quant_1k}
+		\caption{Diagramas de dispersão das sequências quânticas com $1.000$ observações para $D\in\{3, 4, 5, 6\}$ (colunas) e $\tau\in\{1, 10, 30, 50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAll_Quant_1k}
+	\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Análise global das sequências}
+\begin{block}{Sequências quânticas com $50.000$ observações}
+	\begin{figure}[hbt]
+		\centering
+		\includegraphics[width=.65\linewidth]{ScatterAll_Quant_50k}
+		\caption{Diagramas de dispersão das sequências quânticas com $50.000$ observações para $D\in\{3, 4, 5, 6\}$ (colunas) e $\tau\in\{1, 10, 30, 50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAll_Quant_50k}
+	\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Análise global das sequências}
+\begin{block}{Sequências de rádio com $1.000$ observações}
+	\begin{figure}[hbt]
+		\centering
+		\includegraphics[width=.65\linewidth]{ScatterAll_Radio_1k}
+		\caption{Diagramas de dispersão das sequências de rádio com $1.000$ observações para $D\in\{3, 4, 5, 6\}$ (colunas) e $\tau\in\{1, 10, 30, 50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAll_Radio_1k}
+	\end{figure}	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Análise global das sequências}
+\begin{block}{Sequências de rádio com $50.000$ observações}
+	\begin{figure}[hbt]
+		\centering
+		\includegraphics[width=.65\linewidth]{ScatterAll_Radio_50k}
+		\caption{Diagramas de dispersão das sequências de rádio com $50.000$ observações para $D\in\{3, 4, 5, 6\}$ (colunas) e $\tau\in\{1, 10, 30, 50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAll_Radio_50k}
+	\end{figure}	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Análise global das sequências}
+\begin{block}{Sequências de Mersenne-Twister com $1.000$ observações}
+	\begin{figure}[hbt]
+		\centering
+		\includegraphics[width=.65\linewidth]{ScatterAll_MT_1k}
+		\caption{Diagramas de dispersão das sequências de Mersenne-Twister com $1.000$ observações para $D\in\{3, 4, 5, 6\}$ (colunas) e $\tau\in\{1, 10, 30, 50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAll_MT_1k}
+	\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Análise global das sequências}
+\begin{block}{Sequências de Mersenne-Twister com $50.000$ observações}
+	\begin{figure}[hbt]
+		\centering
+		\includegraphics[width=.65\linewidth]{ScatterAll_MT_50k}
+		\caption{Diagramas de dispersão das sequências de Mersenne-Twister com $50.000$ observações para $D\in\{3,4,5,6\}$ (colunas) e $\tau\in\{1,10,30,50\}$ (linhas), com curvas de complexidade mínima e máxima no plano Entropia-Complexidade.}\label{Fig:ScatterAll_MT_50k}
+	\end{figure}
+\end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Histogramas suavizados}
+%-------------------------------------------------------
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	A olho nu, $D$ é um fator relevante pois os diagramas de dispersão mostram comportamentos que merecem uma análise mais aprofundada, por outro lado não temos certeza de como $\tau$ e o gerador influenciam os resultados. 
+%	As figuras a seguir mostram os histogramas suavizados das distâncias para sequências de tamanho ($N=1.000$, $50.000$) respectivamente, com palavras de tamanho $D=6$  e valores de \textit{lag} ($\tau=1, 50$), sobrepondo-se os três geradores.
+	\begin{figure} %D=6 %N 1000 t1 t 50
+		\centering
+		\subfigure[$D=6, \tau=1$]{\includegraphics[width=.48\linewidth]{Hist_D6_1k_t1}}
+		\subfigure[$D=6, \tau=50$]{\includegraphics[width=.48\linewidth]{Hist_D6_1k_t50}}
+		\caption{Histogramas suavizados de situações que sugerem que o gerador é um fator irrelevante para $N=1.000$}\label{fig:GeradorIrrelevante1k}
+	\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+\begin{figure} %D=6 %N 50000 t1 t 50
+	\centering
+	\subfigure[$D=6, \tau=1$]{\includegraphics[width=.48\linewidth]{Hist_D6_50k_t1}}
+	\subfigure[$D=6, \tau=50$]{\includegraphics[width=.48\linewidth]{Hist_D6_50k_t50}}
+	\caption{Histogramas suavizados de situações que sugerem que o gerador é um fator irrelevante também para $N=50.000$}\label{fig:GeradorIrrelevante50k}
+\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	A figura a seguir mostra os histogramas suavizados das distâncias dos três geradores para palavras de tamanho $D=6$ e dois valores de \textit{lag} ($\tau=1$, $50$).
+	
+	\begin{figure} %D=6 %t 1 N 1000 N 50000 (três geradores) %t 50 N 1000 N 50000 (três geradores)
+		\centering
+		\subfigure[$D=6$, $\tau=1$]{\includegraphics[width=.48\linewidth]{Hist_D6_t1}}
+		\subfigure[$D=6$, $\tau=50$]{\includegraphics[width=.48\linewidth]{Hist_D6_t50}}
+		\caption{Histogramas suavizados de situações que sugerem que o $N$ é um fator relevante}\label{fig:NRelevante}
+	\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	A seguir mostramos os histogramas suavizados das distâncias dos três geradores para dois tamanhos de sequências ($N=1.000$, $50.000$) e dois valores de \textit{lag} ($\tau=1$, $50$).
+	\begin{figure} %t 1 N 1000, D 3 D 4 D 5 D 6 %t 50 N 50000, D 3 D 4 D 5 D 6
+		\centering
+		\subfigure[$N=1.000$, $\tau=1$]{\includegraphics[width=.48\linewidth]{Hist_t1_1k}}
+		\subfigure[$N=50.000$, $\tau=50$]{\includegraphics[width=.48\linewidth]{Hist_t50_50k}}
+		\caption{Histogramas suavizados de situações que sugerem que o $D$ é um fator relevante}\label{fig:DRelevante}
+	\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+\begin{figure} %D 6 %N 1000, t 1 t 10 t 30 t 50 %N 50000, t 1 t 10 t 30 t 50
+	A seguir mostramos os histogramas suavizados das distâncias dos três geradores para dois tamanhos de sequências ($N=1.000$, $50.000$) e $D=6$.
+	\centering
+	\subfigure[$N=1.000$, $D=6$]{\includegraphics[width=.48\linewidth]{Hist_D6_1k}}
+	\subfigure[$N=50.000$, $D=6$]{\includegraphics[width=.48\linewidth]{Hist_D6_50k}}
+	\caption{Histogramas suavizados de situações que sugerem que o $\tau$ é um fator relevante}\label{fig:tRelevante}
+\end{figure}	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Teste de Kolmogorov-Smirnov}
+\begin{block}{Teste de Kolmogorov-Smirnov aplicado a pares de sequências para $1.000$ observações}
+\resizebox{\linewidth}{!}{% Resize table to fit within \linewidth horizontally	
+		\centering
+%		\caption{Teste de Kolmogorov-Smirnov aplicado a pares de sequências para $1.000$ observações.}\label{tab:KS_1000}
+		\begin{tabular}{cccccc}
+			\toprule
+			Par  &    $D$ & $\tau=1$   &   $\tau=10$   &   $\tau=30$   &   $\tau=50$   \\ \midrule
+			Quântica vs.\ Rádio		& $D=3$ & 0.18034676 & 0.08582490 & 0.58096350 & 0.32626542 \\
+			& $D=4$ & 0.21708776 & 0.60690204 & 0.08116764 & 0.46372312  \\
+			& $D=5$ & 0.32388371 & 0.53394280 & 0.46970138 & 0.02768674  \\
+			& $D=6$ & 0.61501858 & 0.63403661 & 0.54795745 & 0.15353799  \\ \midrule
+			Quântica vs. M-T & $D=3$ & 0.09400120 & 0.22995096 & 0.36766759 &  0.03706359 \\
+			& $D=4$ & 0.25188769 & 0.35844686 & 0.16768952 &  0.18237754 \\
+			& $D=5$ & 0.97552039 & 0.79878301 & 0.12852918 &  0.08764347 \\
+			& $D=6$ & 0.47615384 & 0.42420007 & 0.55290011 &  0.79669144 \\ \midrule
+			Rádio vs.\ M-T & $D=3$ & 0.008560614 & 0.496450214 & 0.982419336 & 0.390237891 \\
+			& $D=4$ & 0.003804157 & 0.229503619 & 0.629158543 & 0.651783589 \\
+			& $D=5$ & 0.254216237 & 0.179697451 & 0.824743440 & 0.071709252 \\
+			& $D=6$ & 0.846441994 & 0.033726860 & 0.493286733 & 0.184856861 \\
+			\bottomrule
+		\end{tabular}}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Teste de Kolmogorov-Smirnov}
+\begin{block}{Teste de Kolmogorov-Smirnov aplicado a pares de sequências para $50.000$ observações}
+	\resizebox{\linewidth}{!}{% Resize table to fit within \linewidth horizontally	
+		\begin{tabular}{cccccc}
+			\toprule
+		Par  & $D$ &   $\tau=1$   &   $\tau=10$   &   $\tau=30$   &   $\tau=50$   \\ \midrule
+		Quântica vs.\ Rádio		& $D=3$ & 0.13862662 & 0.93677447 & 0.07714702 &  0.46405291 \\
+		& $D=4$ & 0.68079537 & 0.90035466 & 0.60801914 &  0.77908261 \\
+		& $D=5$ & 0.14371256 & 0.76662067 & 0.64456996 &  0.91315843 \\
+		& $D=6$ & 0.02268670 & 0.49307044 & 0.53135926 &  0.30074267 \\ \midrule
+		Quântica vs.\ M-T & $D=3$ & 6.074571e-10 & 1.388898e-01 & 2.682058e-01 & 4.822849e-01 \\
+		& $D=4$ & 6.592620e-09 & 2.987721e-02 & 8.438134e-01 & 7.923220e-01 \\
+		& $D=5$ & 9.424114e-08 & 3.289299e-02 & 7.681676e-01 & 8.405168e-01 \\
+		& $D=6$ & 9.058821e-04 & 7.075225e-01 & 2.982731e-01 & 3.614763e-01 \\ \midrule
+		Rádio vs.\ M-T		& $D=3$ & 1.226271e-09 & 1.609665e-01 & 1.465970e-01 & 1.914937e-01 \\
+		& $D=4$ & 2.190462e-10 & 1.277762e-02 & 2.069821e-01 & 9.963221e-01 \\
+		& $D=5$ & 1.438372e-11 & 1.267622e-02 & 4.364935e-01 & 9.999998e-01 \\
+		& $D=6$ & 3.749001e-06 & 2.263466e-01 & 7.419248e-01 & 4.014641e-01 \\
+		\bottomrule
+	\end{tabular}}
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Teste de Kolmogorov-Smirnov}
+\begin{block}{Teste de Kolmogorov-Smirnov aplicado a pares de sequências para $50.000$ observações}
+	\resizebox{\linewidth}{!}{% Resize table to fit within \linewidth horizontally	
+		\begin{tabular}{cccccc}
+			\toprule
+			Par  & $D$ &   $\tau=1$   &   $\tau=10$   &   $\tau=30$   &   $\tau=50$   \\ \midrule
+			Quântica vs.\ Rádio		& $D=3$ & 0.13862662 & 0.93677447 & 0.07714702 &  0.46405291 \\
+			& $D=4$ & 0.68079537 & 0.90035466 & 0.60801914 &  0.77908261 \\
+			& $D=5$ & 0.14371256 & 0.76662067 & 0.64456996 &  0.91315843 \\
+			& $D=6$ & 0.02268670 & 0.49307044 & 0.53135926 &  0.30074267 \\ \midrule
+			Quântica vs.\ M-T & $D=3$ & \textbf{6.074571e-10} & 1.388898e-01 & 2.682058e-01 & 4.822849e-01 \\
+			& $D=4$ & \textbf{6.592620e-09} & 2.987721e-02 & 8.438134e-01 & 7.923220e-01 \\
+			& $D=5$ & \textbf{9.424114e-08} & 3.289299e-02 & 7.681676e-01 & 8.405168e-01 \\
+			& $D=6$ & \textbf{9.058821e-04} & 7.075225e-01 & 2.982731e-01 & 3.614763e-01 \\ \midrule
+			Rádio vs.\ M-T		& $D=3$ & \textbf{1.226271e-09} & 1.609665e-01 & 1.465970e-01 & 1.914937e-01 \\
+			& $D=4$ & \textbf{2.190462e-10} & 1.277762e-02 & 2.069821e-01 & 9.963221e-01 \\
+			& $D=5$ & \textbf{1.438372e-11} & 1.267622e-02 & 4.364935e-01 & 9.999998e-01 \\
+			& $D=6$ & \textbf{3.749001e-06} & 2.263466e-01 & 7.419248e-01 & 4.014641e-01 \\
+			\bottomrule
+	\end{tabular}}
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	
+\end{block}
+\end{frame}
+
+\begin{frame}{Resultados}{Histogramas suavizados}
+\begin{block}{}
+	
+\end{block}
+\end{frame}
+
+%-------------------------------------------------------     
+\section{Conclusão}
+%-------------------------------------------------------
+%-------------------------------------------------------
+\subsection{}
+%-------------------------------------------------------
+
+%-------------------------------------------------------     
+\section{Referências Bibliográficas}
+%-------------------------------------------------------
+\begin{frame}[allowframebreaks]
+	\frametitle{Referências}
+%	\bibliographystyle{amsalpha}
+%	\bibliographystyle{agsm_url}
+	\bibliography{references}
+\end{frame}
 
 {\1
 \begin{frame}[plain,noframenumbering]
-  \finalpage{Thank you for using Feather Beamer Theme!}
+  \finalpage{Obrigado}
 \end{frame}}
 
 \end{document}
