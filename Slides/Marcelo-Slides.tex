@@ -205,7 +205,7 @@
 \begin{frame}{Introdução}{Números Aleatórios}
 	\begin{figure}[hbt]
 		\centering
-		\includegraphics[width=.7\linewidth]{dilbert}
+		\includegraphics[width=\linewidth]{dilbert}
 		\caption{Visão de Dilbert de um gerador de números aleatórios}\label{fig:Dilbert}
 	\end{figure}
 \end{frame}
@@ -233,12 +233,13 @@ Números aleatórios perfazem uma das partes mais importantes em aplicações co
 	\begin{block}{Geradores de Números Pseudo-Aleatórios - GNPAs}
 		Dadas as dificuldades descritas anteriormente, atualmente a maneira mais conveniente e confiável de se gerar números aleatórios para diversas aplicações é através de algoritmos com um sólido embasamento matemático.
 	\end{block}	
+	% % % ACF IMPACTO!!! Leve o gerador que compramos
 \end{frame}
 
 \begin{frame}{Introdução}{GNAs e GNPAs}
 	\begin{figure}[hbt]
 		\centering
-		\includegraphics[width=.7\linewidth]{random_org}
+		\includegraphics[width=\linewidth]{random_org}
 		\caption{Setup do Gerador de Números Aleatórios de www.random.org (1998)}\label{fig:random_org}
 	\end{figure}
 \end{frame}
@@ -260,6 +261,7 @@ Segundo \cite{LEcuyer:92} são elencados em teóricos e empíricos.
 
 \begin{frame}{Introdução}{Testes}
 \pause
+% % % ACF Essa pausa cria um slide em branco. É isso que você quer?
 \begin{block}{NIST}
 	Desde 1997, o Grupo de Trabalho Técnico em Geração de Números Aleatórios (RNG-TWG) tem trabalhado no desenvolvimento de uma bateria de testes estatísticos apropriados para a avaliação de geradores de números aleatórios e pseudoaleatórios utilizados em aplicações criptográficas.
 \end{block}
@@ -267,6 +269,7 @@ Segundo \cite{LEcuyer:92} são elencados em teóricos e empíricos.
 \begin{block}{Diehard[er]}
 	George Marsaglia desenvolveu a bateria de testes Diehard em 1995, e os disponibilizou em CD-ROM.
 	Robert Brown identificou limitações nessa bateria de testes, os implementou novamente na linguagem de programação C, acrescentou testes da bateria NIST e disponibilizou um conjunto ampliado de testes denominado Dieharder.
+	% % % ACF Sabe a data? Acrescente.
 \end{block}	
 \end{frame}
 
@@ -276,13 +279,15 @@ Segundo \cite{LEcuyer:92} são elencados em teóricos e empíricos.
 	ENT \cite{ENTTestSuite} realiza uma variedade de testes no fluxo de bytes de um arquivo (ou na entrada padrão se nenhum arquivo for especificado). É mantido no Fourmilab (\url{http://www.fourmilab.ch/random/}) por John Walker.
 \end{block}
 \pause
+% % % ACF Idem acima
 \begin{block}{TestU$01$}
-	Considerado como o estado da arte dos testes para geradores de números aleatórios \cite{LEcuyer:07}, o TestU$01$ se apresenta como uma biblioteca de software escrita em $ANSI$ $C$ que oferece uma coleção de utilitários para testagem, ele provê implemetações generalistas dos testes estatísticos clássicos para geradores de números aleatórios, bem como de vários outros propostos na literatura, além de propor alguns originais.
+	Considerado como o estado da arte dos testes para geradores de números aleatórios \citep{LEcuyer:07}, o TestU$01$ se apresenta como uma biblioteca de software escrita em $ANSI$ $C$ que oferece uma coleção de utilitários para testagem, ele provê implemetações generalistas dos testes estatísticos clássicos para geradores de números aleatórios, bem como de vários outros propostos na literatura, além de propor alguns originais.
 \end{block}	
 \end{frame}
 
 \begin{frame}{Introdução}{Testes}
 \pause
+% % % ACF Idem acima
 \begin{block}{Visualização}
 	O intuito desses testes é a verificação de que os dados produzidos por um gerador, seja ele algoritmico ou físico, não se afastam significativamente da hipótese de serem eventos de variáveis independentes e identicamente distribuídas segundo uma lei Uniforme no intervalo $(0,1]$.
 \pause	
@@ -458,11 +463,11 @@ $$
 Esta é uma medida da desordem ou imprevisibilidade da lei subjacente a $\mathcal H$.
 \pause
 A entropia apenas não consegue caracterizar de forma plena a dinâmica que produz a série.
-Torna-se interessante, então, o uso de um outro descritor baseado em quão diferente o histograma $\mathcal H$ é de uma lei de probabilidade de referência.
-A nossa referência será a lei uniforme, e a medida de distância entre elas será a distância de Jensen-Shannon:
+Torna-se interessante, então, o uso de um outro descritor baseado em quão diferente o histograma $\mathcal H$ é de uma lei de probabilidade de referência medida pela distância de Jensen-Shannon:
 $$
 JS(\mathcal H, \mathcal H_R) = E((\mathcal H+ \mathcal H_R)/2) -\frac{1}{2}(E(\mathcal H) + E(\mathcal H_R)).
 $$
+A nossa referência será a lei uniforme.
 \end{block}
 \end{frame}
 
@@ -474,7 +479,7 @@ $$
 	
 	Para isso, utilizamos três fontes de dados: duas físicas e uma algorítmica.
 	As fontes físicas foram dados de medidas de estados quânticos \cite{RNGVacuumStates} (que denominaremos \textit{sequências quânticas}) e de sinais de rádio \cite{RandomHostingAdvice} (que chamaremos \textit{sequências de rádio}).
-	A fonte algorítmica é o gerador Mersenne-Twister \cite{Matsumoto98}, considerado um padrão de qualidade de algoritmos de geração de números pseudoaleatórios.
+	A fonte algorítmica é o gerador Mersenne-Twister \citep{Matsumoto98}, considerado um padrão de qualidade de algoritmos de geração de números pseudoaleatórios.
 	\end{block}
 \end{frame}
 
@@ -1070,7 +1075,7 @@ Adicionalmente aos gráficos são apresentadas tabelas, mostrando os valores da 
 		
 	\end{block}
 \end{frame}
-
+% % % ACF Slide em branco
 
 %-------------------------------------------------------     
 \section{Referências Bibliográficas}
