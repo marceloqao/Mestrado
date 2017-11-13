@@ -337,7 +337,7 @@ Curso}{Dissertação de Mestrado}\\%
     \end{flushright}%
     \folhaDeRosto%
     \catalogacao% 
-    \aprovacao%
+%    \aprovacao%
     \renewcommand{\thepage}{\roman{page}} \setcounter{page}{0}%
     \normalsize%
 }
@@ -452,7 +452,6 @@ Instituto de Computação da Universidade Federal de Alagoas.
     \newpage%
     \thispagestyle{empty}%
     \ifthenelse{\boolean{tcc}}%
-% 
         {
 Monografia apresentada como requisito parcial para obtenção do grau de
 Bacharel em Ciência da Computação do Instituto de Computação da Universidade

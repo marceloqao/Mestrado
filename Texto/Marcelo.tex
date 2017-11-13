@@ -1,4 +1,4 @@
-a\documentclass[tcc]{ic}
+\documentclass[tcc]{ic}
 
 \usepackage{indentfirst}
 \usetikzlibrary{decorations}
@@ -7,6 +7,7 @@ a\documentclass[tcc]{ic}
 \usepackage{icomma}
 \usepackage{microtype}
 \usepackage[binary-units]{siunitx}
+\usepackage{pdfpages}
 
 \newenvironment{demonst} 
                {\noindent \textit{\textbf{Demonstração.}}~ }	% begin demonst
@@ -68,6 +69,13 @@ pdfview = {XYZ null null null}
 \selectlanguage{portuguese}
 
 \capa
+
+% %======================================================%
+% %================= Aprovação - Banca ==================%
+% %======================================================%
+\newpage
+\thispagestyle{empty}
+\includepdf[pages=1]{assinaturas_banca.pdf}
 
 % %======================================================%
 % %====================== DEDICAÇÃO =====================%
