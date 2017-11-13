@@ -55,14 +55,14 @@ Dada uma série temporal a tempo discreto $X = {x_t:1\leq t\leq M}$ de comprimen
 	 $$ (x_{t+1},x_{t+\tau},\ldots, x_{t+D\tau}).$$ 
 
 	\item \textbf{Formação dos padrões: } Cada palavra é então relacionada a um padrão ordinal $\pi_j$ de ordem $D$, isto é, um elemento indexado univocamente por
-	$$ j\in\{1, 2,\ldots, D-1, D\}. $$
+	$$ j\in\{1, 2,\ldots, D-1, D!\}. $$
 \end{itemize}
 
-Há várias formas de atribuir palavras a símbolos; neste trabalho utilizaremos a atribuição lexicográfica, isto é, se os valores da palavra $(x_{t+1},x_{t+\tau},\ldots, x_{t+D\tau})$ são tais que, ordenados, eles têm índices crescentes $b_1,b_2,\dots,b_D$, então o padrão correspondente será $\pi=b_1b_2\dots b_D$.
+Há várias formas de atribuir palavras a símbolos; neste trabalho utilizaremos a atribuição lexicográfica, isto é, se os valores da palavra $(x_{t+1},x_{t+\tau},\ldots, x_{t+D\tau})$ são tais que, ordenados, eles têm índices crescentes $b_1,b_2,\dots,b_D$, então o padrão correspondente será $\pi=b_1b_2\dots b_{D!}$.
 
 Calcula-se, então, o histograma de proporções $\mathcal{H} =(p_1,\dots,p_{D!})$ dos padrões observados:
 $$
-p_j = \frac{1}{t-N+1} \# \{
+p_j = \frac{1}{D-N+1} \# \{
 \text{padrões } \pi_j \text{ observados}
 \}.
 $$
