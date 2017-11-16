@@ -400,32 +400,33 @@ Instituto de Computação da Universidade Federal de Alagoas.
     Catalogação na fonte\\
     Universidade Federal de Alagoas\\
     Biblioteca Central\\
-    Divisão de Tratamento Técnico\\
+%    Divisão de Tratamento Técnico\\
    }
-    Bibliotecária: \\
+    Bibliotecária Responsável: Helena Cristina Pimentel do Vale \\
    }
   \framebox[14.5cm][l]{
    \parbox{14.4cm}{
     \mbox{}\newline
-    T693n\hspace{.7cm}Oliveira, Marcelo Queiroz de Assis.\newline
+    O48t\hspace{.7cm}Oliveira, Marcelo Queiroz de Assis.\newline
     \mbox{}\hspace{1.9cm}\parbox{12.3cm}{
     \begin{flushleft}
-      \mbox{}\hspace{.5cm}\@titulo -- 2017\\
-      \mbox{}\hspace{.5cm} 73 f.\ : il.
+      \mbox{}\hspace{.5cm}\@titulo  / Marcelo Queiroz de Assis Oliveira - 2017\\
+      \mbox{}\hspace{.5cm} 52 f.\ : il.
     \end{flushleft}
     \begin{flushleft}
-      \mbox{}\hspace{.5cm} Orientadores: Alejandro C.\ Frery.\\
-      \mbox{}\hspace{3.0cm} Heitor Soares Ramos Filho.\\
-      \mbox{}\hspace{.5cm} Dissertação (Mestrado em Modelagem Computacional de Conhecimento) -- Universidade Federal de Alagoas. Instituto de Computação. Maceió, 2017.
+      \mbox{}\hspace{.5cm} Orientadores: Alejandro C.\ Frery, Heitor Soares Ramos Filho.\\
+      %\mbox{}\hspace{3.0cm} Heitor Soares Ramos Filho.\\
+      \mbox{}\hspace{.5cm} Dissertação (Mestrado em Modelagem Computacional de Conhecimento) -- Universidade Federal de Alagoas. Instituto de Computação. Programa de Pós-Graduação em Modelagem Computacional de Conhecimento. Maceió, 2017.
     \end{flushleft}
     \begin{flushleft}
-      \mbox{}\hspace{.5cm} Bibliografia: f.\ 69--74.
+      \mbox{}\hspace{.5cm} Bibliografia: f.\ 50--52.
       \newline\newline
-      \mbox{}\hspace{.5cm} 1.~Geradores de N\'umeros Aleat\'orios. 2.~ Testes Te\'oricos. 3.~Testes Estat\'isticos. Teoria da Informação.
+      \mbox{}\hspace{.5cm}1. Teoria da Informação. 2. Geradores de números aleatórios. 3. Processamento de dados - Testes teóricos. 4. Matemática computacional – Testes estatísticos.
+
     \end{flushleft}
     }
     \begin{flushright}
-      CDU: 004.932:004.852 -- VERIFICAR ESTES DADOS !!--\hspace{.5cm}\mbox{}
+      CDU: 004.94:519.724\hspace{.5cm}\mbox{}
     \end{flushright}
    }
   }
