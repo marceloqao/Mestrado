@@ -1,0 +1,119 @@
+\documentclass[sts]{imsart}
+
+%\usepackage{amsthm,amsmath,natbib}
+%\RequirePackage[colorlinks,citecolor=blue,urlcolor=blue]{hyperref}
+
+% put your definitions there:
+%\startlocaldefs
+%\endlocaldefs
+
+\usepackage[author-year]{amsrefs}
+\usepackage{bbm}
+\usepackage{siunitx}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Confidence Regions for Information-Theoretic Descriptors of Time Series}
+\runtitle{Confidence Regions}
+
+\author{\fnms{Marcelo} \snm{Queiroz}\corref{}\ead[label=e1]{marceloqgao@gmail.com}}
+\and
+\author{\fnms{Osvaldo A.} \snm{Rosso}\ead[label=e2]{oarosso@gmail.com}}
+\and
+\author{\fnms{Heitor S.} \snm{Ramos}\ead[label=e3]{heitor@laccan.ufal.br}}
+\and
+\author{\fnms{Leonardo V.} \snm{Pereira}\ead[label=e4]{lviana@ic.ufal.br}}
+\and
+\author{\fnms{Alejandro C.} \snm{Frery}\ead[label=e5]{acfrery@laccan.ufal.br}}
+\address{Av.\ Lourival Melo Mota, s/n\\
+57072-900 Macei\'o, Brazil \printead{e1}}
+\affiliation{Laborat\'orio de Computa\c c\~ao Cient\'ifica e An\'alise Num\'erica\\Universidade Federal de Alagoas}
+
+
+\runauthor{M.\ Queiroz}
+
+\begin{abstract}
+The Bandt-Pompe methodology has been used with success in time series analysis.
+It consists in computing Information-Theoretic descriptors, from a histogram of ordinal patterns, which lie in a 2D manifold: the Entropy-Complexity plane.
+So far, the analysis of the dynamics underlying the time series has been performed using two reference points: those corresponding to a deterministic and to white noise time series.
+In this paper we provide confidence regions for white noise, $f^{-k}$ noise and ARMA models.
+These regions allow testing whether a sequence belongs to one of these models.
+\end{abstract}
+
+\begin{keyword}[class=MSC]
+\kwd[Primary ]{37M10}
+\kwd[; secondary ]{68Q30}
+\end{keyword}
+
+\begin{keyword}
+\kwd{Nonparametric time series analysis}
+\kwd{ordinal patterns}
+\kwd{Information Theory}
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}\label{Sec:Intro}
+
+Time Series carry valuable information about the system which produces the data.
+Their analysis is usually based on two approaches \cite{TimeSeriesAnalysisCryerChan}: in the (natural) time and transformed domains (for instance, frequency and wavelet).
+
+A new methodology was proposed by \citeauthor{PermutationEntropyBandtPompe}~\ycite{PermutationEntropyBandtPompe}.
+Their approach is nonparametric and based on Information Theory descriptors.
+The time series is transformed into ordinal patterns, with which a histogram is formed.
+This approach is less sensitive to outliers, and as it does not rely on any model it can be applied to a variety of situations.
+
+Each time series is described by a point in a manifold of $\mathbbm R^2$, namely the Entropy-Complexity plane.
+Two points are well known in this plane: those of white noise and of a completely deterministic sequence.
+
+The Band and Pompe methodology and its variants have been successfully used in the analysis of many types of dynamics.
+To date, the original work has received around \num{1000} cites, according to the Journal of Citation Records.
+
+A few highlights of the related literature are the following.
+\citeauthor{RandomNumberGeneratorsCausality}~\ycite{RandomNumberGeneratorsCausality}
+show that the Entropy-Complexity plane ($H\times C$) is a good indicator of the results of Diehard tests for pseudorandom number generators.
+\citeauthor{GeneralizedStatisticalComplexityMeasuresGeometricalAnalyticalProperties}~\ycite{GeneralizedStatisticalComplexityMeasuresGeometricalAnalyticalProperties} analyze the logistic chaotic map and discuss the boundaries of the $H\times C$ plane.
+\citeauthor{EEGAnalysisWaveletInformationTools}~\ycite{EEGAnalysisWaveletInformationTools} study electroencephalography signals using wavelet decompositions and the $H\times C$ plane.
+\citeauthor{De_Micco_2008}~\ycite{De_Micco_2008} assess ways of improving pseudorandom sequences by their representation in this plane.
+\citeauthor{De_Micco_2009}~\ycite{De_Micco_2009} study chaotic components in pseudorandom numbers generators.
+\citeauthor{ComplexNetworksEvolution}~\ycite{ComplexNetworksEvolution} analyze the evolution of dynamic networks by trajectories in the $H\times C$ plane.
+\citeauthor{DistinguishingChaoticStochasticDynamicsTimeSeriesMultiscaleSymbolicApproach}~\ycite{DistinguishingChaoticStochasticDynamicsTimeSeriesMultiscaleSymbolicApproach} use a multiscale approach to analyze the interplay between chaotic and stochastic dynamics.
+\citeauthor{StructuralChangesDataCommunicationWSN}~\ycite{StructuralChangesDataCommunicationWSN} employ Information-Theoretic descriptors to describe the evolution of wireless sensors networks.
+\citeauthor{DistinguishingNoiseFromChaos}~\ycite{DistinguishingNoiseFromChaos} tackle the often hard problem of distinguishing chaos and noise.
+\citeauthor{CharacterizationVehicleBehaviorInformationTheory}~\ycite{CharacterizationVehicleBehaviorInformationTheory} describe the behavior of vehicles as a function of the topology of cities.
+\citeauthor{LiborInvisibleHand}~\ycite{LiborInvisibleHand} identify spurious interventions in the Libor market using the $H\times C$ plane representation.
+\citeauthor{DiagnosingDynamicsObservedSimulatedEcosystem}~\ycite{DiagnosingDynamicsObservedSimulatedEcosystem} use this tool to analyze time series from natural phenomena.
+\citeauthor{InformationTheoryPerspectiveNetworkRobustness}~\ycite{InformationTheoryPerspectiveNetworkRobustness} check the effect of attacks to complex networks by the displacement of their points in the $H\times C$ plane.
+\citeauthor{ClassificationVerificationOnlineHandwrittenSignatures}~\ycite{ClassificationVerificationOnlineHandwrittenSignatures} show that these descriptors are able to classify and verify online signatures.
+\citeauthor{CharacterizationElectricLoadInformationTheoryQuantifiers}~\ycite{CharacterizationElectricLoadInformationTheoryQuantifiers}
+show that Information-Theoretic descriptors are able to characterize types of electric appliances by records of their energy consumption.
+
+In spite of these and many other applications, only recently \cites{OrdinalPatternProbabilities,NewPermutationEntropy} the literature has started paying attention to the inherent randomness of points in the $H\times C$ plane.
+The knowledge of the expected variability of such points according to the underlying dynamics would allow making hypotheses tests to a variety of models.
+
+This paper advances the state-of-the-art by providing confidence regions for points in the $H\times C$ plane for a diversity of situations of interest.
+Such regions are obtained using a Monte Carlo approach.
+The input is a sequence of actual random observations generated by a physical procedure.
+
+Section~\ref{Sec:Intro} introduces the elements of the study (the Bandt and Pompe methodology, the random deviates and models).
+The confidence regions are presented in Section~\ref{Sec:Results}, and the conclusions are discussed in Section~\ref{Sec:Conclusions}.
+
+
+\section{Methodology}\label{Sec:Method}
+
+\subsection{The Bandt and Pompe Methodology}
+
+\subsection{Random Deviates and Models}
+
+\section{Results}\label{Sec:Results}
+
+The data generation and analyses were performed using the \texttt R platform \cite{Rmanual} v.~3.4.4.
+We used the \texttt{ggplot2} library \cite{ggplot2Wickman} for generating the plots.
+
+\section{Conclusions}\label{Sec:Conclusions}
+
+\bibliography{rdt,art02,art06,art08,art09,art11,art12,art15,art16,art17,livros,manuais}
+
+\end{document}
