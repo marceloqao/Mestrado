@@ -8,8 +8,14 @@
 %\endlocaldefs
 
 \usepackage[author-year]{amsrefs}
-\usepackage{bbm}
+\usepackage{bm,bbm}
 \usepackage{siunitx}
+
+\usepackage{amssymb}
+\usepackage{enumerate}
+
+\usepackage{graphicx}
+\graphicspath{{./Figures/}}
 
 \begin{document}
 
@@ -80,7 +86,7 @@ show that the Entropy-Complexity plane ($H\times C$) is a good indicator of the 
 \citeauthor{De_Micco_2009}~\ycite{De_Micco_2009} study chaotic components in pseudorandom numbers generators.
 \citeauthor{ComplexNetworksEvolution}~\ycite{ComplexNetworksEvolution} analyze the evolution of dynamic networks by trajectories in the $H\times C$ plane.
 \citeauthor{DistinguishingChaoticStochasticDynamicsTimeSeriesMultiscaleSymbolicApproach}~\ycite{DistinguishingChaoticStochasticDynamicsTimeSeriesMultiscaleSymbolicApproach} use a multiscale approach to analyze the interplay between chaotic and stochastic dynamics.
-\citeauthor{StructuralChangesDataCommunicationWSN}~\ycite{StructuralChangesDataCommunicationWSN} employ Information-Theoretic descriptors to describe the evolution of wireless sensors networks.
+\citeauthor{StructuralChangesDataCommunicationWSN}~\ycite{StructuralChangesDataCommunicationWSN} employ Information-Theoretic measures to describe the evolution of wireless sensors networks.
 \citeauthor{DistinguishingNoiseFromChaos}~\ycite{DistinguishingNoiseFromChaos} tackle the often hard problem of distinguishing chaos and noise.
 \citeauthor{CharacterizationVehicleBehaviorInformationTheory}~\ycite{CharacterizationVehicleBehaviorInformationTheory} describe the behavior of vehicles as a function of the topology of cities.
 \citeauthor{LiborInvisibleHand}~\ycite{LiborInvisibleHand} identify spurious interventions in the Libor market using the $H\times C$ plane representation.
@@ -105,6 +111,59 @@ The confidence regions are presented in Section~\ref{Sec:Results}, and the concl
 
 \subsection{The Bandt and Pompe Methodology}
 
+Let ${\mathcal X} \equiv \{x_t\}_{t=1}^{T}$ be a real valued time series of length $T$, without ties. 
+As stated by \citeauthor{PermutationEntropyBandtPompe}~\ycite{PermutationEntropyBandtPompe} in their seminal:  
+\begin{quote}
+``If the $\{x_t\}_{t=1}^{T}$ attain infinitely many values, it is common to replace them by a symbol sequence 
+$\Pi \equiv \{\pi_j\}$ with finitely many symbols, and calculate source entropy from it".
+\end{quote}
+Also, as stressed by these authors, 
+\begin{quote}
+``the corresponding symbol sequence must come 
+naturally from the $\{x_t\}_{t=1}^{T}$ without former model assumptions".
+\end{quote}
+
+Let ${\mathfrak A}_{D}$ (with $D \geq 2$ and $D \in {\Bbb Z}$) be the symmetric group of order $D!$ formed by all 
+possible permutation of order $D$, and the symbol component vector 
+${\bm \pi}^{(D)} = (\pi_1, \pi_2, \dots, \pi_D)$ so every element ${\bm \pi}^{(D)}$ is unique 
+($\pi_j \neq \pi_k~\forall~j \neq k$). 
+Consider for the time series ${\mathcal X} \equiv \{x_t\}_{t=1}^{T}$ its time delay embedding representation,
+with embedding dimension $D \geq 2$ ($D \in {\Bbb Z}$) and time delay $\tau \geq 1$ ($\tau \in {\Bbb Z}$, also called ``embedding time''):
+\begin{equation} 
+\label{eq:time-delay}
+{\mathbf X}^{(D,\tau)}_t ~=~( x_t,x_{t+\tau},\dots,x_{t+(D-1)\tau} ) \ ,
+\end{equation} 
+for $t = 1,2,\dots,N$ with $N = T-(D-1) \tau$.
+Then the vector ${\mathbf X}^{(D,\tau)}_t$ can be mapped to a symbol vector ${\bm \pi}^{(D)} \in {\mathfrak A}_{D}$. 
+This mapping should be defined in a way that preserves the desired relation between the elements 
+$x_t  \in {\mathbf X}^{(D,\tau)}_t$, and all $t \in T$ that share this pattern (also called motif) have to mapped to the same 
+${\bm \pi}^{(D)}$. 
+The two most frequent ways to define the mapping ${\mathbf X}^{(D,\tau)} \mapsto {\bm \pi}^{(D)}$ are:  
+\begin{enumerate}[a)]
+\item ordering the ranks of the $x_t \in {\mathbf X}^{(D,\tau)}$ in chronological order 
+       (\textit{Rank Permutation}) or,
+\item ordering the time indexes according to the ranks of $x_t \in {\mathbf X}^{(D,\tau)}$  
+       (\textit{Chronological Index Permutation});
+\end{enumerate}
+       see details in \citeauthor{BPRepeatedValuesChaos}~\ycite{BPRepeatedValuesChaos}.
+Without loss of generality, in the following we will only use the latter.
+
+
+
+Consider, for instance, the time series $\mathcal X = (1.8, 1.2, 3.2, 4.8, 4.2, 4.5, 2.3, 3.7, 1.2, .5)$ depicted in Fig.~\ref{Fig:IntroBP}.
+Assume we are using patterns of length $D=5$ with unitary time lag $\tau=1$.
+The code associated to $\mathbf X_{3}^{(5,1)}=(x_3,\dots,x_7)=(3.2, 4.8, 4.2, 4.5, 2.3)$, shown in black, is formed by the indexes in $\bm\pi^{(5)}=(1,2,3,4,5)$ which sort the elements of $\mathbf X_{3}^{(5,1)}$ in increasing order: $51342$.
+With this, $\widetilde{\pi}^{(5)} = 51342$, and we increase the counting related to this motif in the histogram of all possible patterns of size $D=5$.
+
+The dash-dot line in Fig.~\ref{Fig:IntroBP} illustrates $\mathbf X_{1}^{(5,2)}$, i.e. the sequence of length $D=5$ starting at $x_1$ with lag $\tau=2$.
+In this case, $\mathbf X_{1}^{(5,2)}= (1.8, 3.2, 4.2, 2.3, 1.2)$, and the corresponding motif is $\widetilde{\pi}^{(5)}=51423$.
+
+\begin{figure}[hbt]
+\centering
+\includegraphics[width=.7\linewidth]{IntroBP}
+\caption{Illustration of the Bandt and Pompe coding\label{Fig:IntroBP}}
+\end{figure}
+
 \subsection{Random Deviates and Models}
 
 \section{Results}\label{Sec:Results}
@@ -114,6 +173,6 @@ We used the \texttt{ggplot2} library \cite{ggplot2Wickman} for generating the pl
 
 \section{Conclusions}\label{Sec:Conclusions}
 
-\bibliography{rdt,art02,art06,art08,art09,art11,art12,art15,art16,art17,livros,manuais}
+\bibliography{../Texto/references}
 
 \end{document}
