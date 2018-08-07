@@ -5,7 +5,7 @@ require(ggpubr)
 require(reshape2)
 require(ggrepel)
 
-n <- 2^9
+n <- 10^4
 set.seed(seed = 1234567890, kind = "Mersenne-Twister")
 x <- rnorm(n)
 x <- x - mean(x)
@@ -13,14 +13,14 @@ x <- x - mean(x)
 p <- planFFT(n)
 y <- FFT(x, plan=p)
 
-k <- c(0, .1, .5, 1, 1.5, 2)
+k <- c(0, .5, 1, 1.5, 2, 3)
 
 Series <- Spectrum <- vector(mode="numeric")
 Power <- vector(mode="character")
 
 for(kk in k) {
   
-  filtro <- (1:n)^-kk
+  filtro <- (1:n)^-(kk/2)
   filtro <- filtro / sum(filtro)
   y1 <- y * filtro     # Spectrum smoothing
   x1 <- IFFT(y1, plan=p)  # Back to time domain
