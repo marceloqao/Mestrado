@@ -47,6 +47,7 @@ P <- ggplot(data=Series.and.PowerSpectra, aes(x=rep(1:n, length(k)), y=Spectrum)
 
 ggarrange(S, P)
 
+
 ### Ilustra Bandt-Pompe
 
 y <- c(1.8, 1.2, 3.2, 4.8, 4.2, 4.5, 2.3, 3.7, 1.2, .5)
@@ -86,3 +87,5 @@ ggplot(data=Time.Series, aes(x=x, y=y)) +
   annotate("text", label="pi[1]", x=-.5, y = y[7], parse=TRUE) +
   theme_classic()
 ggsave(file="../Figures/IntroBP.pdf", width=18, height=15, units="cm")
+
+
