@@ -13,6 +13,8 @@
 
 \usepackage{amssymb}
 \usepackage{enumerate}
+\usepackage{color}
+\usepackage{siunitx}
 
 \usepackage{graphicx}
 \graphicspath{{./Figures/}}
@@ -27,9 +29,11 @@
 \author{\fnms{Marcelo} \snm{Queiroz}\corref{}\ead[label=e1]{marceloqgao@gmail.com}}
 \and
 \author{\fnms{Osvaldo A.} \snm{Rosso}\ead[label=e2]{oarosso@gmail.com}}
-\and
+\and\\
 \author{\fnms{Heitor S.} \snm{Ramos}\ead[label=e3]{heitor@laccan.ufal.br}}
 \and
+\author{\fnms{Christopher G.\ S.} \snm{Freitas}\ead[label=e6]{christopher@laccan.ufal.br}}
+\and\\
 \author{\fnms{Leonardo V.} \snm{Pereira}\ead[label=e4]{lviana@ic.ufal.br}}
 \and
 \author{\fnms{Alejandro C.} \snm{Frery}\ead[label=e5]{acfrery@laccan.ufal.br}}
@@ -44,7 +48,7 @@
 The \citeauthor{PermutationEntropyBandtPompe} methodology has been used with success in time series analysis.
 It consists in computing Information-Theoretic descriptors, from a histogram of ordinal patterns, which lie in a 2D manifold: the Entropy-Complexity plane.
 So far, the analysis of the dynamics underlying the time series has been performed using two reference points: those corresponding to a deterministic and to white noise time series.
-In this paper we provide confidence regions for white noise, $f^{-k}$ noise and ARMA models.
+In this paper we provide confidence regions for white and $f^{-k}$ noise models.
 These regions allow testing whether a sequence belongs to one of these models.
 \end{abstract}
 
@@ -164,9 +168,38 @@ In this case, $\mathbf X_{1}^{(5,2)}= (1.8, 3.2, 4.2, 2.3, 1.2)$, and the corres
 \caption{Illustration of the Bandt and Pompe coding\label{Fig:IntroBP}}
 \end{figure}
 
+\subsection{The Entropy-Complexity Plane}
+
+\textcolor{red}{Dar intui\c c\~ao sobre onde devem cair os pontos}
+
 \subsection{Random Deviates and Models}
 
+\textcolor{red}{Gerador}
+
+\textcolor{red}{Modelo $f^{-k}$}
+
 \section{Results}\label{Sec:Results}
+
+We employed the following factors in this study:
+\begin{itemize}
+\item Time series length $T\in\mathcal T=\{10^3,10^4, \num[scientific-notation=true]{5 e4}, \num[scientific-notation=true]{e5}, \num[scientific-notation=true]{5 e5}\}$,
+\item Embedding dimension $D\in\mathcal D=\{3, 4, 5, 6\}$, and
+\item Exponent of the $f^{-k}$ noise $k\in\mathcal K=\{0, 0.1, 0.5, 1, 1.5, 2\}$.
+\end{itemize}
+The only time delay we report is $\tau=1$.
+We repeated the experiments for time lags $\tau=\{10,30,50\}$, and no significant differences were observed.
+We obtained $1000$ independent series for each point in the factors set $\mathcal T\times \mathcal D\times \mathcal K$.
+
+\textcolor{red}{An\'alise descritiva: alguns pontos de $\Theta$ representativos:} 
+% k=0 white
+% k=1 pink
+% k=2 brown
+% T = 1000, T = 5 10^5
+% D= 3, D = 6
+
+\textcolor{red}{Justificar an\'alise 1D}
+
+\textcolor{red}{Intervalos de confian\c ca}
 
 The data generation and analyses were performed using the \texttt R platform \cite{Rmanual} v.~3.4.4.
 We used the \texttt{ggplot2} library \cite{ggplot2Wickman} for generating the plots.
