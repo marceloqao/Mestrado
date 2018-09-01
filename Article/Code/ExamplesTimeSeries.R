@@ -13,7 +13,7 @@ x <- x - mean(x)
 p <- planFFT(n)
 y <- FFT(x, plan=p)
 
-k <- c(0, .5, 1, 1.5, 2, 3)
+k <- c(0, .5, 1, 1.5, 2, 2.5, 3)
 
 Series <- Spectrum <- vector(mode="numeric")
 Power <- vector(mode="character")
