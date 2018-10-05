@@ -1,6 +1,6 @@
 library(ggplot2)
 setwd('Marcelo/paper/')
-elmacho=read.csv('results.csv',header=T)
+elmacho=read.csv('../Data/results.csv', header=T)
 
 elmacho$X=NULL
 #dEuclid=sqrt(elmacho$H^2+elmacho$C^2)
