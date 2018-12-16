@@ -19,6 +19,8 @@
 \usepackage{graphicx}
 \graphicspath{{./Figures/}}
 
+\usepackage{subfig}
+
 \begin{document}
 
 \begin{frontmatter}
@@ -154,8 +156,6 @@ The two most frequent ways to define the mapping ${\mathbf X}^{(D,\tau)} \mapsto
        see details in \citeauthor{BPRepeatedValuesChaos}~\ycite{BPRepeatedValuesChaos}.
 Without loss of generality, in the following we will only use the latter.
 
-
-
 Consider, for instance, the time series $\mathcal X = (1.8, 1.2, 3.2, 4.8, 4.2, 4.5, 2.3, 3.7, 1.2, .5)$ depicted in Fig.~\ref{Fig:IntroBP}.
 Assume we are using patterns of length $D=5$ with unitary time lag $\tau=1$.
 The code associated to $\mathbf X_{3}^{(5,1)}=(x_3,\dots,x_7)=(3.2, 4.8, 4.2, 4.5, 2.3)$, shown in black, is formed by the indexes in $\bm\pi^{(5)}=(1,2,3,4,5)$ which sort the elements of $\mathbf X_{3}^{(5,1)}$ in increasing order: $51342$.
@@ -193,25 +193,23 @@ A time series can then be mapped into a point in the $H\times C$ plane.
 
 \subsection{The Entropy-Complexity Plane}
 
-Fig.~\ref{fig:HCExamples} shows the Entropy-Complexity ($H\times C$) plane with bounds for $D=6$.
+Fig.~\ref{fig:AllSystems} shows the Entropy-Complexity ($H\times C$) plane with bounds for $D=6$.
 It also shows typical points for the following time series:
 \begin{itemize}
-\item Colored $k$-noise: white ($k=0$), pink ($k=1$), red ($k=2$);
+\item Colored $k$-noise: white ($k=0$), $k=-1/2$, pink ($k=1$), $k=3/2$, red ($k=2$), $=5/2$, and $k=3$;
 \item Chaotic logistic series $x_t = r x_{t-1} (1 - x_{t-1})$, with $r=3.6$ and $4$;
-\item Deterministic series: monotonic increasing ($\log(x_t+0.1)$) and periodic ($\sin(2x_t)\cos(2x_t)$), with $0\leq x_t\leq 2\pi$ with ten thousand equally spaced points.
+\item Deterministic series: monotonic increasing ($\log(x_t+0.1)$) and periodic ($\sin(2x_t)\cos(2x_t)$), with $0\leq x_t\leq 2\pi$ over ten thousand equally spaced points.
 \end{itemize}
+Fig.~\ref{fig:RightMostCorner} shows the rightmost lower corner of the $H\times C$ plane, emphasizing the location of the white ($k=0$), $k=-1/2$, and pink ($k=1$) noises.
 
 \begin{figure}[hbt]
+\centering
+\subfloat[Eleven systems and their points in the $H\times C$ plane\label{fig:AllSystems}]{\includegraphics[width=\linewidth]{AllSystems}}\\
+\subfloat[White Noise, $f^{-1/2}$ and $f^{-1}$ noise points\label{fig:RightMostCorner}]{\includegraphics[width=\linewidth]{RightMostCorner}}
 \caption{The Entropy-Complexity plane and examples}\label{fig:HCExamples}
 \end{figure}
 
 \textcolor{red}{Dar intui\c c\~ao sobre onde devem cair os pontos}
-
-%
-%Plano con: ruido k: 0, 0.5, 1, 1.5, 2.
-%Mapa logístico: r= 4, 3.6
-%Monotónica creciente
-%Periódica
 
 \subsection{Random Deviates and Models}
 
@@ -244,7 +242,7 @@ We obtained $1000$ independent series for each point in the factors set $\mathca
 \textcolor{red}{Justificar an\'alise 1D}
 
 \textcolor{red}{Intervalos de confian\c ca}
-
+%
 The data generation and analyses were performed using the \texttt R platform \cite{Rmanual} v.~3.4.4.
 We used the \texttt{ggplot2} library \cite{ggplot2Wickman} for generating the plots.
 
