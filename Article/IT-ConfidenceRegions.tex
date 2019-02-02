@@ -16,6 +16,7 @@
 \usepackage{color}
 \usepackage{siunitx}
 
+\usepackage{subfig}
 \usepackage{graphicx}
 \graphicspath{{./Figures/}}
 
@@ -193,31 +194,60 @@ A time series can then be mapped into a point in the $H\times C$ plane.
 
 \subsection{The Entropy-Complexity Plane}
 
-Fig.~\ref{fig:AllSystems} shows the Entropy-Complexity ($H\times C$) plane with bounds for $D=6$.
-It also shows typical points for the following time series:
+We illustrate the use of the Entropy-Complexity ($H\times C$) with the following time series:
 \begin{itemize}
 \item Colored $k$-noise: white ($k=0$), $k=-1/2$, pink ($k=1$), $k=3/2$, red ($k=2$), $=5/2$, and $k=3$;
 \item Chaotic logistic series $x_t = r x_{t-1} (1 - x_{t-1})$, with $r=3.6$ and $4$;
-\item Deterministic series: monotonic increasing ($\log(x_t+0.1)$) and periodic ($\sin(2x_t)\cos(2x_t)$), with $0\leq x_t\leq 2\pi$ over ten thousand equally spaced points.
+\item Deterministic series: monotonic increasing ($\log(x_t+0.1)$, $x_t=\{1,2,\dots,10^4$) and periodic ($\sin(2x_t)\cos(2x_t)$, with $0\leq x_t\leq 2\pi$ over ten thousand equally spaced points).
 \end{itemize}
+In all cases, we used $D=6$ and $\tau=1$.
+Fig.~\ref{fig:Histograms} shows nine of the histograms produced by these series;
+we omitted those corresponding to the deterministic series, as they produce one and two nonzero bins.
+
+\begin{figure}[hbt]
+\centering
+	\subfloat[Logistic map $r=3.6$]{\includegraphics[width=.23\linewidth]{h36}}\quad
+	\subfloat[Logistic map $r=4$]{\includegraphics[width=.23\linewidth]{h4}}\quad
+	\subfloat[$f^{-3}$ noise]{\includegraphics[width=.23\linewidth]{h3}}\quad
+	\subfloat[$f^{-5/2}$ noise]{\includegraphics[width=.23\linewidth]{h25}}\quad
+	\subfloat[$f^{-2}$ noise]{\includegraphics[width=.23\linewidth]{h2}}\quad
+	\subfloat[$f^{-1.5}$ noise]{\includegraphics[width=.23\linewidth]{h15}}\quad
+	\subfloat[$f^{-1}$ noise]{\includegraphics[width=.23\linewidth]{h1}}\quad
+	\subfloat[$f^{-1/2}$ noise]{\includegraphics[width=.23\linewidth]{h05}}\quad
+	\subfloat[White noise]{\includegraphics[width=.23\linewidth]{h0}}
+	\caption{Histograms of selected time series, with $D=6$ and $\tau=1$\label{fig:Histograms}}
+\end{figure}
+
+
+Fig.~\ref{fig:AllSystems} shows the $H\times C$ plane with the bounds for $D=6$, the time series and the points they were mapped onto.
+The points due to $f^{-k}$ noises appear joined by dotted segments.
+It is noticeable that deterministic patterns have more complexity than random ones.
+Also, points related to $f^{-k}$ noises tend to clutter for $k<1$.
+
+\begin{figure}[hbt]
+\centering
+\includegraphics[width=\linewidth]{AllSystems}
+\caption{Eleven systems and their points in the $H\times C$ plane}\label{fig:AllSystems}
+\end{figure}
+
 Fig.~\ref{fig:RightMostCorner} shows the rightmost lower corner of the $H\times C$ plane, emphasizing the location of the white ($k=0$), $k=-1/2$, and pink ($k=1$) noises.
 
 \begin{figure}[hbt]
 \centering
-\subfloat[Eleven systems and their points in the $H\times C$ plane\label{fig:AllSystems}]{\includegraphics[width=\linewidth]{AllSystems}}\\
-\subfloat[White Noise, $f^{-1/2}$ and $f^{-1}$ noise points\label{fig:RightMostCorner}]{\includegraphics[width=\linewidth]{RightMostCorner}}
-\caption{The Entropy-Complexity plane and examples}\label{fig:HCExamples}
+\includegraphics[width=\linewidth]{RightMostCorner}
+\caption{White Noise, $f^{-1/2}$ and $f^{-1}$ noise points}\label{fig:RightMostCorner}
 \end{figure}
 
-\textcolor{red}{Dar intui\c c\~ao sobre onde devem cair os pontos}
+The focus of our study is the empirical distribution of points produced by White and selected $f^{-k}$ noises, with this, providing confidence regions in the $H\times C$ plane.
+In particular, we are interested in assessing pure randomness with this technique.
 
 \subsection{Random Deviates and Models}
 
 \textcolor{red}{Gerador}
 
-The colored $k$-noise mentioned in the previous section, also known as ``correlated noise'', is such that its power spectrum has shape $f^{-k}$.
-When $k=0$, we have white noise, i.e., independent deviates.
-The larger $k$ is, the more correlated the observations are.
+%The colored $k$-noise mentioned in the previous section, also known as ``correlated noise'', is such that its power spectrum has shape $f^{-k}$.
+%When $k=0$, we have white noise, i.e., independent deviates.
+%The larger $k$ is, the more correlated the observations are.
 
 
 \section{Results}\label{Sec:Results}
@@ -242,7 +272,7 @@ We obtained $1000$ independent series for each point in the factors set $\mathca
 \textcolor{red}{Justificar an\'alise 1D}
 
 \textcolor{red}{Intervalos de confian\c ca}
-%
+
 The data generation and analyses were performed using the \texttt R platform \cite{Rmanual} v.~3.4.4.
 We used the \texttt{ggplot2} library \cite{ggplot2Wickman} for generating the plots.
 
