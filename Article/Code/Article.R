@@ -10,16 +10,27 @@ summary(results)
 
 require(ggplot2)
 require(ggthemes)
+require(ggsci)
+require(extrafont)
+font_import()
+loadfonts()
+
 require(ggfortify)
 
 ### Exploratory analysis
 
-ggplot(
-  results,
-  aes(x=H, y=C, col=D)
-  ) + geom_point() + 
+### Analisar variações
+### Acrescentar curvas dos limites HxC quando cada "facet" seja para o mesmo D
+
+ggplot(results, aes(x=H, y=C, col=D)) + 
+  geom_point() + 
   facet_grid(K ~ TN) +
-  theme_minimal()
+  xlab(expression(italic(H))) + ylab(expression(italic(C))) +
+  labs(colour=expression(italic(D))) +
+  theme_igray() +
+  theme(
+    text=element_text(size=14, 
+                      family="Times New Roman"))
 
 
 
