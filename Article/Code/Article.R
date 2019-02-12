@@ -1,11 +1,9 @@
-results <- read.table("../Data/result.txt", head=TRUE)
+results <- read.csv("~/Documents/Alunos/Marcelo Queiroz/Article/Data/results.csv")
 
-summary(results)
-results <- results[,-c(4,5)]
-summary(results)
+results <- data.frame(results[,c(2,3,4,7,8,9)])
 
-results$D <- as.factor(results$D)
 results$TN <- as.factor(results$TN)
+results$D <- as.factor(results$D)
 results$K <- as.factor(results$K)
 
 summary(results)
@@ -19,23 +17,11 @@ require(ggfortify)
 ggplot(
   results,
   aes(x=H, y=C, col=D)
-) + geom_point() + facet_grid(K ~ TN) 
+  ) + geom_point() + 
+  facet_grid(K ~ TN) +
+  theme_minimal()
 
-### ESTRANHO!!!
-ggplot(
-  subset(results, TN==5e5),
-  aes(x=H, y=C, col=D)
-) + geom_point() + facet_grid(~ K) 
 
-### Verificando se há algum problema
-
-## Seleciono um tamanho de vetor, uma dimensão e dois K
-subset12 <- subset(results, TN==1000 & D==3 & (K==0 | K==2))
-
-## Desenho os valores selecionados
-ggplot(subset12, aes(x=H, y=C)) + geom_point() + facet_grid(~K)
-
-### NÃO VEJO DIFERENÇA!!!
 
 ### NÃO LER A PARTIR DESTE PONTO
 ### PCA
