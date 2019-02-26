@@ -22,15 +22,16 @@ require(ggfortify)
 ### Analisar variações
 ### Acrescentar curvas dos limites HxC quando cada "facet" seja para o mesmo D
 
-ggplot(results, aes(x=H, y=C, col=D)) + 
-  geom_point() + 
-  facet_grid(K ~ TN) +
+ggplot(results, aes(x=H, y=C, col=K)) + 
+  geom_point(size=.7) + 
+  facet_grid(D ~ TN) +
   xlab(expression(italic(H))) + ylab(expression(italic(C))) +
-  labs(colour=expression(italic(D))) +
+  labs(colour=expression(italic(K))) +
   theme_igray() +
   theme(
     text=element_text(size=14, 
-                      family="Times New Roman"))
+                      family="Times New Roman")) + 
+  guides(colour = guide_legend(override.aes = list(size=3)))
 
 
 
