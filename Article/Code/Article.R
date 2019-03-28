@@ -12,6 +12,8 @@ require(ggplot2)
 require(ggthemes)
 require(ggsci)
 require(extrafont)
+require(wesanderson)
+require(jcolors)
 font_import()
 loadfonts()
 
@@ -33,6 +35,21 @@ ggplot(results, aes(x=H, y=C, col=K)) +
                       family="Times New Roman")) + 
   guides(colour = guide_legend(override.aes = list(size=3)))
 
+
+### Análise de subconjuntos
+
+ggplot(subset(results, K==0), 
+       aes(x=H, y=C)) + 
+  geom_point(size=.7) + 
+  facet_grid(D~TN) +
+  xlab(expression(italic(H))) + ylab(expression(italic(C))) +
+  labs(colour=expression(italic(K))) +
+  scale_color_jcolors("pal5") +
+  theme_igray() +
+  theme(
+    text=element_text(size=14, 
+                      family="Times New Roman")) + 
+  guides(colour = guide_legend(override.aes = list(size=3)))
 
 
 ### NÃO LER A PARTIR DESTE PONTO
